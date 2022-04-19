@@ -1,0 +1,76 @@
+.sidebar {
+  .title {
+    font-family: $headings;
+    font-size: .9rem;
+    font-weight: 900;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    ul {
+      height: 0;
+      visibility: hidden;
+      border-bottom: 1px solid #e5e5e5;
+      a {
+        padding: .5rem;
+      }
+      &.visible {
+        height: auto;
+        visibility: visible;
+      }
+    }
+    li {
+      position: relative;
+    }
+    a {
+      color: #71767d;
+      display: block;
+      padding: .5rem 0;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    li:last-child a {
+      border-bottom: none;
+    }
+  }
+  .open {
+    position: absolute;
+    top: .5rem;
+    right: 0;
+    width: 1.3125rem;
+    height: 1.3125rem;
+    padding-top: 1.3125rem;
+    overflow: hidden;
+    background-image: url('../images/mikkeli-menu-closed.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    background-color: transparent;
+  }
+  .active .open {
+    background-image: url('../images/mikkeli-menu-open.png');
+  }
+  .current_page_item > a {
+    color: #fff;
+    background-color: #d94c70;
+    padding: .5rem;
+  }
+  .current_page_item, .current_page_parent {
+    .open {
+      display: none;
+    }
+    ul {
+      height: auto;
+      visibility: visible;
+      a {
+        padding-left: 1rem;
+      }
+    }
+  }
+  .page_item_has_children.active > a {
+    border-bottom: 1px solid #e5e5e5;
+  }
+}

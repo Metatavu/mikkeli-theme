@@ -1,0 +1,65 @@
+* {
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+a {
+  color: $main-color;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.screen-reader-text {
+  clip: rect(1px 1px 1px 1px);
+  position: absolute!important;
+  transition: all .55s;
+}
+
+.horizontal-line {
+  background-image: url('../images/mikkeli-banner-border.png');
+  background-repeat: repeat-x;
+  height: .5rem;
+}
+
+.primary ul, .responsive-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-content img, .sidebar img, figure img {
+  width: 100%;
+  height: auto;
+  @media screen and (min-width: $container-mobile) {
+    width: auto;
+    max-width: 100%;
+  }
+}
+figure {
+  max-width: 100%;
+  margin: 1em 0;
+}
+figcaption {
+  font-size: 13px;
+  color: #888;
+  line-height: 1.4;
+}
+
+blockquote {
+  font-family: $blockquote;
+  font-style: italic;
+  padding: 0 20px;
+}
+
+// Clearfix
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+.cf:after {
+    clear: both;
+}

@@ -1,0 +1,35 @@
+// Primary navigation
+.primary .menu-items {
+  display: none;
+  @media screen and (min-width: $container-tablet) {
+    display: block;
+  }
+}
+.primary li {
+  float: left;
+  margin-right: 1.5rem;
+}
+.primary a {
+  font-weight: 700;
+  text-transform: uppercase;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// Responsive nav
+.responsive-nav {
+  display: none;
+  & a {
+    display: block;
+    padding: 7px 9px;
+  }
+}
+.hamburger {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  @media screen and (min-width: $container-tablet) {
+    display: none;
+  }
+}

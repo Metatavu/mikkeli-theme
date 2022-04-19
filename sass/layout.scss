@@ -1,0 +1,176 @@
+@charset "UTF-8";
+// Reset browser settings
+@import 'normalize';
+// Em Baseline settings (http://joshnh.com/tools/em-baseline-generator.html)
+@import 'baseline';
+@import 'config';
+
+body {
+  background: $background-color;
+  font-family: $font-base;
+  font-size: $font-size;
+  color: $font-color;
+}
+
+@import 'global';
+
+.container {
+  width: 100%;
+  max-width: $container-desktop;
+  margin: 0 auto;
+  padding: 0 1rem;
+  @media screen and (min-width: $container-desktop) {
+    padding: 0;
+  }
+}
+
+/**
+  * Header
+  */
+.site-header {
+  .site-branding {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 2rem 0;
+    .logo {
+      padding-top: 5rem;
+    }
+    .logo a {
+      display: block;
+      width: 11rem;
+      height: 5rem;
+      padding-top: 5rem;
+      overflow: hidden;
+      background-image: url('../images/mikkeli-logo.png');
+      background-repeat: no-repeat;
+      background-size: contain
+    }
+  }
+  .right-side {
+    position: relative;
+    text-align: right;
+    .site-search, .nav-quick-icons, .locale-menu {
+      display: inline-block;
+      vertical-align: top;
+    }
+    .site-search form {
+      background-color: #e5e5e5;
+      input[type="search"] {
+        background-color: transparent;
+        color: #000;
+        border: none;
+        &::placeholder {
+          color: #000;
+        }
+      }
+      button {
+        background-color: transparent;
+        border: none;
+        color: #fff;
+      }
+    }
+    .nav-some-icons {
+      display: inline-block;
+      font-size: 2rem;
+      margin: 0 2rem;
+      a {
+        color: #999;
+      }
+    }
+    .nav-quick-icons .fa {
+      background-color: #304ea2;
+      color: #fff;
+      font-size: 1rem;
+      padding: .5rem;
+    }
+    .locale-menu .current-locale, .locale-menu a {
+      z-index: 100;
+      background: #304ea2;
+      color: #fff;
+      padding: .25rem;
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      width: 2rem;
+      height: 2rem;
+      font-size: .9rem;
+      position: relative;
+      border: none;
+    }
+    .locale-menu a {
+      display: none;
+    }
+    .locale-menu.menu-open {
+      a {
+        display: block;
+      }
+    }
+  }
+}
+@import 'features/hamburgers';
+@import 'navigation';
+
+/**
+  * Hero
+  */
+@import 'features/hero';
+
+/**
+  * Content
+  */
+@import 'features/breadcrumbs';
+@import 'views/page';
+@import 'views/sidebar';
+@import 'features/pagination';
+@import 'views/single';
+@import 'features/comments';
+@import 'features/forms';
+@import 'wpdefaults';
+
+/**
+  * Footer
+  */
+.site-footer {
+  text-align: center;
+  background-color: #234c8e;
+  color: #fff;
+  font-weight: 700;
+  padding: 4rem 2rem;
+  a {
+    color: #fff;
+  }
+  @media screen and (min-width: $container-mobile) {
+    text-align: left;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3rem;
+    h3 {
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.design {
+  margin-top: 50px;
+  padding-top: 20px;
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  overflow: hidden;
+  opacity: .5;
+}
+.design a {
+  display: inline-block;
+  text-indent: -9999px;
+  width: 58px;
+  height: 28px;
+  position: relative;
+  top: -12px;
+  margin-left: 5px;
+  background: url('../images/haaja-logo.png') no-repeat 0 0;
+}

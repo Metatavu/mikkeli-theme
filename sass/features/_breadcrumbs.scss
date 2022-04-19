@@ -1,0 +1,10 @@
+.breadcrumbs {
+  margin: 2rem 0;
+  text-transform: uppercase;
+  .sep {
+    margin: 0 .5rem;
+  }
+  .breadcrumbs__current {
+    text-transform: none;
+  }
+}

@@ -1,0 +1,104 @@
+<?php
+/**
+ *
+ * This is the template that displays all of the <head> section and everything up until <div id="content">
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package mikkeli
+ */
+
+?><!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;900&family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
+
+<?php wp_head(); ?>
+</head>
+<?php
+$sivu = '';
+if(!is_front_page()) {
+	$sivu = 'alasivu';
+}
+$mikkeli_unique_id = wp_unique_id( 'search-form-' );
+$mikkeli_aria_label = ! empty( $args['aria_label'] ) ? 'aria-label="' . esc_attr( $args['aria_label'] ) . '"' : '';
+?>
+<body <?php body_class($sivu); ?>>
+
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Siirry sisältöön', 'mikkeli' ); ?></a>
+
+	<div class="horizontal-line"></div>
+
+	<header class="site-header cf">
+
+		<div class="container cf">
+
+			<div class="site-branding">
+				<div class="logo">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+				</div>
+				<div class="right-side">
+					<div class="site-search">
+						<?php get_search_form(); ?>
+					</div>
+					<div class="nav-some-icons">
+						<a href="https://www.facebook.com/mikkelinkaupunki" title="Facebook - Mikkelikaupunki" target="_blank"><span class="fa fa-facebook-square" aria-hidden="true"></span></a>
+						<a href="https://twitter.com/MikkelinK" title="Twitter - Mikkelikaupunki" target="_blank"><span class="fa fa-twitter" aria-hidden="true"></span></a>
+						<a href="https://www.instagram.com/mikkelinkaupunki/" title="Instagram - Mikkelikaupunki" target="_blank"><span class="fa fa-instagram" aria-hidden="true"></span></a>
+						<a href="https://www.linkedin.com/company/mikkelin-kaupunki" title="Linkedin - Mikkelikaupunki" target="_blank"><span class="fa fa-linkedin" aria-hidden="true"></span></a>
+					</div>
+					<div class="nav-quick-icons">
+						<a class="map-link" href="https://kartta.mikkeli.fi/kartta/" title="Mikkeli kartta" target="_blank"><span class="fa fa-map-marker" aria-hidden="true"></span></a>
+						<div class="locale-menu">
+							<button class="current-locale" title="Vaihda kieli">fi</button>
+							<a title="Vaihda kieli fi" href="/?locale=fi">fi</a>
+							<a title="Vaihda kieli sv" href="/sisalto/pa-svenska?locale=sv">sv</a>
+							<a title="Vaihda kieli en" href="/sisalto/in-english?locale=en">en</a>
+						</div>
+					</div>
+					<button class="hamburger hamburger--slider" type="button">
+						<span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+						</span>
+					</button>
+				</div>
+			</div><!-- .site-branding -->
+
+			<nav class="primary cf" role="navigation">
+				<?php
+					wp_nav_menu( array(
+						'theme_location'    => 'primary',
+						'container'       	=> false,
+						'depth'             => 1,
+						'menu_class'        => 'menu-items',
+						'menu_id' 					=> '',
+						'echo'            	=> true
+						)
+					);
+				?>
+			</nav><!-- #site-navigation -->
+
+			<div class="responsive-nav">
+				<?php
+					wp_nav_menu( array(
+						'theme_location'    => 'primary',
+						'container'       	=> false,
+						'depth'             => 4,
+						'menu_class'        => 'menu-items',
+						'menu_id' 					=> '',
+						'echo'            	=> true
+						)
+					);
+				?>
+			</div>
+
+		</div><!-- .container -->
+	</header>
+
+	
