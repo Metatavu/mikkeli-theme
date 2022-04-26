@@ -795,7 +795,8 @@ blockquote {
   text-shadow: 3px 3px 3px #000;
 }
 .hero-slides .slide .hero__content h1 {
-  font-size: clamp(2rem, 2vw + 2rem, 8rem);
+  font-size: clamp(2rem, 2vw + 4rem, 10rem);
+  font-family: "questa-grande", sans-serif;
   font-style: italic;
 }
 .hero-slides .slide img {
@@ -943,6 +944,7 @@ blockquote {
 }
 .tiles .tile h2 {
   line-height: 1;
+  font-family: "questa-grande", sans-serif;
 }
 .tiles .tile .tile-text {
   position: absolute;
@@ -1291,6 +1293,11 @@ input[type=submit] {
   margin: 25px auto;
 }
 
+@media print {
+  .site-branding .right-side, .page-hero, .sidebar, .site-footer {
+    display: none;
+  }
+}
 /**
   * Footer
   */
