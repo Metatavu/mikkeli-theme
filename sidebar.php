@@ -33,5 +33,28 @@
     </ul>
   </nav>
   <?php endif; ?>
+  <?php if(is_single()): ?>
+  <?php
+  global $post;
+  $myposts = get_posts( array(
+      'posts_per_page' => 10,
+      'post_type' => 'post'
+  ) );
+  
+  if ( $myposts ) {
+  $current_page = get_the_ID();
+  echo '<nav>';
+    echo '<ul>';
+    foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
+      <li class="page-nav-item<?php if($current_page == $post->ID): ?> active<?php endif; ?>"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+  <?php
+      endforeach;
+      echo '</ul>';
+      echo '</nav>';
+      wp_reset_postdata();
+    }
+  ?>
+  <p><a title="<?php _e('Katso kaikki uutiset', 'mikkeli'); ?>" class="all-news-link" href="<?php echo get_permalink( get_option('page_for_posts') ); ?>"><?php _e('Katso kaikki uutiset', 'mikkeli'); ?></a></p>
+  <?php endif; ?>
   <?php dynamic_sidebar( 'sidebar-1' ); ?>
 </aside>

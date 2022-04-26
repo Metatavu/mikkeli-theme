@@ -369,3 +369,36 @@ function mikkeli_breadcrumbs() {
 
 	}
 }
+
+// Share
+function add_share_buttons() {
+
+  global $post;
+
+  // Get the post's URL that will be shared
+  $post_url   = urlencode( esc_url( get_permalink($post->ID) ) );
+  
+  // Get the post's title
+  $post_title = urlencode( $post->post_title );
+
+  // Compose the share links for Facebook, Twitter and LinkedIn
+  $facebook_link    = sprintf( 'https://www.facebook.com/sharer/sharer.php?u=%1$s', $post_url );
+  $twitter_link     = sprintf( 'https://twitter.com/intent/tweet?text=%2$s&url=%1$s', $post_url, $post_title );
+  $whatssapp_link   = sprintf( 'whatsapp://send?text=%2$s %1$s', $post_url, $post_title );
+  $linkedin_link       = sprintf( 'https://www.linkedin.com/shareArticle?mini=true&url=%1$s&summary=%2$s&source=mikkeli.fi', $post_url, $post_title );
+
+  // Wrap the buttons
+  $output = '<div class="share-buttons">';
+			$output .= '<p>'.__('Jaa', 'mikkeli').':</p>';
+      // Add the links inside the wrapper
+      $output .= '<a title="Jaa Facebookissa" target="_blank" href="' . $facebook_link . '" class="share-button"><i class="fa fa-facebook-official"></i></a>';
+      $output .= '<a title="Jaa Twitterissä" target="_blank" href="' . $twitter_link . '" class="share-button twitter"><i class="fa fa-twitter-square"></i></a>';
+      $output .= '<a title="Jaa WhatsAppissa" target="_blank" href="' . $whatssapp_link . '" class="share-button whatsapp"><i class="fa fa-whatsapp"></i></a>';
+      $output .= '<a title="Jaa LinkedInissä" href="' . $linkedin_link . '" class="share-button linkedin"><i class="fa fa-linkedin-square"></i></a>';
+      
+  $output .= '</div>';
+
+  // Return the buttons and the original content
+  return $output;
+
+}

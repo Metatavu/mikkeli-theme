@@ -1,0 +1,30 @@
+.single .page-hero {
+  background-image: url('../images/mikkeli-page-banner-default.jpg');
+}
+
+.share-buttons {
+  margin: 1rem 0;
+  p {
+    margin: .5rem 0 1rem;
+  }
+  i {
+    font-size: 2.25rem;
+    margin-right: .625rem;
+  }
+}
+
+.tags {
+  margin: 1rem 0;
+  .tag {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    font-weight: 700;
+    padding: .5rem;
+    border-radius: .625rem;
+    margin-right: .625rem;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

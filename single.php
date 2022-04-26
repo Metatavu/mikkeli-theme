@@ -9,15 +9,23 @@
 
 get_header(); ?>
 
-	<div class="content-area">
-		<main class="site-main">
+	<div class="page-hero">
 
-				<?php
+	</div>
+
+	<?php mikkeli_breadcrumbs(); ?>
+
+	<div id="content" class="site-content cf">
+		<div class="container">
+			<?php get_sidebar(); ?>
+			<main class="site-main">
+
+			<?php
 				while ( have_posts() ) : the_post(); ?>
 
 					<?php get_template_part( 'template-parts/content', 'single' ); ?>
 
-					<?php the_post_navigation();
+					<?php
 
 					// If comments are open or we have at least one comment, load up the comment template.
 					if ( comments_open() || get_comments_number() ) :
@@ -25,11 +33,11 @@ get_header(); ?>
 					endif;
 
 				endwhile; // End of the loop.
-				?>
+			?>
 
-		</main>
+			</main>
+		</div>
 	</div>
 
 <?php
-get_sidebar();
 get_footer();

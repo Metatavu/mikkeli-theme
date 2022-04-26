@@ -20,9 +20,8 @@ get_header(); ?>
 
 	<?php mikkeli_breadcrumbs(); ?>
 
-	<div id="content" class="site-content cf">
+	<div id="content" class="site-content full-width cf">
 		<div class="container">
-			<?php get_sidebar(); ?>
 			<main class="site-main">
 
 			<?php

@@ -80,7 +80,7 @@ get_header(); ?>
 					wp_reset_postdata(); ?>
 				</div>
 				<?php	endif; ?>
-				<a class="all-news-link" title="<?php _e('Katso kaikki uutiset', 'mikkeli'); ?>" href="<?php echo get_the_permalink(63); ?>">&rsaquo; <?php _e('Katso kaikki uutiset', 'mikkeli'); ?></a>
+				<a class="all-news-link" title="<?php _e('Katso kaikki uutiset', 'mikkeli'); ?>" href="<?php echo get_permalink( get_option('page_for_posts') ); ?>">&rsaquo; <?php _e('Katso kaikki uutiset', 'mikkeli'); ?></a>
 			</div>
 			<div class="right-side">
 				<?php if ( have_rows( 'nostolaatikot' ) ) : ?>

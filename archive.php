@@ -9,24 +9,29 @@
 
 get_header(); ?>
 
-	<div class="content-area">
-		<main class="site-main">
+	<div class="page-hero">
+
+	</div>
+
+	<?php mikkeli_breadcrumbs(); ?>
+
+	<div id="content" class="site-content full-width cf">
+		<div class="container">
+			<main class="site-main">
 
 			<?php
 			if ( have_posts() ) : ?>
 
-			<div class="container">
 				<header class="page-header">
 					<?php
 						the_archive_title( '<h1 class="page-title">', '</h1>' );
 						the_archive_description( '<div class="taxonomy-description">', '</div>' );
 					?>
 				</header><!-- .page-header -->
-			</div>
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
+					<?php get_template_part( 'template-parts/content', 'single' ); ?>
 
 				<?php endwhile;
 
@@ -40,9 +45,9 @@ get_header(); ?>
 
 			<?php endif; ?>
 
-		</main>
+			</main>
+		</div>
 	</div>
 
 <?php
-get_sidebar();
 get_footer();

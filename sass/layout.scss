@@ -140,13 +140,15 @@ body {
   a {
     color: #fff;
   }
-  @media screen and (min-width: $container-mobile) {
+  @media screen and (min-width: $container-tablet) {
     text-align: left;
   }
   .container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 3rem;
+    @media screen and (min-width: $container-tablet) {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 3rem;
+    }
     h3 {
       font-size: 1rem;
       text-transform: uppercase;

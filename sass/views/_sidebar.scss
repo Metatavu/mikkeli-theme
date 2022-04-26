@@ -29,7 +29,7 @@
     a {
       color: #71767d;
       display: block;
-      padding: .5rem 0;
+      padding: .5rem;
       border-bottom: 1px solid #e5e5e5;
     }
     li:last-child a {
@@ -53,10 +53,9 @@
   .active .open {
     background-image: url('../images/mikkeli-menu-open.png');
   }
-  .current_page_item > a {
+  .current_page_item > a, .page-nav-item.active a {
     color: #fff;
     background-color: #d94c70;
-    padding: .5rem;
   }
   .current_page_item, .current_page_parent {
     .open {
@@ -72,5 +71,12 @@
   }
   .page_item_has_children.active > a {
     border-bottom: 1px solid #e5e5e5;
+  }
+  .all-news-link {
+    background-color: transparent;
+    color: #000;
+    padding: 0;
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
   }
 }

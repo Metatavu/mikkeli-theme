@@ -1005,6 +1005,9 @@ blockquote {
     gap: 5%;
   }
 }
+.site-content.full-width .container {
+  display: block;
+}
 
 .site-main h1 {
   color: #71767d;
@@ -1049,7 +1052,7 @@ blockquote {
 .sidebar ul a {
   color: #71767d;
   display: block;
-  padding: 0.5rem 0;
+  padding: 0.5rem;
   border-bottom: 1px solid #e5e5e5;
 }
 .sidebar ul li:last-child a {
@@ -1072,10 +1075,9 @@ blockquote {
 .sidebar .active .open {
   background-image: url("../images/mikkeli-menu-open.png");
 }
-.sidebar .current_page_item > a {
+.sidebar .current_page_item > a, .sidebar .page-nav-item.active a {
   color: #fff;
   background-color: #d94c70;
-  padding: 0.5rem;
 }
 .sidebar .current_page_item .open, .sidebar .current_page_parent .open {
   display: none;
@@ -1089,6 +1091,13 @@ blockquote {
 }
 .sidebar .page_item_has_children.active > a {
   border-bottom: 1px solid #e5e5e5;
+}
+.sidebar .all-news-link {
+  background-color: transparent;
+  color: #000;
+  padding: 0;
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
 }
 
 .pagination {
@@ -1118,6 +1127,37 @@ blockquote {
   padding: 6px 9px 5px 9px;
   background: #3279BB;
   color: #fff;
+}
+
+.single .page-hero {
+  background-image: url("../images/mikkeli-page-banner-default.jpg");
+}
+
+.share-buttons {
+  margin: 1rem 0;
+}
+.share-buttons p {
+  margin: 0.5rem 0 1rem;
+}
+.share-buttons i {
+  font-size: 2.25rem;
+  margin-right: 0.625rem;
+}
+
+.tags {
+  margin: 1rem 0;
+}
+.tags .tag {
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  font-weight: 700;
+  padding: 0.5rem;
+  border-radius: 0.625rem;
+  margin-right: 0.625rem;
+}
+.tags .tag:hover {
+  text-decoration: none;
 }
 
 .comment-list img {
@@ -1181,17 +1221,19 @@ input[type=submit] {
 .site-footer a {
   color: #fff;
 }
-@media screen and (min-width: 40rem) {
+@media screen and (min-width: 60rem) {
   .site-footer {
     text-align: left;
   }
 }
-.site-footer .container {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 3rem 1fr 3rem 1fr 3rem 1fr 3rem 1fr;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 3rem;
+@media screen and (min-width: 60rem) {
+  .site-footer .container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 3rem 1fr 3rem 1fr 3rem 1fr 3rem 1fr;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3rem;
+  }
 }
 .site-footer .container h3 {
   font-size: 1rem;

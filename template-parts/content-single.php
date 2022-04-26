@@ -45,6 +45,19 @@
       ?>
     </div><!-- .entry-content -->
 
+    <?php
+    $posttags = get_the_tags();
+    if ($posttags) {
+    echo '<div class="tags">';
+      foreach($posttags as $tag) {
+        echo '<a title="'.$tag->name.'" class="tag" href="'. esc_attr( get_tag_link( $tag->term_id ) ) .'">'. $tag->name .'</a>'; 
+      }
+    echo '</div>';
+    }
+    ?>
+
+    <?php echo add_share_buttons(); ?>
+
     <footer class="entry-footer">
       <?php
           edit_post_link(
