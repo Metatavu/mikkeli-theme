@@ -122,6 +122,49 @@ get_header(); ?>
 			</div>
 		</div>
 	</section>
+
+	<section class="fp-blocks">
+	  <div class="container">
+			<div class="col info-block">
+				<div class="icon"></div>
+				<?php the_field('osallistu_ja_vaikuta'); ?>
+				<?php if(get_field('osallistu_ja_vaikuta-linkki')):
+					$link = get_field('osallistu_ja_vaikuta-linkki');
+					$link_url = $link['url'];
+					$link_title = $link['title'];
+				?>
+				<p><a title="<?php echo esc_html( $link_title ); ?>" class="all-link" href="<?php echo esc_url( $link_url ); ?>"><?php echo esc_html( $link_title ); ?></a></p>
+				<?php endif; ?>
+			</div>
+			<div class="col jobs-block">
+				<div class="icon"></div>
+				<h4><?php _e('Avoimet työpaikat', 'mikkeli'); ?></h4>
+				<?php
+					$feed = implode(file('https://www.kuntarekry.fi/fi/tyopaikat/?&organisation=3677&lang=fi_FI,sv_SE&sort=-changetime&limit=500&format=xml'));
+					$xml = simplexml_load_string($feed);
+					$json = json_encode($xml);
+					$array = json_decode($json,TRUE);
+					$i = 0;
+					foreach ($array["job"] as $job) {
+						if(++$i <= 5) {
+							$jobtitle = $job["jobtitle"];
+							$link = $job["url"];
+							$description = $job["employmenttype"];
+							$title = $job["taskarea"];
+							echo '<p><a title="'.$jobtitle.'" href="'.$link.'">'.$job["jobtitle"] . '</a><br /><span>'.$description.', '.$title.'</span></p>';
+						}
+					}
+				?>
+				<p><a title="<?php _e('Katso kaikki', 'mikkeli'); ?>" class="all-link" href="<?php echo home_url( '/' ); ?>tyot"><?php _e('Katso kaikki', 'mikkeli'); ?></a></p>
+			</div>
+			<div class="col announcements-block">
+			  <div class="icon"></div>
+				<h4><?php _e('Kuulutukset', 'mikkeli'); ?></h4>
+				<p>[feed]</p>
+				<p><a title="<?php _e('Katso kaikki', 'mikkeli'); ?>" class="all-link" href="<?php echo home_url( '/' ); ?>kuulutukset"><?php _e('Katso kaikki', 'mikkeli'); ?></a></p>
+			</div>
+		</div>
+	</section>
 	
 <?php
 get_footer();

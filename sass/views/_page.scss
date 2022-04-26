@@ -88,6 +88,9 @@
 }
 
 .tiles {
+  a:hover {
+    text-decoration: none;
+  }
   .tile {
     background-repeat: no-repeat;
     background-position: 50% 50%;
@@ -179,4 +182,76 @@
   padding: 0 8px;
   font-size: 26px;
   display: block;
+}
+
+.fp-blocks {
+  margin: 0 0 4rem;
+  .container {
+    padding: 0 1rem;
+    @media screen and (min-width: $container-mobile) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: 2rem;
+    }
+    .col {
+      padding: 2.5rem 1rem;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 1rem;
+      @media screen and (min-width: $container-mobile) {
+        margin-bottom: 0;
+      }
+      h4 {
+        font-family: $headings;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 1.875rem;
+        margin-bottom: .5rem;
+      }
+      a {
+        color: #fff;
+      }
+    }
+    .icon {
+      display: block;
+      margin: 0 auto 1rem;
+      width: 4rem;
+      height: 4rem;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+    }
+    .all-link {
+      font-weight: 600;
+      font-size: 1rem;
+      border: 3px solid #fff;
+      padding: .5rem 2rem;
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: $headings;
+    }
+    .info-block {
+      background-color: #5ca740;
+      .icon {
+        background-image: url('../images/mikkeli-osallistuvaikuta-icon2.png');
+      }
+    }
+    .jobs-block {
+      background-color: #234c8e;
+      .icon {
+        background-image: url('../images/mikkeli-kunta-rekry-icon2.png');
+      }
+      a {
+        text-transform: uppercase;
+      }
+      .all-link {
+        text-transform: none;
+      }
+    }
+    .announcements-block {
+      background-color: #d84c6f;
+      .icon {
+        background-image: url('../images/mikkeli-kuulutukset-icon.png');
+      }
+    }
+  }
 }

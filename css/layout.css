@@ -927,6 +927,9 @@ blockquote {
   padding: 1.25rem 1.5rem;
 }
 
+.tiles a:hover {
+  text-decoration: none;
+}
 .tiles .tile {
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -1019,6 +1022,86 @@ blockquote {
   padding: 0 8px;
   font-size: 26px;
   display: block;
+}
+
+.fp-blocks {
+  margin: 0 0 4rem;
+}
+.fp-blocks .container {
+  padding: 0 1rem;
+}
+@media screen and (min-width: 40rem) {
+  .fp-blocks .container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 2rem 1fr 2rem 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    -webkit-column-gap: 2rem;
+       -moz-column-gap: 2rem;
+            column-gap: 2rem;
+  }
+}
+.fp-blocks .container .col {
+  padding: 2.5rem 1rem;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 40rem) {
+  .fp-blocks .container .col {
+    margin-bottom: 0;
+  }
+}
+.fp-blocks .container .col h4 {
+  font-family: "Cairo", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.875rem;
+  margin-bottom: 0.5rem;
+}
+.fp-blocks .container .col a {
+  color: #fff;
+}
+.fp-blocks .container .icon {
+  display: block;
+  margin: 0 auto 1rem;
+  width: 4rem;
+  height: 4rem;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+.fp-blocks .container .all-link {
+  font-weight: 600;
+  font-size: 1rem;
+  border: 3px solid #fff;
+  padding: 0.5rem 2rem;
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: "Cairo", sans-serif;
+}
+.fp-blocks .container .info-block {
+  background-color: #5ca740;
+}
+.fp-blocks .container .info-block .icon {
+  background-image: url("../images/mikkeli-osallistuvaikuta-icon2.png");
+}
+.fp-blocks .container .jobs-block {
+  background-color: #234c8e;
+}
+.fp-blocks .container .jobs-block .icon {
+  background-image: url("../images/mikkeli-kunta-rekry-icon2.png");
+}
+.fp-blocks .container .jobs-block a {
+  text-transform: uppercase;
+}
+.fp-blocks .container .jobs-block .all-link {
+  text-transform: none;
+}
+.fp-blocks .container .announcements-block {
+  background-color: #d84c6f;
+}
+.fp-blocks .container .announcements-block .icon {
+  background-image: url("../images/mikkeli-kuulutukset-icon.png");
 }
 
 .sidebar .title {
