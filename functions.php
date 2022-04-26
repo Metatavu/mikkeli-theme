@@ -98,9 +98,11 @@ add_action( 'wp_head', 'mikkeli_pingback_header' );
  */
 function mikkeli_scripts() {
   wp_enqueue_style( 'styles', THEMEROOT . '/css/layout.css' );
+	wp_enqueue_style( 'incidents', 'https://cdn.metatavu.io/libs/kunta-api-incidents/0.0.4/incidents.min.css' );
   wp_deregister_script( 'jquery' );
   wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js', array(), false, true); // Load jQuery @ Footer
   wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'incidents-script', 'https://cdn.metatavu.io/libs/kunta-api-incidents/0.0.4/incidents.min.js');
   wp_register_script( 'fontawesome', 'https://kit.fontawesome.com/2d8150fc9c.js', array(), false, true); // Load jQuery @ Footer
   wp_enqueue_script( 'fontawesome' );
   wp_enqueue_script( 'scripts', THEMEROOT . '/js/all.js', array(), MIKKELI_VERSION, true );
@@ -402,3 +404,11 @@ function add_share_buttons() {
   return $output;
 
 }
+
+// Incidents Plugin
+add_filter('script_loader_tag', function ($tag, $handle, $src) {
+  if ('incidents-script' === $handle) {
+    $tag = '<script type="text/javascript" src="https://cdn.metatavu.io/libs/kunta-api-incidents/0.0.4/incidents.min.js" id="incidents-script" data-urls="/wp-json/incidents/incidents?area=Mikkelin%20kaupunki,https://espl.fi/incidents?area=Mikkelin%20kaupunki" data-interval="1000"></script>';
+  }
+  return $tag;
+}, 10, 3);
