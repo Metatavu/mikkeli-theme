@@ -1269,6 +1269,56 @@ input[type=submit] {
   width: auto;
 }
 
+/* Banners */
+@media screen and (min-width: 40rem) {
+  .banners {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1rem 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+.banners .banner {
+  background-image: url("../images/green-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 12.5em;
+  color: #fff;
+  position: relative;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 40rem) {
+  .banners .banner {
+    margin-bottom: 0;
+  }
+}
+.banners .banner.blue {
+  background-image: url("../images/blue-bg.jpg");
+}
+.banners .banner.pink {
+  background-image: url("../images/pink-bg.jpg");
+}
+.banners .banner.orange {
+  background-image: url("../images/orange-bg.jpg");
+}
+.banners .banner .small-page-banner-title {
+  position: absolute;
+  display: block;
+  bottom: 1.25rem;
+  width: 100%;
+  left: 0;
+  padding-left: 1.5rem;
+  padding-right: 1rem;
+  line-height: 1.5;
+}
+.banners .banner .small-page-banner-title span {
+  font-weight: 600;
+}
+.banners .banner .small-page-banner-title .fa {
+  float: right;
+}
+
 .alignleft {
   margin: 25px 0;
 }

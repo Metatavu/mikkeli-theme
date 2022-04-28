@@ -412,3 +412,21 @@ add_filter('script_loader_tag', function ($tag, $handle, $src) {
   }
   return $tag;
 }, 10, 3);
+
+// ACF Custom Blocks
+add_action('acf/init', 'mikkeli_acf_init_block_types');
+function mikkeli_acf_init_block_types() {
+	// Check function exists.
+	if( function_exists('acf_register_block_type') ) {
+		// register a banner block.
+		acf_register_block_type(array(
+				'name'              => 'banner',
+				'title'             => __('Banneri'),
+				'description'       => __('Tekstibanneri taustakuvalla'),
+				'render_template'   => 'template-parts/blocks/banners/banners.php',
+				'category'          => 'formatting',
+				'icon'              => 'columns',
+				'keywords'          => array( 'banner', 'banneri' ),
+		));
+	}
+}

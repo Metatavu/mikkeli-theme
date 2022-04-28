@@ -1,0 +1,45 @@
+/* Banners */
+.banners {
+  @media screen and (min-width: $container-mobile) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .banner {
+    background-image: url('../images/green-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 12.5em;
+    color: #fff;
+    position: relative;
+    margin-bottom: 1rem;
+    @media screen and (min-width: $container-mobile) {
+      margin-bottom: 0;
+    }
+    &.blue {
+      background-image: url('../images/blue-bg.jpg');
+    }
+    &.pink {
+      background-image: url('../images/pink-bg.jpg');
+    }
+    &.orange {
+      background-image: url('../images/orange-bg.jpg');
+    }
+    .small-page-banner-title {
+      position: absolute;
+      display: block;
+      bottom: 1.25rem;
+      width: 100%;
+      left: 0;
+      padding-left: 1.5rem;
+      padding-right: 1rem;
+      line-height: 1.5;
+      span {
+        font-weight: 600;
+      }
+      .fa {
+        float: right;
+      }
+    }
+  }
+}
