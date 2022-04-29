@@ -428,5 +428,16 @@ function mikkeli_acf_init_block_types() {
 				'icon'              => 'columns',
 				'keywords'          => array( 'banner', 'banneri' ),
 		));
+		// register news by tag block.
+		acf_register_block_type(array(
+			'name'              => 'newsblock',
+			'title'             => __('Uutiset tagin mukaan'),
+			'description'       => __('Uusimmat uutiset tagin perusteella'),
+			'render_template'   => 'template-parts/blocks/news/news.php',
+			'category'          => 'common',
+			'icon'              => 'admin-post',
+			'mode'							=> 'auto',
+			'keywords'          => array( 'uutiset', 'news' ),
+	));
 	}
 }
