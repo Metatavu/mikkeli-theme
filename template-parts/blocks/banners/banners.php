@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Testimonial Banners Template.
+ * Banners Template.
  *
  * @param   array $block The block settings and attributes.
  * @param   string $content The block inner HTML (empty).
@@ -12,22 +12,14 @@
 // Create id attribute allowing for custom "anchor" value.
 $id = 'banners-' . $block['id'];
 if( !empty($block['anchor']) ) {
-    $id = $block['anchor'];
+  $id = $block['anchor'];
 }
 
 // Create class attribute allowing for custom "className" and "align" values.
 $className = 'banners';
 if( !empty($block['className']) ) {
-    $className .= ' ' . $block['className'];
+  $className .= ' ' . $block['className'];
 }
-
-// Load values and assign defaults.
-$text = get_field('testimonial') ?: 'Your testimonial here...';
-$author = get_field('author') ?: 'Author name';
-$role = get_field('role') ?: 'Author role';
-$image = get_field('image') ?: 295;
-$background_color = get_field('background_color');
-$text_color = get_field('text_color');
 
 ?>
 
