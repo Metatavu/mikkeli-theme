@@ -11,11 +11,20 @@
  *
  * @package haaja
  */
+if ($post->post_parent) {
+	$ancestors=get_post_ancestors($post->ID);
+	$root=count($ancestors)-1;
+	$parent = $ancestors[$root];
+} else {
+	$parent = $post->ID;
+}
 
 get_header(); ?>
 
 	<div class="page-hero">
-
+		<div class="left"></div>
+		<div class="title"><span><?php echo get_the_title($parent); ?></span></div>
+		<div class="right"></div>
 	</div>
 
 	<?php mikkeli_breadcrumbs(); ?>

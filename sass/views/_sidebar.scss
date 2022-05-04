@@ -95,6 +95,7 @@
     border-radius: 3px;
     color: #fff;
     padding: .5rem 1rem;
+    cursor: pointer;
     @media screen and (min-width: $container-mobile) {
       display: none;
     }
