@@ -40,9 +40,6 @@ $mikkeli_aria_label = ! empty( $args['aria_label'] ) ? 'aria-label="' . esc_attr
 		<div class="container cf">
 
 			<div class="site-branding">
-				<div class="logo">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-				</div>
 				<div class="right-side">
 					<div class="site-search">
 						<?php get_search_form(); ?>
@@ -62,11 +59,14 @@ $mikkeli_aria_label = ! empty( $args['aria_label'] ) ? 'aria-label="' . esc_attr
 							<a title="Vaihda kieli en" href="/sisalto/in-english?locale=en">en</a>
 						</div>
 					</div>
+				</div>
+				<div class="logo">
 					<button class="hamburger hamburger--slider" type="button">
 						<span class="hamburger-box">
 							<span class="hamburger-inner"></span>
 						</span>
 					</button>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 				</div>
 			</div><!-- .site-branding -->
 

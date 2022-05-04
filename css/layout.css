@@ -537,13 +537,15 @@ table.advgb-table-frontend th {
   * Header
   */
 .site-header .site-branding {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-  margin: 2rem 0;
+  margin: 1rem 0;
+}
+@media screen and (min-width: 40rem) {
+  .site-header .site-branding {
+    margin: 2rem 0;
+  }
 }
 .site-header .site-branding .logo {
+  position: relative;
   padding-top: 5rem;
 }
 .site-header .site-branding .logo a {
@@ -560,17 +562,31 @@ table.advgb-table-frontend th {
   position: relative;
   text-align: right;
 }
-.site-header .right-side .site-search, .site-header .right-side .nav-quick-icons, .site-header .right-side .locale-menu {
+.site-header .right-side .nav-quick-icons, .site-header .right-side .locale-menu {
   display: inline-block;
   vertical-align: top;
 }
+.site-header .right-side .site-search {
+  display: block;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 40rem) {
+  .site-header .right-side .site-search {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 0;
+  }
+}
 .site-header .right-side .site-search form {
   background-color: #e5e5e5;
+  text-align: left;
+  position: relative;
 }
 .site-header .right-side .site-search form input[type=search] {
   background-color: transparent;
   color: #000;
   border: none;
+  width: 85%;
 }
 .site-header .right-side .site-search form input[type=search]::-webkit-input-placeholder {
   color: #000;
@@ -591,6 +607,11 @@ table.advgb-table-frontend th {
   background-color: transparent;
   border: none;
   color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 15%;
 }
 .site-header .right-side .nav-some-icons {
   display: inline-block;
@@ -1298,13 +1319,8 @@ table.advgb-table-frontend th {
 }
 
 input[type=text], input[type=email], input[type=tel], input[type=search], textarea, input[type=submit], button[type=submit] {
-  padding: 7px 9px;
-  width: 100%;
-}
-@media screen and (min-width: 40rem) {
-  input[type=text], input[type=email], input[type=tel], input[type=search], textarea, input[type=submit], button[type=submit] {
-    width: auto;
-  }
+  width: auto;
+  padding: 0.5rem;
 }
 
 textarea {

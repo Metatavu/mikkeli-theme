@@ -29,10 +29,12 @@ body {
   */
 .site-header {
   .site-branding {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 2rem 0;
+    margin: 1rem 0;
+    @media screen and (min-width: $container-mobile) {
+      margin: 2rem 0;
+    }
     .logo {
+      position: relative;
       padding-top: 5rem;
     }
     .logo a {
@@ -49,16 +51,28 @@ body {
   .right-side {
     position: relative;
     text-align: right;
-    .site-search, .nav-quick-icons, .locale-menu {
+    .nav-quick-icons, .locale-menu {
       display: inline-block;
       vertical-align: top;
     }
+    .site-search {
+      display: block;
+      margin-bottom: 1rem;
+      @media screen and (min-width: $container-mobile) {
+        display: inline-block;
+        vertical-align: top;
+        margin-bottom: 0;
+      }
+    }
     .site-search form {
       background-color: #e5e5e5;
+      text-align: left;
+      position: relative;
       input[type="search"] {
         background-color: transparent;
         color: #000;
         border: none;
+        width: 85%;
         &::placeholder {
           color: #000;
         }
@@ -67,6 +81,11 @@ body {
         background-color: transparent;
         border: none;
         color: #fff;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 15%;
       }
     }
     .nav-some-icons {

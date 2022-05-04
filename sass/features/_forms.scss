@@ -1,9 +1,6 @@
 input[type="text"], input[type="email"], input[type="tel"], input[type="search"], textarea, input[type="submit"], button[type="submit"] {
-  padding: 7px 9px;
-  width: 100%;
-  @media screen and (min-width: $container-mobile) {
-    width: auto;
-  }
+  width: auto;
+  padding: .5rem;
 }
 textarea {
   max-width: 100%;
