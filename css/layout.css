@@ -1185,6 +1185,21 @@ blockquote {
   font-size: 1.1rem;
 }
 
+.site-main.with-sidebar-column .sidebar-column {
+  padding: 1rem;
+  background-color: #edeef2;
+}
+@media screen and (min-width: 60rem) {
+  .site-main.with-sidebar-column .sidebar-column {
+    max-width: 40%;
+  }
+}
+@media screen and (min-width: 71.25rem) {
+  .site-main.with-sidebar-column .sidebar-column {
+    max-width: 30%;
+  }
+}
+
 .pagination {
   clear: both;
   padding: 20px 0;

@@ -80,3 +80,16 @@
     font-size: 1.1rem;
   }
 }
+
+.site-main.with-sidebar-column {
+  .sidebar-column {
+    padding: 1rem;
+    background-color: #edeef2;
+    @media screen and (min-width: $container-tablet) {
+      max-width: 40%;
+    }
+    @media screen and (min-width: $container-desktop) {
+      max-width: 30%;
+    }
+  }
+}

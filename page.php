@@ -23,7 +23,7 @@ get_header(); ?>
 	<div id="content" class="site-content cf">
 		<div class="container">
 			<?php get_sidebar(); ?>
-			<main class="site-main">
+			<main class="site-main <?php if(wpdocs_enhanced_has_block('core/columns')): echo 'with-sidebar-column'; endif; ?>"> 
 
 				<?php
 				while ( have_posts() ) : the_post(); ?>

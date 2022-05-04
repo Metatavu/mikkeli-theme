@@ -441,3 +441,54 @@ function mikkeli_acf_init_block_types() {
 	));
 	}
 }
+
+/* Register Sidebar Page pattern */
+register_block_pattern(
+	'mikkeli/sivupalkki',
+	array(
+			'title'       => __( 'Sivupalkki', 'mikkeli' ),
+			'description' => _x( 'Sivun lisäksi harmaa sivupalkki', 'Sivupalkillinen sivusisältö.', 'mikkeli' ),
+			'content'     => "<!-- wp:columns -->\n<div class=\"wp-block-columns\"><!-- wp:column -->\n<div class=\"wp-block-column\"><!-- wp:paragraph -->\n<p>Tekstisisältö</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column -->\n\n<!-- wp:column {\"className\":\"sidebar-column\"} -->\n<div class=\"wp-block-column sidebar-column\"><!-- wp:paragraph -->\n<p>Sivupalkin sisältö</p>\n<!-- /wp:paragraph --></div>\n<!-- /wp:column --></div>\n<!-- /wp:columns -->",
+	)
+);
+
+/**
+ * Has block function which searches as well in reusable blocks.
+ *
+ * @param mixed $block_name Full Block type to look for.
+ * @return bool
+ */
+function wpdocs_enhanced_has_block( $block_name ) {
+	if ( has_block( $block_name ) ) {
+		return true;
+	}
+
+	if ( has_block( 'core/block' ) ) {
+		$content = get_post_field( 'post_content' );
+		$blocks = parse_blocks( $content );
+		return wpdocs_search_reusable_blocks_within_innerblocks( $blocks, $block_name );
+	}
+
+	return false;
+}
+
+/**
+* Search for the selected block within inner blocks.
+*
+* The helper function for wpdocs_enhanced_has_block() function.
+*
+* @param array $blocks Blocks to loop through.
+* @param string $block_name Full Block type to look for.
+* @return bool
+*/
+function wpdocs_search_reusable_blocks_within_innerblocks( $blocks, $block_name ) {
+	foreach ( $blocks as $block ) {
+		if ( isset( $block['innerBlocks'] ) && ! empty( $block['innerBlocks'] ) ) {
+			wpdocs_search_reusable_blocks_within_innerblocks( $block['innerBlocks'], $block_name );
+		} elseif ( 'core/block' === $block['blockName'] && ! empty( $block['attrs']['ref'] ) && has_block( $block_name, $block['attrs']['ref'] ) ) {
+			return true;
+		}
+	}
+
+	return false;
+}
