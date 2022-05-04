@@ -10,6 +10,7 @@
 ?>
 
 <aside class="sidebar widget-area">
+  <button class="btn-menu collapsed" title="Näytä valikko" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-menu"><span class="fa fa-bars"></span></button>
   <?php
   if ($post->post_parent) {
     $ancestors=get_post_ancestors($post->ID);

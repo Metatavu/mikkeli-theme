@@ -7,6 +7,13 @@
     text-transform: uppercase;
     margin-bottom: .5rem;
   }
+  .sub-navigation {
+    display: none;
+    clear: both;
+    @media screen and (min-width: $container-mobile) {
+      display: block;
+    }
+  }
   ul {
     list-style: none;
     margin: 0;
@@ -17,6 +24,7 @@
       border-bottom: 1px solid #e5e5e5;
       a {
         padding: .5rem;
+        padding-left: 1rem;
       }
       &.visible {
         height: auto;
@@ -78,6 +86,18 @@
     padding: 0;
     margin-top: 1.5rem;
     font-size: 1.1rem;
+  }
+  .btn-menu {
+    display: block;
+    float: right;
+    background-color: #000;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    padding: .5rem 1rem;
+    @media screen and (min-width: $container-mobile) {
+      display: none;
+    }
   }
 }
 

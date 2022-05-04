@@ -11,6 +11,19 @@ $(function() {
       $(this).attr("aria-label","Avaa valikko");
     }
   });
+  $( ".sidebar .btn-menu" ).click(function() {
+    $('.sidebar .sub-navigation').slideToggle('fast');
+    $(this).attr('aria-expanded', function (i, attr) {
+      return attr == 'true' ? 'false' : 'true'
+    });
+    if ($(this).attr( 'aria-expanded') === 'true') {
+      $(this).attr("aria-label","Sulje valikko");
+      $(this).attr("title","Sulje valikko");
+    } else {
+      $(this).attr("aria-label","Avaa valikko");
+      $(this).attr("title","Avaa valikko");
+    }
+  });
   var navItemDropdown = $('.sidebar .children');
   navItemDropdown.each(function(){
     thisDropdown = $(this);
