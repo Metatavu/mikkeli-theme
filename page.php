@@ -23,7 +23,7 @@ get_header(); ?>
 
 	<div class="page-hero">
 		<div class="left"></div>
-		<div class="title"><span><?php echo get_the_title($parent); ?></span></div>
+		<div class="title" <?php if(get_field('bgcolor', $parent)): ?>style="background-color: <?php echo get_field('bgcolor', $parent); ?>;"<?php endif; ?>><span><?php if(get_field('page_title', $parent)) { the_field('page_title', $parent); } else { echo get_the_title($parent); } ?></span></div>
 		<div class="right"></div>
 	</div>
 
