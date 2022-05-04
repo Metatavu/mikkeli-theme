@@ -54,6 +54,32 @@ blockquote {
   padding: 0 20px;
 }
 
+/* TABLES */
+table.advgb-table-frontend {
+  border-spacing: 2px!important;
+  @media screen and (max-width: $container-tablet) {
+    max-width: 1000vw;
+    overflow-y: scroll;
+    display: block;
+    font-size: .8rem;
+  }
+}
+table.advgb-table-frontend thead {
+  background-color: #f5f5f5;
+}
+table.advgb-table-frontend tr {
+  padding: 0;
+  &:nth-child(even) {
+    background-color: #f5f5f5;
+  }
+}
+table.advgb-table-frontend td, table.advgb-table-frontend th {
+  padding: .5rem
+}
+table.advgb-table-frontend th {
+  text-align: left;
+}
+
 // Clearfix
 .cf:before,
 .cf:after {
