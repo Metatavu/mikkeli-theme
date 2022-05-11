@@ -1,10 +1,37 @@
 .breadcrumbs {
-  margin: 2rem 0;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  width: 100%;
+  max-width: $container-desktop;
   text-transform: uppercase;
+  @media screen and (min-width: $container-mobile) {
+    display: grid;
+    grid-template-columns: 70% 30%;
+  }
+  .navigation {
+    margin-bottom: .5rem;
+    @media screen and (min-width: $container-mobile) {
+      margin-bottom: 0;
+    }
+  }
   .sep {
     margin: 0 .5rem;
   }
   .breadcrumbs__current {
     text-transform: none;
+  }
+  .rsbtn_play {
+    background-image: url('../images/icon_16px_black.gif');
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  .rsbtn_text {
+    color: #646464;
   }
 }

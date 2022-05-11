@@ -913,14 +913,47 @@ table.advgb-table-frontend th {
   * Content
   */
 .breadcrumbs {
-  margin: 2rem 0;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  width: 100%;
+  max-width: 71.25rem;
   text-transform: uppercase;
+}
+@media screen and (min-width: 40rem) {
+  .breadcrumbs {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 70% 30%;
+    grid-template-columns: 70% 30%;
+  }
+}
+.breadcrumbs .navigation {
+  margin-bottom: 0.5rem;
+}
+@media screen and (min-width: 40rem) {
+  .breadcrumbs .navigation {
+    margin-bottom: 0;
+  }
 }
 .breadcrumbs .sep {
   margin: 0 0.5rem;
 }
 .breadcrumbs .breadcrumbs__current {
   text-transform: none;
+}
+.breadcrumbs .rsbtn_play {
+  background-image: url("../images/icon_16px_black.gif");
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5;
+}
+.breadcrumbs .rsbtn_play:hover {
+  text-decoration: none;
+}
+.breadcrumbs .rsbtn_text {
+  color: #646464;
 }
 
 .front-content .container {

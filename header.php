@@ -19,6 +19,27 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;900&family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
 
+<!-- GOOGLE
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-97616829-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+--LIVECHAT--
+<script type="text/javascript">window.__lc = window.__lc || {};
+window.__lc.license = 9105520;
+(function() {
+var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+})();</script>-->
+
+<script type="text/javascript" src="//f1-eu.readspeaker.com/script/8419/ReadSpeaker.js?pids=embhl"></script>
+
 <?php wp_head(); ?>
 </head>
 <?php

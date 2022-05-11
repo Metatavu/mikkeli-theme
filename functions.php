@@ -172,8 +172,8 @@ function mikkeli_breadcrumbs() {
 	$text['page']     = 'Sivu %s'; // text 'Page N'
 	$text['cpage']    = 'Kommenttisivu %s'; // text 'Comment Page N'
 
-	$wrap_before    = '<div class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList"><div class="container cf">'; // the opening wrapper tag
-	$wrap_after     = '</div></div><!-- .breadcrumbs -->'; // the closing wrapper tag
+	$wrap_before    = '<div class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList"><div class="navigation">'; // the opening wrapper tag
+	$wrap_after     = '</div><a class="rsbtn_play" rel="nofollow" accesskey="L" title="Kuuntele ReadSpeakerilla" href="//app-eu.readspeaker.com/cgi-bin/rsent?customerid=8419&amp;readclass=entry-content&amp;lang=fi_FI&amp;url='.get_permalink( get_the_ID() ).'" data-rsevent-id="rs_364872" role="button"><span class="rsbtn_left rspart"><span class="rsbtn_text"><span>Kuuntele</span></span></span><span class="rsbtn_right rsimg rsplay rspart"></span></a></div><!-- .breadcrumbs -->'; // the closing wrapper tag
 	$sep            = '<span class="sep">&raquo;</span>'; // separator between crumbs
 	$before         = '<span class="breadcrumbs__current">'; // tag before the current crumb
 	$after          = '</span>'; // tag after the current crumb
