@@ -1217,6 +1217,13 @@ table.advgb-table-frontend th {
   background-image: url("../images/mikkeli-kuulutukset-icon.png");
 }
 
+.mikkeli-events {
+  margin: 0 0 2rem;
+}
+.mikkeli-events h2 {
+  text-align: center;
+}
+
 .sidebar .title {
   font-family: "Cairo", sans-serif;
   font-size: 0.9rem;

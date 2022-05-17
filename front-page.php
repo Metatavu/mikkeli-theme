@@ -123,6 +123,14 @@ get_header(); ?>
 		</div>
 	</section>
 
+	<section class="mikkeli-events">
+		<div class="container">
+			<h2><?php _e('Tapahtumakalenteri', 'mikkeli'); ?></h2>
+			<script type='text/javascript' src='https://www.mikkelinyt.fi/widget-loader/62835af416022e6c36e12d1b'></script>
+			<div id='EVENTZWIDGET-62835af416022e6c36e12d1b'></div>
+		</div>
+	</section>
+
 	<section class="fp-blocks">
 	  <div class="container">
 			<div class="col info-block">
