@@ -173,7 +173,7 @@ function mikkeli_breadcrumbs() {
 	$text['cpage']    = 'Kommenttisivu %s'; // text 'Comment Page N'
 
 	$wrap_before    = '<div class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList"><div class="navigation">'; // the opening wrapper tag
-	$wrap_after     = '</div><a class="rsbtn_play" rel="nofollow" accesskey="L" title="Kuuntele ReadSpeakerilla" href="//app-eu.readspeaker.com/cgi-bin/rsent?customerid=8419&amp;readclass=entry-content&amp;lang=fi_FI&amp;url='.get_permalink( get_the_ID() ).'" data-rsevent-id="rs_364872" role="button"><span class="rsbtn_left rspart"><span class="rsbtn_text"><span>Kuuntele</span></span></span><span class="rsbtn_right rsimg rsplay rspart"></span></a></div><!-- .breadcrumbs -->'; // the closing wrapper tag
+	$wrap_after     = '</div><div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve"><a rel="nofollow" class="rsbtn_play" accesskey="L" title="Kuuntele ReadSpeaker webReaderilla" href="//app-eu.readspeaker.com/cgi-bin/rsent?customerid=8419&amp;readclass=entry-content&amp;lang=fi_FI&amp;url='.get_permalink( get_the_ID() ).'"><span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span>Kuuntele</span></span></span><span class="rsbtn_right rsimg rsplay rspart"></span></a></div></div><!-- .breadcrumbs -->'; // the closing wrapper tag
 	$sep            = '<span class="sep">&raquo;</span>'; // separator between crumbs
 	$before         = '<span class="breadcrumbs__current">'; // tag before the current crumb
 	$after          = '</span>'; // tag after the current crumb

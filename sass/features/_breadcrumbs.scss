@@ -20,18 +20,4 @@
   .breadcrumbs__current {
     text-transform: none;
   }
-  .rsbtn_play {
-    background-image: url('../images/icon_16px_black.gif');
-    background-repeat: no-repeat;
-    background-position: left center;
-    padding-left: 1.5rem;
-    height: 1.5rem;
-    line-height: 1.5;
-    &:hover {
-      text-decoration: none;
-    }
-  }
-  .rsbtn_text {
-    color: #646464;
-  }
 }

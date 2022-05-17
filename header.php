@@ -38,7 +38,7 @@ lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cd
 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
 })();</script>-->
 
-<script type="text/javascript" src="//f1-eu.readspeaker.com/script/8419/ReadSpeaker.js?pids=embhl"></script>
+<script src="https://cdn-eu.readspeaker.com/script/8419/webReader/webReader.js?pids=wr" type="text/javascript" id="rs_req_Init"></script>
 
 <?php wp_head(); ?>
 </head>
