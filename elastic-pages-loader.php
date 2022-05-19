@@ -12,12 +12,25 @@
         $oppiminenDomain = get_option('theme_oppiminen_domain');
         $elasticUrl = get_option('theme_elastic_url');
         $elasticKey = get_option('theme_elastic_key');
-        $resultPlaceholderImage = get_option('theme_result_placeholder_image');
 
         $resultType = $type == 'oppiminen' ? 'page' : $type;
         $baseUrl =  $type == 'oppiminen' ? $oppiminenDomain : $mikkeliDomain;
         $requestParams = $this->build_request_params($elasticKey, $pageToLoad, $query, $resultType, $baseUrl );
-        return $requestParams;
+        $result = wp_remote_post($elasticUrl . '/search.json', $requestParams);
+        $body = json_decode(wp_remote_retrieve_body($result));
+        return array_map([$this, 'translate_search_result'], $body->results);
+      }
+
+      function translate_search_result($result) {
+        $thumbnailUrl = $result->featured_media_url_thumbnail->raw;
+        return [
+          'title' => $result->title->raw,
+          'url' => $result->url->raw,
+          'image_url' => $thumbnailUrl ? $thumbnailUrl : get_option('theme_result_placeholder_image'),
+          'summary' => $result->excerpt->raw,
+          'date' => $result->date->raw,
+          'has_placeholder_image' => !get_option('theme_result_placeholder_image')
+        ];
       }
 
       function build_request_params($elasticKey, $pageToLoad, $query, $resultType, $baseUrl) {
