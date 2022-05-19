@@ -21,6 +21,7 @@ add_theme_support( 'automatic-feed-links' );
 add_theme_support( 'post-thumbnails' );
 add_post_type_support( 'page', 'excerpt' );
 add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
+require_once( __DIR__ . '/elastic-pages-loader.php');
 
 /**
  * Register sidebars
