@@ -18,7 +18,11 @@
         $requestParams = $this->build_request_params($elasticKey, $pageToLoad, $query, $resultType, $baseUrl );
         $result = wp_remote_post($elasticUrl . '/search.json', $requestParams);
         $body = json_decode(wp_remote_retrieve_body($result));
-        return array_map([$this, 'translate_search_result'], $body->results);
+
+        return [
+          'results' => array_map([$this, 'translate_search_result'], $body->results),
+          'number_of_pages' => $body->meta->page->total_pages
+        ];
       }
 
       function translate_search_result($result) {
@@ -29,7 +33,7 @@
           'image_url' => $thumbnailUrl ? $thumbnailUrl : get_option('theme_result_placeholder_image'),
           'summary' => $result->excerpt->raw,
           'date' => $result->date->raw,
-          'has_placeholder_image' => !get_option('theme_result_placeholder_image')
+          'has_placeholder_image' => !$thumbnailUrl
         ];
       }
 
