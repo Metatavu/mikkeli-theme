@@ -21,6 +21,7 @@ add_theme_support( 'automatic-feed-links' );
 add_theme_support( 'post-thumbnails' );
 add_post_type_support( 'page', 'excerpt' );
 add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
+require_once( __DIR__ . '/elastic-pages-loader.php');
 
 /**
  * Register sidebars
@@ -493,3 +494,58 @@ function wpdocs_search_reusable_blocks_within_innerblocks( $blocks, $block_name 
 
 	return false;
 }
+
+/**
+ * Settings
+ */
+add_action('admin_menu', function () {
+  $title = __('Elastic settings', 'mikkeli-react-theme');
+  add_theme_page($title, $title, 'edit_theme_options', 'mikkeli-theme-elastic-options', function () {
+		echo '<div class="wrap">';
+		echo "<h1>$title</h1>";
+		echo '<form method="post" action="options.php">';
+		settings_fields("mikkeli-theme-elastic-options");
+		do_settings_sections("mikkeli-theme-elastic-options");
+		submit_button();
+		echo '</form>';
+		echo '</div>';
+	});
+});
+
+add_action('admin_init', function () {
+	$elasticUrl = __('Elastic url', 'mikkeli-react-theme');
+	add_settings_section('mikkeli-theme-elastic-options', null, null, 'mikkeli-theme-elastic-options');
+	add_settings_field('theme_elastic_url', $elasticUrl, function () {
+		$url = get_option('theme_elastic_url');
+		echo "<input style='width: 600px;' type='url' name='theme_elastic_url' value='$url'/>";
+	}, 'mikkeli-theme-elastic-options', 'mikkeli-theme-elastic-options');
+	register_setting( 'mikkeli-theme-elastic-options', 'theme_elastic_url');
+
+	$elasticKey = __('Elastic key', 'mikkeli-react-theme');
+	add_settings_field('theme_elastic_key', $elasticKey, function () {
+		$key = get_option('theme_elastic_key');
+		echo "<input style='width: 600px;' type='text' name='theme_elastic_key' value='$key'/>";
+	}, 'mikkeli-theme-elastic-options', 'mikkeli-theme-elastic-options');
+	register_setting( 'mikkeli-theme-elastic-options', 'theme_elastic_key');
+
+	$mikkeliDomainTitle = __('Mikkeli domain', 'mikkeli-react-theme');
+	add_settings_field('theme_mikkeli_domain', $mikkeliDomainTitle, function () {
+		$mikkeliDomain = get_option('theme_mikkeli_domain');
+		echo "<input style='width: 600px;' type='url' name='theme_mikkeli_domain' value='$mikkeliDomain'/>";
+	}, 'mikkeli-theme-elastic-options', 'mikkeli-theme-elastic-options');
+	register_setting( 'mikkeli-theme-elastic-options', 'theme_mikkeli_domain');
+
+	$oppiminenDomainTitle = __('Oppiminen domain', 'mikkeli-react-theme');
+	add_settings_field('theme_oppiminen_domain', $oppiminenDomainTitle, function () {
+		$oppiminenDomain = get_option('theme_oppiminen_domain');
+		echo "<input style='width: 600px;' type='url' name='theme_oppiminen_domain' value='$oppiminenDomain'/>";
+	}, 'mikkeli-theme-elastic-options', 'mikkeli-theme-elastic-options');
+	register_setting( 'mikkeli-theme-elastic-options', 'theme_oppiminen_domain');
+
+	$resultPlaceholderImageTitle = __('Result image placeholder url', 'mikkeli-react-theme');
+	add_settings_field('theme_result_placeholder_image', $resultPlaceholderImageTitle, function () {
+		$resultPlaceholderImage = get_option('theme_result_placeholder_image');
+		echo "<input style='width: 600px;' type='url' name='theme_result_placeholder_image' value='$resultPlaceholderImage'/>";
+	}, 'mikkeli-theme-elastic-options', 'mikkeli-theme-elastic-options');
+	register_setting( 'mikkeli-theme-elastic-options', 'theme_result_placeholder_image');
+});
