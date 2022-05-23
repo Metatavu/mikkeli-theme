@@ -75,6 +75,7 @@ function disable_emojicons_tinymce( $plugins ) {
  */
 add_image_size( 'thumb', 304, 231, true );
 add_image_size( 'post', 694, 416, true );
+add_image_size( 'page-img', 670, 447, true );
 
 /**
  * Navigation menus.

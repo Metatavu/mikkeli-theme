@@ -566,6 +566,12 @@ table.advgb-table-frontend th {
   display: inline-block;
   vertical-align: top;
 }
+.site-header .right-side .locale-menu {
+  height: 28px;
+}
+.site-header .right-side .locale-menu button:focus {
+  outline: 2px solid #000;
+}
 .site-header .right-side .site-search {
   display: block;
   margin-bottom: 1rem;
@@ -880,7 +886,7 @@ table.advgb-table-frontend th {
   grid-template-columns: 35% 30% 35%;
 }
 .page-hero .left {
-  background-image: url("../images/img2.jpg");
+  background-image: url("../images/img4.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
@@ -1255,7 +1261,7 @@ table.advgb-table-frontend th {
   padding: 0.5rem;
   padding-left: 1rem;
 }
-.sidebar ul ul.visible {
+.sidebar ul ul.visible, .sidebar ul ul.current_page_ancestor {
   height: auto;
   visibility: visible;
 }
@@ -1288,7 +1294,7 @@ table.advgb-table-frontend th {
 .sidebar .active .open {
   background-image: url("../images/mikkeli-menu-open.png");
 }
-.sidebar .current_page_item > a, .sidebar .page-nav-item.active a {
+.sidebar .current_page_item > a, .sidebar .page-nav-item.active a, .sidebar .current_page_ancestor > a {
   color: #fff;
   background-color: #d94c70;
 }

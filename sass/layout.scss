@@ -55,6 +55,12 @@ body {
       display: inline-block;
       vertical-align: top;
     }
+    .locale-menu {
+      height: 28px;
+      button:focus {
+        outline: 2px solid #000;
+      }
+    }
     .site-search {
       display: block;
       margin-bottom: 1rem;

@@ -26,7 +26,7 @@
         padding: .5rem;
         padding-left: 1rem;
       }
-      &.visible {
+      &.visible, &.current_page_ancestor {
         height: auto;
         visibility: visible;
       }
@@ -61,7 +61,7 @@
   .active .open {
     background-image: url('../images/mikkeli-menu-open.png');
   }
-  .current_page_item > a, .page-nav-item.active a {
+  .current_page_item > a, .page-nav-item.active a, .current_page_ancestor > a {
     color: #fff;
     background-color: #d94c70;
   }
