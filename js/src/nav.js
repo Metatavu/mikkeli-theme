@@ -39,4 +39,13 @@ $(function() {
   $('.current-locale').on('click', function() {
     $('.locale-menu').toggleClass('menu-open');
   });
+
+  /* Search Results FilterTabs */
+  $('.results-filters button').on('click', function() {
+    $('.results-filters button').removeClass('current');
+    $(this).addClass('current');
+    $('.results .results-tab-container').hide();
+    var target = $(this).attr('id');
+    $('.results #'+target).show();
+  });
 });

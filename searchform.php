@@ -1,16 +1,5 @@
 <?php
-use Metatavu\Mikkeli\Theme\Elastic\ResultLoader;
-$resultLoader = new ResultLoader();
-$pages = $resultLoader->load_from_elastic("emolan", "page", 1);
-$posts = $resultLoader->load_from_elastic("emolan", "post", 1);
-$attachments = $resultLoader->load_from_elastic("emolan", "attachment", 1);
-$oppiminen = $resultLoader->load_from_elastic("emolan", "oppiminen", 1);
 
-var_dump($pages);
-var_dump($posts);
-var_dump($attachments);
-var_dump($oppiminen);
-die();
 /**
  * The searchform.php template.
  *
