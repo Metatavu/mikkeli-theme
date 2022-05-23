@@ -55,6 +55,9 @@ get_header(); ?>
 						</div>
 					</div>
 					<?php endforeach; ?>
+					<div class="page-navigation">
+						Edellinen sivu Seuraava sivu
+					</div>
 				</div>
 
 				<div id="posts" class="results-tab-container">

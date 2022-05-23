@@ -1303,6 +1303,11 @@ table.advgb-table-frontend th {
   font-weight: bold;
 }
 
+.page-navigation {
+  margin: 2rem 0;
+  text-align: center;
+}
+
 .sidebar .title {
   font-family: "Cairo", sans-serif;
   font-size: 0.9rem;
