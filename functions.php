@@ -12,6 +12,8 @@ define( 'MIKKELI_VERSION', '2.0.0' );
 define('THEMEROOT', get_stylesheet_directory_uri());
 define('IMAGES', THEMEROOT . '/images');
 
+use Metatavu\Mikkeli\Theme\Elastic\ResultLoader;
+
 /**
  * Enable theme support for essential features
  */
@@ -107,7 +109,12 @@ function mikkeli_scripts() {
 	wp_enqueue_script( 'incidents-script', 'https://cdn.metatavu.io/libs/kunta-api-incidents/0.0.4/incidents.min.js');
   wp_register_script( 'fontawesome', 'https://kit.fontawesome.com/2d8150fc9c.js', array(), false, true); // Load jQuery @ Footer
   wp_enqueue_script( 'fontawesome' );
-  wp_enqueue_script( 'scripts', THEMEROOT . '/js/all.js', array(), MIKKELI_VERSION, true );
+	wp_enqueue_script( 'scripts', THEMEROOT . '/js/all.js', array(), MIKKELI_VERSION, true );
+	global $wp_query;
+	wp_localize_script( 'scripts', 'ajaxpagination', array(
+		'ajaxurl' => admin_url( 'admin-ajax.php' ),
+		'query_vars' => json_encode( $wp_query->query )
+	));
 }
 add_action( 'wp_enqueue_scripts', 'mikkeli_scripts' );
 
@@ -549,3 +556,33 @@ add_action('admin_init', function () {
 	}, 'mikkeli-theme-elastic-options', 'mikkeli-theme-elastic-options');
 	register_setting( 'mikkeli-theme-elastic-options', 'theme_result_placeholder_image');
 });
+
+/* AJAX pagination */
+add_action( 'wp_ajax_nopriv_ajax_pagination', 'pages_ajax_pagination' );
+add_action( 'wp_ajax_ajax_pagination', 'pages_ajax_pagination' );
+
+function pages_ajax_pagination() {
+	$resultLoader = new ResultLoader();
+	$query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
+	$paged = intval($_POST["page"]);
+	$type = $_POST["contentType"];
+	$pages = $resultLoader->load_from_elastic($query_vars['s'], $type, $paged);
+	//var_dump($type);
+
+	if( ! $pages ) { 
+		get_template_part( 'content', 'none' );
+	}
+	else {
+		foreach($pages["results"] as $page): ?>
+			<div class="item">
+				<a title="<?php echo $page["title"]; ?>" href="<?php echo $page["url"]; ?>"><img src="<?php echo $page["image_url"]; ?>" alt="<?php echo $page["title"]; ?>" width="120" height="60" /></a>
+				<div>
+					<p><?php echo date('d.m.Y', strtotime($page["date"])); ?> - <a title="<?php echo $page["title"]; ?>" href="<?php echo $page["url"]; ?>"><?php echo $page["title"]; ?></a></p>
+					<p><?php echo $page["summary"]; ?></p>
+				</div>
+			</div>
+		<?php endforeach;
+	}
+
+	die();
+}

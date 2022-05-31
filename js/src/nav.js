@@ -48,4 +48,82 @@ $(function() {
     var target = $(this).attr('id');
     $('.results #'+target).show();
   });
+  
+  /* Search Results Pagination
+  function find_page_number( element ) {
+    element.find('.page-number span').html();
+    return element;
+  }
+
+  $(document).on( 'click', '#pages .page-navigation a', function( event ) {
+    event.preventDefault();
+
+    page = $('#pages .page-navigation .page-number span').text();
+    console.log(page);
+
+    $.ajax({
+      url: 'http://mikkeli.local/wp-admin/admin-ajax.php',
+      type: 'post',
+      data: {
+        action: 'my_ajax_pagination'
+      },
+      success: function( html ) {
+        console.log(html);
+        //$('#displayResults').find( '.item' ).remove();
+        //$('#displayResults').append( html );
+      }
+    })
+  })*/
+
+  $(document).on( 'click', '.page-navigation a', function( event ) {
+		event.preventDefault();
+    type = $(this).parent().parent().parent().attr('id');
+    cur_page = $('#'+type+' .page-navigation .page-number span').text();
+    number_of_pages = $('#'+type+' .page-navigation .number-of-pages').text();
+    console.log(type);
+
+    if($(this).parent().hasClass('nextpage')) {
+      page = parseInt(cur_page) + 1;
+      cur_page++;
+    } else {
+      page = parseInt(cur_page) - 1;
+      cur_page--;
+    }
+
+    if(cur_page == 1) {
+      $('#'+type+' .page-navigation .prevpage a').contents().unwrap();
+      $('#'+type+' .page-navigation .nextpage').contents().wrap('<a href="#" />');
+    }
+    
+    //console.log(number_of_pages);
+
+    $.ajax({
+			url: ajaxpagination.ajaxurl,
+			type: 'post',
+			data: {
+				action: 'ajax_pagination',
+				query_vars: ajaxpagination.query_vars,
+				page: page,
+        contentType: type
+			},
+      beforeSend: function() {
+        $('#'+type+' #displayResults').find( '#loader' ).remove();
+        $('#'+type+' #displayResults').find( '.item' ).remove();
+        $('#'+type+' #displayResults').append( '<div class="page-content" id="loader"><div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>' );
+      },
+			success: function( html ) {
+				$('#'+type+' #displayResults #loader').remove();
+        $('#'+type+' #displayResults').find('.item').remove();
+				$('#'+type+' #displayResults').append( html );
+        $('#'+type+' .page-navigation .page-number span').text(cur_page);
+        //console.log(cur_page);
+        if(cur_page > 1) {
+          $('#'+type+' .page-navigation .prevpage').contents().wrap('<a href="#" />');
+        }
+        if(cur_page == number_of_pages) {
+          $('#'+type+' .page-navigation .nextpage a').contents().unwrap();
+        }
+			}
+		})
+	})
 });

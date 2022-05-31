@@ -38,9 +38,9 @@ get_header(); ?>
 				if ( $myposts ):
 					foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
 					<article class="post">
-							<a href="<?php the_permalink(); ?>">
+							<a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>">
 								<div class="post-thumb">
-									<?php the_post_thumbnail('post'); ?>
+									<?php if(has_post_thumbnail()) { the_post_thumbnail('post'); } else { ?><img src="<?php echo IMAGES; ?>/mikkeli-default.jpg" alt="<?php the_title(); ?>" /><?php } ?>
 									<span class="entry-time">
 										<time datetime="<?php the_time('c'); ?>">
 											<?php the_time('j.n.Y'); ?>
