@@ -569,10 +569,7 @@ function pages_ajax_pagination() {
 	$pages = $resultLoader->load_from_elastic($query_vars['s'], $type, $paged);
 	//var_dump($type);
 
-	if( ! $pages ) { 
-		get_template_part( 'content', 'none' );
-	}
-	else {
+	if( $pages ) {
 		foreach($pages["results"] as $page): ?>
 			<div class="item">
 				<a title="<?php echo $page["title"]; ?>" href="<?php echo $page["url"]; ?>"><img src="<?php echo $page["image_url"]; ?>" alt="<?php echo $page["title"]; ?>" width="120" height="60" /></a>

@@ -47,7 +47,7 @@ get_header(); ?>
 			<div class="results">
 				<div id="page" class="results-tab-container">
 					<div id="displayResults">
-					<?php foreach($pages["results"] as $page): ?>
+					<?php if($pages["results"]) { foreach($pages["results"] as $page): ?>
 						<div class="item">
 							<a title="<?php echo $page["title"]; ?>" href="<?php echo $page["url"]; ?>"><img src="<?php echo $page["image_url"]; ?>" alt="<?php echo $page["title"]; ?>" width="120" height="60" /></a>
 							<div>
@@ -55,11 +55,11 @@ get_header(); ?>
 								<p><?php echo $page["summary"]; ?></p>
 							</div>
 						</div>
-					<?php endforeach; ?>
+					<?php endforeach; } else { _e('Ei hakutuloksia.', 'mikkeli'); } ?>
 					</div>
 					<?php if($pages["number_of_pages"] > 1): ?>
 					<div class="page-navigation">
-						<span class="prevpage">Edellinen sivu</span> <span class="page-number"><?php _e('Sivu', 'mikkeli'); ?> <span>1</span></span> <span class="nextpage"><a href="">Seuraava sivu</a></span>
+						<span class="prevpage"><?php _e('Edellinen sivu', 'mikkeli'); ?></span> <span class="page-number"><?php _e('Sivu', 'mikkeli'); ?> <span>1</span></span> <span class="nextpage"><a href=""><?php _e('Seuraava sivu', 'mikkeli'); ?></a></span>
 						<span class="number-of-pages"><?php echo $pages["number_of_pages"]; ?></span>
 					</div>
 					<?php endif; ?>
@@ -67,7 +67,7 @@ get_header(); ?>
 
 				<div id="post" class="results-tab-container">
 					<div id="displayResults">
-					<?php foreach($posts["results"] as $post): ?>
+					<?php if($posts["results"]) { foreach($posts["results"] as $post): ?>
 						<div class="item">
 							<a title="<?php echo $post["title"]; ?>" href="<?php echo $post["url"]; ?>"><img src="<?php echo $post["image_url"]; ?>" alt="<?php echo $post["title"]; ?>" width="120" height="60" /></a>
 							<div>
@@ -75,11 +75,11 @@ get_header(); ?>
 								<p><?php echo $post["summary"]; ?></p>
 							</div>
 						</div>
-					<?php endforeach; ?>
+					<?php endforeach; } else { _e('Ei hakutuloksia.', 'mikkeli'); } ?>
 					</div>
 					<?php if($posts["number_of_pages"] > 1): ?>
 					<div class="page-navigation">
-						<span class="prevpage">Edellinen sivu</span> <span class="page-number"><?php _e('Sivu', 'mikkeli'); ?> <span>1</span></span> <span class="nextpage"><a href="">Seuraava sivu</a></span>
+						<span class="prevpage"><?php _e('Edellinen sivu', 'mikkeli'); ?></span> <span class="page-number"><?php _e('Sivu', 'mikkeli'); ?> <span>1</span></span> <span class="nextpage"><a href=""><?php _e('Seuraava sivu', 'mikkeli'); ?></a></span>
 						<span class="number-of-pages"><?php echo $posts["number_of_pages"]; ?></span>
 					</div>
 					<?php endif; ?>
@@ -87,7 +87,7 @@ get_header(); ?>
 
 				<div id="attachment" class="results-tab-container">
 					<div id="displayResults">
-					<?php foreach($attachments["results"] as $attachment): ?>
+					<?php if($attachments["results"]) { foreach($attachments["results"] as $attachment): ?>
 						<div class="item">
 							<a title="<?php echo $attachment["title"]; ?>" href="<?php echo $attachment["url"]; ?>"><img src="<?php echo $attachment["image_url"]; ?>" alt="<?php echo $attachment["title"]; ?>" width="120" height="60" /></a>
 							<div>
@@ -95,11 +95,11 @@ get_header(); ?>
 								<p><?php echo $attachment["summary"]; ?></p>
 							</div>
 						</div>
-					<?php endforeach; ?>
+					<?php endforeach; } else { _e('Ei hakutuloksia.', 'mikkeli'); } ?>
 					</div>
 					<?php if($attachments["number_of_pages"] > 1): ?>
 					<div class="page-navigation">
-						<span class="prevpage">Edellinen sivu</span> <span class="page-number"><?php _e('Sivu', 'mikkeli'); ?> <span>1</span></span> <span class="nextpage"><a href="">Seuraava sivu</a></span>
+						<span class="prevpage"><?php _e('Edellinen sivu', 'mikkeli'); ?></span> <span class="page-number"><?php _e('Sivu', 'mikkeli'); ?> <span>1</span></span> <span class="nextpage"><a href=""><?php _e('Seuraava sivu', 'mikkeli'); ?></a></span>
 						<span class="number-of-pages"><?php echo $attachments["number_of_pages"]; ?></span>
 					</div>
 					<?php endif; ?>
@@ -107,7 +107,7 @@ get_header(); ?>
 
 				<div id="oppiminen" class="results-tab-container">
 					<div id="displayResults">
-					<?php foreach($oppiminen["results"] as $oppiminen_page): ?>
+					<?php if($oppiminen["results"]) { foreach($oppiminen["results"] as $oppiminen_page): ?>
 						<div class="item">
 							<a title="<?php echo $oppiminen_page["title"]; ?>" href="<?php echo $oppiminen_page["url"]; ?>"><img src="<?php echo $oppiminen_page["image_url"]; ?>" alt="<?php echo $oppiminen_page["title"]; ?>" width="120" height="60" /></a>
 							<div>
@@ -115,11 +115,11 @@ get_header(); ?>
 								<p><?php echo $oppiminen_page["summary"]; ?></p>
 							</div>
 						</div>
-					<?php endforeach; ?>
+					<?php endforeach; } else { _e('Ei hakutuloksia.', 'mikkeli'); } ?>
 					</div>
 					<?php if($oppiminen["number_of_pages"] > 1): ?>
 					<div class="page-navigation">
-						<span class="prevpage">Edellinen sivu</span> <span class="page-number"><?php _e('Sivu', 'mikkeli'); ?> <span>1</span></span> <span class="nextpage"><a href="">Seuraava sivu</a></span>
+						<span class="prevpage"><?php _e('Edellinen sivu', 'mikkeli'); ?></span> <span class="page-number"><?php _e('Sivu', 'mikkeli'); ?> <span>1</span></span> <span class="nextpage"><a href=""><?php _e('Seuraava sivu', 'mikkeli'); ?></a></span>
 						<span class="number-of-pages"><?php echo $oppiminen["number_of_pages"]; ?></span>
 					</div>
 					<?php endif; ?>
