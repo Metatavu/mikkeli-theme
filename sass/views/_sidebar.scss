@@ -23,10 +23,10 @@
       visibility: hidden;
       border-bottom: 1px solid #e5e5e5;
       a {
-        padding: .5rem;
+        padding: .25rem .5rem;
         padding-left: 1rem;
       }
-      &.visible, &.current_page_ancestor {
+      &.visible, &.current_page_ancestor ul {
         height: auto;
         visibility: visible;
       }
@@ -37,7 +37,7 @@
     a {
       color: #71767d;
       display: block;
-      padding: .5rem;
+      padding: .25rem 1.5rem .5rem 0;
       border-bottom: 1px solid #e5e5e5;
     }
     li:last-child a {
@@ -61,15 +61,16 @@
   .active .open {
     background-image: url('../images/mikkeli-menu-open.png');
   }
-  .current_page_item > a, .page-nav-item.active a, .current_page_ancestor > a {
+  .current_page_item > a {
     color: #fff;
+    padding-left: .5rem;
     background-color: #d94c70;
   }
-  .current_page_item, .current_page_parent {
+  .current_page_item, .current_page_parent, .current_page_ancestor {
     .open {
       display: none;
     }
-    ul {
+    & > ul {
       height: auto;
       visibility: visible;
       a {
@@ -113,4 +114,9 @@
       max-width: 30%;
     }
   }
+}
+
+.wp-block-columns .wp-block-column:nth-child(even) {
+  background-color: #edeef2;
+  padding: 1rem;
 }

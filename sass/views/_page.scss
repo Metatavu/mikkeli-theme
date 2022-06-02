@@ -11,7 +11,7 @@
   @media screen and (min-width: $container-mobile) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 2rem 1rem;
   }
   .post {
     background-color: #f7f7f7;
@@ -164,8 +164,8 @@
   .container {
     @media screen and (min-width: $container-mobile) {
       display: grid;
-      grid-template-columns: 20% 75%;
-      gap: 5%;
+      grid-template-columns: 22% 75%;
+      gap: 3%;
     }
   }
   &.full-width .container {
@@ -175,6 +175,10 @@
 
 .site-main h1 {
   color: #71767d;
+}
+.site-main ul {
+  margin-left: 1.5rem;
+  list-style-type: square;
 }
 
 .fa-angle-right {
@@ -345,5 +349,13 @@
   }
   .number-of-pages {
     visibility: hidden;
+  }
+}
+
+.page-image {
+  margin-bottom: 1.5rem;
+  img {
+    width: 100%;
+    height: auto;
   }
 }

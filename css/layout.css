@@ -966,6 +966,7 @@ table.advgb-table-frontend th {
 .hero-slides .slide .hero__content {
   z-index: 1;
   -ms-grid-row: 1;
+  grid-row: 1;
   grid-area: 1/-1;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -987,6 +988,7 @@ table.advgb-table-frontend th {
 }
 .hero-slides .slide img {
   -ms-grid-row: 1;
+  grid-row: 1;
   grid-area: 1/-1;
   -o-object-fit: cover;
      object-fit: cover;
@@ -1096,9 +1098,9 @@ table.advgb-table-frontend th {
   .articles-container {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr 2rem 1fr;
+    -ms-grid-columns: 1fr 1rem 1fr;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 2rem 1rem;
   }
 }
 .articles-container .post {
@@ -1253,9 +1255,9 @@ table.advgb-table-frontend th {
   .site-content .container {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 20% 5% 75%;
-    grid-template-columns: 20% 75%;
-    gap: 5%;
+    -ms-grid-columns: 22% 3% 75%;
+    grid-template-columns: 22% 75%;
+    gap: 3%;
   }
 }
 .site-content.full-width .container {
@@ -1264,6 +1266,11 @@ table.advgb-table-frontend th {
 
 .site-main h1 {
   color: #71767d;
+}
+
+.site-main ul {
+  margin-left: 1.5rem;
+  list-style-type: square;
 }
 
 .fa-angle-right {
@@ -1453,6 +1460,14 @@ table.advgb-table-frontend th {
   visibility: hidden;
 }
 
+.page-image {
+  margin-bottom: 1.5rem;
+}
+.page-image img {
+  width: 100%;
+  height: auto;
+}
+
 .sidebar .title {
   font-family: "Cairo", sans-serif;
   font-size: 0.9rem;
@@ -1481,10 +1496,10 @@ table.advgb-table-frontend th {
   border-bottom: 1px solid #e5e5e5;
 }
 .sidebar ul ul a {
-  padding: 0.5rem;
+  padding: 0.25rem 0.5rem;
   padding-left: 1rem;
 }
-.sidebar ul ul.visible, .sidebar ul ul.current_page_ancestor {
+.sidebar ul ul.visible, .sidebar ul ul.current_page_ancestor ul {
   height: auto;
   visibility: visible;
 }
@@ -1494,7 +1509,7 @@ table.advgb-table-frontend th {
 .sidebar ul a {
   color: #71767d;
   display: block;
-  padding: 0.5rem;
+  padding: 0.25rem 1.5rem 0.5rem 0;
   border-bottom: 1px solid #e5e5e5;
 }
 .sidebar ul li:last-child a {
@@ -1517,18 +1532,19 @@ table.advgb-table-frontend th {
 .sidebar .active .open {
   background-image: url("../images/mikkeli-menu-open.png");
 }
-.sidebar .current_page_item > a, .sidebar .page-nav-item.active a, .sidebar .current_page_ancestor > a {
+.sidebar .current_page_item > a {
   color: #fff;
+  padding-left: 0.5rem;
   background-color: #d94c70;
 }
-.sidebar .current_page_item .open, .sidebar .current_page_parent .open {
+.sidebar .current_page_item .open, .sidebar .current_page_parent .open, .sidebar .current_page_ancestor .open {
   display: none;
 }
-.sidebar .current_page_item ul, .sidebar .current_page_parent ul {
+.sidebar .current_page_item > ul, .sidebar .current_page_parent > ul, .sidebar .current_page_ancestor > ul {
   height: auto;
   visibility: visible;
 }
-.sidebar .current_page_item ul a, .sidebar .current_page_parent ul a {
+.sidebar .current_page_item > ul a, .sidebar .current_page_parent > ul a, .sidebar .current_page_ancestor > ul a {
   padding-left: 1rem;
 }
 .sidebar .page_item_has_children.active > a {
@@ -1570,6 +1586,11 @@ table.advgb-table-frontend th {
   .site-main.with-sidebar-column .sidebar-column {
     max-width: 30%;
   }
+}
+
+.wp-block-columns .wp-block-column:nth-child(even) {
+  background-color: #edeef2;
+  padding: 1rem;
 }
 
 .pagination {
@@ -2063,7 +2084,7 @@ input[type=submit] {
   background-color: #234c8e;
   color: #fff;
   font-weight: 700;
-  padding: 4rem 2rem;
+  padding: 4rem 2rem 2rem;
 }
 .site-footer a {
   color: #fff;
