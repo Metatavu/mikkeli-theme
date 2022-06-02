@@ -168,8 +168,25 @@ get_header(); ?>
 			<div class="col announcements-block">
 			  <div class="icon"></div>
 				<h4><?php _e('Kuulutukset', 'mikkeli'); ?></h4>
-				<p>[feed]</p>
-				<p><a title="<?php _e('Katso kaikki', 'mikkeli'); ?>" class="all-link" href="<?php echo home_url( '/' ); ?>kuulutukset"><?php _e('Katso kaikki', 'mikkeli'); ?></a></p>
+				<ul>
+				<?php
+				$feed = new DOMDocument();
+				$feed->load('https://mikkeli.cloudnc.fi/fi-FI/genericrss/?n=23&contentlan=1&templateid=74&d=1&itemcount=5');
+				$json = array();
+				$items = $feed->getElementsByTagName('channel')->item(0)->getElementsByTagName('item');
+
+				foreach($items as $key => $item) {
+					echo '<li>';
+					$title = $item->getElementsByTagName('title')->item(0)->firstChild->nodeValue;
+					$pubDate = $item->getElementsByTagName('pubDate')->item(0)->firstChild->nodeValue;
+					$link = $item->getElementsByTagName('link')->item(0)->firstChild->nodeValue;
+					echo '<a href="'.$link.'">'.$title.'</a><br />';
+					echo date("j.n.Y", strtotime($pubDate));;
+					echo '</li>';
+				}
+        ?>
+				</ul>
+				<p><a title="<?php _e('Katso kaikki', 'mikkeli'); ?>" class="all-link" href="https://mikkeli.cloudnc.fi/fi-FI/Kuulutukset"><?php _e('Katso kaikki', 'mikkeli'); ?></a></p>
 			</div>
 		</div>
 	</section>

@@ -257,6 +257,18 @@
       .icon {
         background-image: url('../images/mikkeli-kuulutukset-icon.png');
       }
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+          margin-bottom: 1rem;
+          a {
+            font-weight: 600;
+            font-family: $headings;
+          }
+        }
+      }
     }
   }
 }
