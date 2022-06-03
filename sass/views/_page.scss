@@ -175,6 +175,7 @@
 
 .site-main h1 {
   color: #71767d;
+  font-size: clamp(1.75rem, 2vw + 1rem, 3rem);
 }
 .site-main ul {
   margin-left: 1.5rem;

@@ -47,12 +47,19 @@
   background-size: cover;
   background-position: top center;
   display: grid;
-  grid-template-columns: 35% 30% 35%;
+  grid-template-columns: 1fr;
+  @media screen and (min-width: $container-mobile) {
+    grid-template-columns: 35% 30% 35%;
+  }
   .left {
     background-image: url('../images/img4.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
+    display: none;
+    @media screen and (min-width: $container-mobile) {
+      display: block;
+    }
   }
   .title {
     background-color: #58ab51;
@@ -75,5 +82,9 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
+    display: none;
+    @media screen and (min-width: $container-mobile) {
+      display: block;
+    }
   }
 }
