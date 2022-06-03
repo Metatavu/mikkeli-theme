@@ -110,6 +110,12 @@ function mikkeli_scripts() {
   wp_register_script( 'fontawesome', 'https://kit.fontawesome.com/2d8150fc9c.js', array(), false, true); // Load jQuery @ Footer
   wp_enqueue_script( 'fontawesome' );
 	wp_enqueue_script( 'scripts', THEMEROOT . '/js/all.js', array(), MIKKELI_VERSION, true );
+	wp_enqueue_script( 'jquery-ui-autocomplete' );
+	wp_register_style( 'jquery-ui-styles','http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' );
+	wp_enqueue_style( 'jquery-ui-styles' );
+	wp_register_script( 'mikkeli-autocomplete', get_template_directory_uri() . '/js/mikkeli-autocomplete.js', array( 'jquery', 'jquery-ui-autocomplete' ), '1.0', false );
+	wp_localize_script( 'mikkeli-autocomplete', 'MyAutocomplete', array( 'url' => admin_url( 'admin-ajax.php' ) ) );
+	wp_enqueue_script( 'mikkeli-autocomplete' );
 	global $wp_query;
 	wp_localize_script( 'scripts', 'ajaxpagination', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
@@ -583,3 +589,30 @@ function pages_ajax_pagination() {
 
 	die();
 }
+
+function mikkeli_live_search() {
+	$term = strtolower( $_GET['s'] );
+	$suggestions = array();
+	
+	$resultLoader = new ResultLoader();
+	$pages = $resultLoader->load_from_elastic($term, "page", 1);
+	$posts = $resultLoader->load_from_elastic($term, "post", 1);
+	$attachments = $resultLoader->load_from_elastic($term, "attachment", 1);
+	$oppiminen = $resultLoader->load_from_elastic($term, "oppiminen", 1);
+
+	$res = array_merge($pages["results"], $posts["results"], $attachments["results"], $oppiminen["results"]);
+
+	foreach($res as $page) {
+		$suggestions[] = [
+			'label' => $page["title"],
+			'link' => $page["url"],
+		];
+	}
+	
+	echo json_encode($suggestions);
+	wp_die();
+
+}
+
+add_action( 'wp_ajax_mikkeli_live_search', 'mikkeli_live_search' );
+add_action( 'wp_ajax_nopriv_mikkeli_live_search', 'mikkeli_live_search' );
