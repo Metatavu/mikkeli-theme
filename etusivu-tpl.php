@@ -20,7 +20,11 @@ get_header(); ?>
 			<div class="hero__content">
 				<h1>Live like<br />Mikkeli.</h1>
 			</div>
-			<img src="<?php echo IMAGES; ?>/hero.jpg" alt="" />
+			<?php if(has_post_thumbnail()) { ?>
+				<?php the_post_thumbnail('full'); ?>
+			<?php } else { ?>
+				<img src="<?php echo IMAGES; ?>/hero.jpg" alt="" />
+			<?php } ?>
 		</div>
 	</div>
 

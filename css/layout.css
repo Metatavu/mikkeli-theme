@@ -1207,7 +1207,7 @@ table.advgb-table-frontend th {
   color: #000;
 }
 .articles-container img {
-  max-width: 100%;
+  width: 100%;
   height: 15rem;
   -o-object-fit: cover;
      object-fit: cover;
