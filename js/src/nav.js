@@ -101,4 +101,9 @@ $(function() {
       }
     }
   })*/
+  /* AccordionTabs */
+  $('.accessibility-sentences button').on('click', function() {
+    $(this).toggleClass('closed');
+    $(this).parent().toggleClass('visible');
+  });
 });

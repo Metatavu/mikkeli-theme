@@ -43,3 +43,52 @@
     }
   }
 }
+
+/* Accordion */
+.site-main .accessibility-sentences .accessibility-sentence {
+  border-top: 1px solid #d3d3d3;
+  padding: 1rem .5rem 0;
+  &:last-child {
+    border-bottom: 1px solid #d3d3d3;
+  }
+  ul {
+    padding-left: 1rem;
+  }
+  .content {
+    display: none;
+  }
+  &.visible {
+    .content {
+      display: block;
+    }
+  }
+}
+.site-main .accessibility-sentences .accessibility-sentence button {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  background-color: rgba(0,0,0,0);
+  border: 0;
+  text-align: left;
+  margin-bottom: .5rem;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  &::before {
+    content: "";
+    width: 34px;
+    height: 24px;
+    position: relative;
+    top: -3px;
+    background-image: url('../images/mikkeli-menu-open.png');
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  &.closed::before {
+    background-image: url('../images/mikkeli-menu-closed.png');
+  }
+}
+.site-main .accessibility-sentences .accessibility-sentence .button-text {
+  color: #54575a;
+  font-weight: 700;
+}

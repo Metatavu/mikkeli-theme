@@ -453,7 +453,18 @@ function mikkeli_acf_init_block_types() {
 			'icon'              => 'admin-post',
 			'mode'							=> 'auto',
 			'keywords'          => array( 'uutiset', 'news' ),
-	));
+		));
+		// register accordion block.
+		acf_register_block_type(array(
+			'name'              => 'accordion',
+			'title'             => __('Näytä/piilota sisältö'),
+			'description'       => __('Klikkauksella näkyviin aukeava sisältö'),
+			'render_template'   => 'template-parts/blocks/accordion/accordion.php',
+			'category'          => 'common',
+			'icon'              => 'menu',
+			'mode'							=> 'edit',
+			'keywords'          => array( 'accordion', 'nayta', 'piilota' ),
+		));
 	}
 }
 
