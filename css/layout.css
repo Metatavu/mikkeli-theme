@@ -1160,6 +1160,16 @@ table.advgb-table-frontend th {
   text-transform: none;
 }
 
+.home .breadcrumbs {
+  display: block;
+}
+.home .breadcrumbs .navigation {
+  display: none;
+}
+.home .breadcrumbs .rs_skip {
+  float: right;
+}
+
 .front-content .container {
   margin: 0 auto 4rem;
 }

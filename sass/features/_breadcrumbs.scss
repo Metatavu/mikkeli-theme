@@ -28,3 +28,13 @@
     text-transform: none;
   }
 }
+
+.home .breadcrumbs {
+  display: block;
+  .navigation {
+    display: none;
+  }
+  .rs_skip {
+    float: right;
+  }
+}

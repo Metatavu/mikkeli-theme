@@ -73,10 +73,10 @@ $mikkeli_aria_label = ! empty( $args['aria_label'] ) ? 'aria-label="' . esc_attr
 					<div class="nav-quick-icons">
 						<a class="map-link" href="https://kartta.mikkeli.fi/kartta/" title="Mikkeli kartta" target="_blank"><span class="fa fa-map-marker" aria-hidden="true"></span></a>
 						<div class="locale-menu">
-							<button class="current-locale" title="Vaihda kieli">fi</button>
-							<a title="Vaihda kieli fi" href="/?locale=fi">fi</a>
-							<a title="Vaihda kieli sv" href="/sisalto/pa-svenska?locale=sv">sv</a>
-							<a title="Vaihda kieli en" href="/sisalto/in-english?locale=en">en</a>
+							<button class="current-locale" title="<?php _e('Vaihda kieli', 'mikkeli'); ?>"><?php echo pll_current_language( 'slug' ); ?></button>
+							<a title="<?php _e('Vaihda kieli', 'mikkeli'); ?> fi" href="<?php echo pll_home_url( 'fi' ); ?>">fi</a>
+							<a title="<?php _e('Vaihda kieli', 'mikkeli'); ?> sv" href="<?php echo pll_home_url( 'sv' ); ?>">sv</a>
+							<a title="<?php _e('Vaihda kieli', 'mikkeli'); ?> en" href="<?php echo pll_home_url( 'en' ); ?>">en</a>
 						</div>
 					</div>
 				</div>
