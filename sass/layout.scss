@@ -28,6 +28,8 @@ body {
   * Header
   */
 .site-header {
+  position: relative;
+  z-index: 200;
   .site-branding {
     margin: 1rem 0;
     @media screen and (min-width: $container-mobile) {

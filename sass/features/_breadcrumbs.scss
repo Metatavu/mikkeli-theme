@@ -4,15 +4,22 @@
   width: 100%;
   max-width: $container-desktop;
   text-transform: uppercase;
+  font-size: .875rem;
   @media screen and (min-width: $container-mobile) {
     display: grid;
     grid-template-columns: 70% 30%;
+  }
+  a {
+    color: #464646;
   }
   .navigation {
     margin-bottom: .5rem;
     @media screen and (min-width: $container-mobile) {
       margin-bottom: 0;
     }
+  }
+  span {
+    display: inline-block;
   }
   .sep {
     margin: 0 .5rem;

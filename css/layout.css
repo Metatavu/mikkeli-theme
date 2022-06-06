@@ -643,6 +643,52 @@ table.advgb-table-frontend th {
             transform: scale(1.5);
   }
 }
+.ui-autocomplete {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  float: left;
+  display: none;
+  min-width: 160px;
+  padding: 4px 0;
+  margin: 0 0 10px 25px;
+  list-style: none;
+  background-color: #ffffff;
+  border-color: #ccc;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-style: solid;
+  border-width: 1px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+}
+
+.ui-menu-item > a.ui-corner-all {
+  display: block;
+  padding: 3px 15px;
+  clear: both;
+  font-weight: normal;
+  line-height: 18px;
+  color: #555555;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.ui-state-hover, .ui-state-active {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #0088cc;
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  background-image: none;
+}
+
 .cf:before,
 .cf:after {
   content: " ";
@@ -668,6 +714,10 @@ table.advgb-table-frontend th {
 /**
   * Header
   */
+.site-header {
+  position: relative;
+  z-index: 200;
+}
 .site-header .site-branding {
   margin: 1rem 0;
 }
@@ -1079,6 +1129,7 @@ table.advgb-table-frontend th {
   width: 100%;
   max-width: 71.25rem;
   text-transform: uppercase;
+  font-size: 0.875rem;
 }
 @media screen and (min-width: 40rem) {
   .breadcrumbs {
@@ -1088,6 +1139,9 @@ table.advgb-table-frontend th {
     grid-template-columns: 70% 30%;
   }
 }
+.breadcrumbs a {
+  color: #464646;
+}
 .breadcrumbs .navigation {
   margin-bottom: 0.5rem;
 }
@@ -1095,6 +1149,9 @@ table.advgb-table-frontend th {
   .breadcrumbs .navigation {
     margin-bottom: 0;
   }
+}
+.breadcrumbs span {
+  display: inline-block;
 }
 .breadcrumbs .sep {
   margin: 0 0.5rem;
@@ -1289,6 +1346,13 @@ table.advgb-table-frontend th {
 .site-main h1 {
   color: #71767d;
   font-size: clamp(1.75rem, 2vw + 1rem, 3rem);
+}
+
+.site-main h3 {
+  font-family: "Cairo", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  padding-bottom: 0.5rem;
 }
 
 .site-main ul {
@@ -1503,6 +1567,13 @@ table.advgb-table-frontend th {
   height: auto;
 }
 
+.black-border table {
+  border: 1px solid grey;
+}
+.black-border table td {
+  border: 1px solid grey;
+}
+
 .sidebar .title {
   font-family: "Cairo", sans-serif;
   font-size: 0.9rem;
@@ -1547,9 +1618,6 @@ table.advgb-table-frontend th {
   padding: 0.25rem 1.5rem 0.5rem 0;
   border-bottom: 1px solid #e5e5e5;
 }
-.sidebar ul li:last-child a {
-  border-bottom: none;
-}
 .sidebar .open {
   position: absolute;
   top: 0.5rem;
@@ -1572,7 +1640,7 @@ table.advgb-table-frontend th {
   padding-left: 0.5rem;
   background-color: #d94c70;
 }
-.sidebar .current_page_item .open, .sidebar .current_page_parent .open, .sidebar .current_page_ancestor .open {
+.sidebar .current_page_item > a .open {
   display: none;
 }
 .sidebar .current_page_item > ul, .sidebar .current_page_parent > ul, .sidebar .current_page_ancestor > ul {
@@ -1581,6 +1649,9 @@ table.advgb-table-frontend th {
 }
 .sidebar .current_page_item > ul a, .sidebar .current_page_parent > ul a, .sidebar .current_page_ancestor > ul a {
   padding-left: 1rem;
+}
+.sidebar .current_page_item > ul ul a, .sidebar .current_page_parent > ul ul a, .sidebar .current_page_ancestor > ul ul a {
+  padding-left: 1.5rem;
 }
 .sidebar .page_item_has_children.active > a {
   border-bottom: 1px solid #e5e5e5;

@@ -177,6 +177,12 @@
   color: #71767d;
   font-size: clamp(1.75rem, 2vw + 1rem, 3rem);
 }
+.site-main h3 {
+  font-family: $headings;
+  font-weight: 700;
+  font-size: 1.25rem;
+  padding-bottom: .5rem;
+}
 .site-main ul {
   margin-left: 1.5rem;
   list-style-type: square;
@@ -370,5 +376,12 @@
   img {
     width: 100%;
     height: auto;
+  }
+}
+
+.black-border table {
+  border: 1px solid grey;
+  td {
+    border: 1px solid grey;
   }
 }
