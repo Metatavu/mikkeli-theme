@@ -9,7 +9,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package haaja
+ * @package mikkeli
  */
 
 get_header(); ?>
@@ -24,6 +24,8 @@ get_header(); ?>
 		<div class="container">
 			<main class="site-main">
 
+			<h1><?php _e('Uutiset', 'mikkeli'); ?></h1>
+
 			<?php
 			if ( have_posts() ) : ?>
 
@@ -34,13 +36,19 @@ get_header(); ?>
 				</header>
 
 			<?php endif; ?>
-
+			<div class="posts-list">
 				<?php while ( have_posts() ) : the_post(); ?>
-					<?php get_template_part( 'template-parts/content', 'single'); ?>
+				<div class="item">
+					<a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumb') ?></a>
+					<div>
+						<p><?php the_time('j.n.Y'); ?> - <a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+						<p><?php the_excerpt(); ?></p>
+					</div>
+				</div>
+				<?php endwhile; ?>
+			</div>
 
-				<?php endwhile;
-
-				kriesi_pagination();
+			<?php kriesi_pagination();
 
 			else : ?>
 
