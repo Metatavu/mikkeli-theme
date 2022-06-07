@@ -29,13 +29,19 @@ get_header(); ?>
 					?>
 				</header><!-- .page-header -->
 
-				<?php while ( have_posts() ) : the_post(); ?>
+				<div class="posts-list">
+					<?php while ( have_posts() ) : the_post(); ?>
+					<div class="item">
+						<a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php if(has_post_thumbnail()) { the_post_thumbnail('thumb'); } else { ?><img src="<?php echo IMAGES; ?>/mikkeli-logo.png" alt="<?php the_title(); ?>" /><?php } ?></a>
+						<div>
+							<p><?php the_time('j.n.Y'); ?> - <a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+							<p><?php the_excerpt(); ?></p>
+						</div>
+					</div>
+					<?php endwhile; ?>
+				</div>
 
-					<?php get_template_part( 'template-parts/content', 'single' ); ?>
-
-				<?php endwhile;
-
-				kriesi_pagination();
+				<?php kriesi_pagination();
 
 				else : ?>
 

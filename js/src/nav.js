@@ -69,38 +69,37 @@ $(function() {
       $('#'+type+' .page-navigation .prevpage a').contents().unwrap();
       $('#'+type+' .page-navigation .nextpage').contents().wrap('<a href="#" />');
     }
-	});
 
-  /* AJAX Live Search */
-  /*
-  $.ajax({
-    url: ajaxpagination.ajaxurl,
-    type: 'post',
-    data: {
-      action: 'ajax_pagination',
-      query_vars: ajaxpagination.query_vars,
-      page: page,
-      contentType: type
-    },
-    beforeSend: function() {
-      $('#'+type+' #displayResults').find( '#loader' ).remove();
-      $('#'+type+' #displayResults').find( '.item' ).remove();
-      $('#'+type+' #displayResults').append( '<div class="page-content" id="loader"><div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>' );
-    },
-    success: function( html ) {
-      $('#'+type+' #displayResults #loader').remove();
-      $('#'+type+' #displayResults').find('.item').remove();
-      $('#'+type+' #displayResults').append( html );
-      $('#'+type+' .page-navigation .page-number span').text(cur_page);
-      //console.log(cur_page);
-      if(cur_page > 1) {
-        $('#'+type+' .page-navigation .prevpage').contents().wrap('<a href="#" />');
+    $.ajax({
+      url: ajaxpagination.ajaxurl,
+      type: 'post',
+      data: {
+        action: 'ajax_pagination',
+        query_vars: ajaxpagination.query_vars,
+        page: page,
+        contentType: type
+      },
+      beforeSend: function() {
+        $('#'+type+' #displayResults').find( '#loader' ).remove();
+        $('#'+type+' #displayResults').find( '.item' ).remove();
+        $('#'+type+' #displayResults').append( '<div class="page-content" id="loader"><div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>' );
+      },
+      success: function( html ) {
+        $('#'+type+' #displayResults #loader').remove();
+        $('#'+type+' #displayResults').find('.item').remove();
+        $('#'+type+' #displayResults').append( html );
+        $('#'+type+' .page-navigation .page-number span').text(cur_page);
+        //console.log(cur_page);
+        if(cur_page > 1) {
+          $('#'+type+' .page-navigation .prevpage').contents().wrap('<a href="#" />');
+        }
+        if(cur_page == number_of_pages) {
+          $('#'+type+' .page-navigation .nextpage a').contents().unwrap();
+        }
       }
-      if(cur_page == number_of_pages) {
-        $('#'+type+' .page-navigation .nextpage a').contents().unwrap();
-      }
-    }
-  })*/
+    });
+  })
+
   /* AccordionTabs */
   $('.accessibility-sentences button').on('click', function() {
     $(this).toggleClass('closed');

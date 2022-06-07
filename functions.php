@@ -110,12 +110,12 @@ function mikkeli_scripts() {
   wp_register_script( 'fontawesome', 'https://kit.fontawesome.com/2d8150fc9c.js', array(), false, true); // Load jQuery @ Footer
   wp_enqueue_script( 'fontawesome' );
 	wp_enqueue_script( 'scripts', THEMEROOT . '/js/all.js', array(), MIKKELI_VERSION, true );
-	wp_enqueue_script( 'jquery-ui-autocomplete' );
-	wp_register_style( 'jquery-ui-styles','https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' );
-	wp_enqueue_style( 'jquery-ui-styles' );
-	wp_register_script( 'mikkeli-autocomplete', get_template_directory_uri() . '/js/mikkeli-autocomplete.js', array( 'jquery', 'jquery-ui-autocomplete' ), '1.0', false );
-	wp_localize_script( 'mikkeli-autocomplete', 'MyAutocomplete', array( 'url' => admin_url( 'admin-ajax.php' ) ) );
-	wp_enqueue_script( 'mikkeli-autocomplete' );
+	//wp_enqueue_script( 'jquery-ui-autocomplete' );
+	//wp_register_style( 'jquery-ui-styles','https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' );
+	//wp_enqueue_style( 'jquery-ui-styles' );
+	//wp_register_script( 'mikkeli-autocomplete', get_template_directory_uri() . '/js/mikkeli-autocomplete.js', array( 'jquery', 'jquery-ui-autocomplete' ), '1.0', false );
+	//wp_localize_script( 'mikkeli-autocomplete', 'MyAutocomplete', array( 'url' => admin_url( 'admin-ajax.php' ) ) );
+	//wp_enqueue_script( 'mikkeli-autocomplete' );
 	global $wp_query;
 	wp_localize_script( 'scripts', 'ajaxpagination', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
@@ -178,14 +178,14 @@ function kriesi_pagination($pages = '', $range = 2)
 function mikkeli_breadcrumbs() {
 
 	/* === OPTIONS === */
-	$text['home']     = 'Etusivu'; // text for the 'Home' link
-	$text['category'] = 'Arkisto "%s"'; // text for a category page
-	$text['search']   = 'Hakutulokset hakusanalle "%s"'; // text for a search results page
-	$text['tag']      = 'Kirjoitukset avainsanalla "%s"'; // text for a tag page
-	$text['author']   = 'Kirjoittajan %s julkaisut'; // text for an author page
-	$text['404']      = 'Virhe 404'; // text for the 404 page
-	$text['page']     = 'Sivu %s'; // text 'Page N'
-	$text['cpage']    = 'Kommenttisivu %s'; // text 'Comment Page N'
+	$text['home']     = __('Etusivu', 'mikkeli'); // text for the 'Home' link
+	$text['category'] = __('Arkisto "%s"', 'mikkeli'); // text for a category page
+	$text['search']   = __('Hakutulokset hakusanalle "%s"', 'mikkeli'); // text for a search results page
+	$text['tag']      = __('Kirjoitukset avainsanalla "%s"', 'mikkeli'); // text for a tag page
+	$text['author']   = __('Kirjoittajan %s julkaisut', 'mikkeli'); // text for an author page
+	$text['404']      = __('Virhe 404', 'mikkeli'); // text for the 404 page
+	$text['page']     = __('Sivu %s', 'mikkeli'); // text 'Page N'
+	$text['cpage']    = __('Kommenttisivu %s', 'mikkeli'); // text 'Comment Page N'
 
 	$wrap_before    = '<div class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList"><div class="navigation">'; // the opening wrapper tag
 	$wrap_after     = '</div><div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve"><a rel="nofollow" class="rsbtn_play" accesskey="L" title="Kuuntele ReadSpeaker webReaderilla" href="//app-eu.readspeaker.com/cgi-bin/rsent?customerid=8419&amp;readclass=entry-content&amp;lang=fi_FI&amp;url='.get_permalink( get_the_ID() ).'"><span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span>Kuuntele</span></span></span><span class="rsbtn_right rsimg rsplay rspart"></span></a></div></div><!-- .breadcrumbs -->'; // the closing wrapper tag
