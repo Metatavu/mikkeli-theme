@@ -627,3 +627,14 @@ function mikkeli_live_search() {
 
 add_action( 'wp_ajax_mikkeli_live_search', 'mikkeli_live_search' );
 add_action( 'wp_ajax_nopriv_mikkeli_live_search', 'mikkeli_live_search' );
+
+// Hide pages with no edit permissions
+add_action('admin_head', 'mikkeli_custom_css');
+
+function mikkeli_custom_css() {
+  echo '<style>
+	 .cms_tpv_user_can_edit_page_no {
+		 display: none!important;
+	 }
+  </style>';
+}
