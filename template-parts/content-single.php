@@ -30,6 +30,12 @@
       endif; ?>
     </header><!-- .entry-header -->
 
+    <?php if(has_post_thumbnail()): ?>
+    <div class="page-image">
+      <?php the_post_thumbnail('page-img'); ?>
+    </div>
+    <?php endif; ?>
+
     <div class="entry-content">
       <?php
         the_content( sprintf(

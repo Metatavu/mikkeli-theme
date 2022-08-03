@@ -520,7 +520,7 @@ function wpdocs_search_reusable_blocks_within_innerblocks( $blocks, $block_name 
 }
 
 /**
- * Settings
+ * Settings - Elastic
  */
 add_action('admin_menu', function () {
   $title = __('Elastic settings', 'mikkeli-react-theme');
@@ -572,6 +572,32 @@ add_action('admin_init', function () {
 		echo "<input style='width: 600px;' type='url' name='theme_result_placeholder_image' value='$resultPlaceholderImage'/>";
 	}, 'mikkeli-theme-elastic-options', 'mikkeli-theme-elastic-options');
 	register_setting( 'mikkeli-theme-elastic-options', 'theme_result_placeholder_image');
+});
+
+/**
+ * Settings - Google Analytics
+ */
+add_action('admin_menu', function () {
+  $title = __('Google Analytics', 'mikkeli');
+  add_theme_page($title, $title, 'edit_theme_options', 'mikkeli-ga-options', function () {
+		echo '<div class="wrap">';
+		echo "<h1>$title</h1>";
+		echo '<form method="post" action="options.php">';
+		settings_fields("mikkeli-ga-options");
+		do_settings_sections("mikkeli-ga-options");
+		submit_button();
+		echo '</form>';
+		echo '</div>';
+	});
+});
+add_action('admin_init', function () {
+	$ga_id = __('Google Analytics ID', 'mikkeli');
+	add_settings_section('mikkeli-ga-options', null, null, 'mikkeli-ga-options');
+	add_settings_field('mikkeli_google_analytics', $ga_id, function () {
+		$analytics_code = get_option('mikkeli_google_analytics');
+		echo "<input style='width: 600px;' type='text' name='mikkeli_google_analytics' value='$analytics_code'/>";
+	}, 'mikkeli-ga-options', 'mikkeli-ga-options');
+	register_setting( 'mikkeli-ga-options', 'mikkeli_google_analytics');
 });
 
 /* AJAX pagination */

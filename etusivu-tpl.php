@@ -35,7 +35,7 @@ get_header(); ?>
 				<?php
 				global $post;
 				$myposts = get_posts( array(
-					'posts_per_page' => 4,
+					'posts_per_page' => 6,
 					'post_type' => 'post'
 				) );
 				
@@ -63,7 +63,7 @@ get_header(); ?>
 				<?php
 				global $post;
 				$myposts = get_posts( array(
-					'offset' => 4,
+					'offset' => 6,
 					'posts_per_page' => 3,
 					'post_type' => 'post'
 				) );
@@ -167,7 +167,7 @@ get_header(); ?>
 						}
 					}
 				?>
-				<p><a title="<?php _e('Katso kaikki', 'mikkeli'); ?>" class="all-link" href="<?php echo home_url( '/' ); ?>tyot"><?php _e('Katso kaikki', 'mikkeli'); ?></a></p>
+				<p><a title="<?php _e('Katso kaikki', 'mikkeli'); ?>" class="all-link" href="https://www.kuntarekry.fi/fi/tyopaikat/?&organisation=3677&lang=fi_FI,sv_SE&sort=-changetime&limit=500"><?php _e('Katso kaikki', 'mikkeli'); ?></a></p>
 			</div>
 			<div class="col announcements-block">
 			  <div class="icon"></div>
