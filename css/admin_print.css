@@ -1,0 +1,26 @@
+@media print {
+  #adminmenumain, #wpadminbar, #wpfooter, .print-user-info-btn, #screen-meta-links, .page-title-action, .search-box, .tablenav.top, .tablenav.bottom, .subsubsub,.actions.bulkactions, .alignleft.actions, #user-expass, .user-expass, #pp_exceptions, .pp_exceptions, .check-column, .avatar, .si-toggle-container {
+    display: none!important;
+  }
+  #wpcontent {
+    margin-left: 0;
+  }
+}
+
+/* Print Users Button */
+.print-user-info-btn button {
+  border: 1px solid #135891;
+  border-top: none;
+  height: auto;
+  margin: 0 .25rem 0 0;
+  padding: 3px 9px;
+  background: #2271b1;
+  border-radius: 0 0 4px 4px;
+  color: #fff;
+  line-height: 1.7;
+  cursor: pointer;
+  float: right;
+}
+.print-user-info-btn button:hover {
+  background-color: #307dbb;
+}

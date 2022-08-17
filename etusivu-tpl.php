@@ -16,16 +16,22 @@
 get_header(); ?>
 
 	<div class="hero-slides">
-		<div class="slide">
-			<div class="hero__content">
-				<h1>Live like<br />Mikkeli.</h1>
-			</div>
-			<?php if(has_post_thumbnail()) { ?>
-				<?php the_post_thumbnail('full'); ?>
-			<?php } else { ?>
-				<img src="<?php echo IMAGES; ?>/hero.jpg" alt="" />
-			<?php } ?>
+		<div class="hero__content">
+			<?php if(get_field('hero_title')): ?><h1><?php the_field('hero_title'); ?><?php endif; ?>
 		</div>
+		<?php $images = get_field('heroslides'); if( $images ) { ?>
+		<ul class="slides">
+			<?php foreach( $images as $image ): ?>
+				<li>
+					<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+				</li>
+			<?php endforeach; ?>
+		</ul>
+		<?php } elseif(has_post_thumbnail()) { ?>
+			<?php the_post_thumbnail('full', array('class' => 'hero-img')); ?>
+		<?php } else { ?>
+			<img class="hero-img" src="<?php echo IMAGES; ?>/hero.jpg" alt="" />
+		<?php } ?>
 	</div>
 
 	<section id="content" class="front-content">

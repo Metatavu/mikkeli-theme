@@ -101,12 +101,13 @@ add_action( 'wp_head', 'mikkeli_pingback_header' );
  * Enqueue scripts and styles.
  */
 function mikkeli_scripts() {
-  wp_enqueue_style( 'styles', THEMEROOT . '/css/layout.css' );
+  wp_enqueue_style( 'styles', THEMEROOT . '/css/layout.css', array(), MIKKELI_VERSION );
 	wp_enqueue_style( 'incidents', 'https://cdn.metatavu.io/libs/kunta-api-incidents/0.0.4/incidents.min.css' );
   wp_deregister_script( 'jquery' );
   wp_register_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js', array(), false, true); // Load jQuery @ Footer
   wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'incidents-script', 'https://cdn.metatavu.io/libs/kunta-api-incidents/0.0.4/incidents.min.js');
+	wp_enqueue_script( 'slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js', array(), false, true );
   wp_register_script( 'fontawesome', 'https://kit.fontawesome.com/2d8150fc9c.js', array(), false, true); // Load jQuery @ Footer
   wp_enqueue_script( 'fontawesome' );
 	wp_enqueue_script( 'scripts', THEMEROOT . '/js/all.js', array(), MIKKELI_VERSION, true );
@@ -124,15 +125,10 @@ function mikkeli_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'mikkeli_scripts' );
 
-/**
- * Remove Query Strings
- */
-function _remove_script_version( $src ){
-  $parts = explode( '?', $src );
-  return $parts[0];
-}
-add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
-add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
+function prefix_add_footer_styles() {
+	wp_enqueue_style( 'slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css' );
+};
+add_action( 'get_footer', 'prefix_add_footer_styles' );
 
 /**
  * Pagination
@@ -178,7 +174,7 @@ function kriesi_pagination($pages = '', $range = 2)
 function mikkeli_breadcrumbs() {
 
 	/* === OPTIONS === */
-	$text['home']     = __('Etusivu', 'mikkeli'); // text for the 'Home' link
+	$text['home']     = pll__('Etusivu', 'mikkeli'); // text for the 'Home' link
 	$text['category'] = __('Arkisto "%s"', 'mikkeli'); // text for a category page
 	$text['search']   = __('Hakutulokset hakusanalle "%s"', 'mikkeli'); // text for a search results page
 	$text['tag']      = __('Kirjoitukset avainsanalla "%s"', 'mikkeli'); // text for a tag page
@@ -664,3 +660,28 @@ function mikkeli_custom_css() {
 	 }
   </style>';
 }
+
+add_action( 'admin_notices', 'print_button' );
+function print_button() {
+	// Get the current screen so you only move forward if this is the users.php screen.
+	$screen = get_current_screen();
+	if ( 'users' == $screen->id ) { ?>
+		<div class="print-user-info-btn">
+			<button onclick="window.print();return false;">Tulosta tiedot</button>
+		</div>
+	<?php }
+}
+
+/**
+ * Register and enqueue a custom print stylesheet in the WordPress admin.
+ */
+function mikkeli_enqueue_custom_admin_style() {
+	wp_register_style( 'custom_wp_admin_css', get_template_directory_uri() . '/css/admin_print.css', false, '1.3.0' );
+	wp_enqueue_style( 'custom_wp_admin_css' );
+}
+add_action( 'admin_enqueue_scripts', 'mikkeli_enqueue_custom_admin_style' );
+
+/* Polylang String Translations */
+add_action('init', function() {
+  pll_register_string('mikkeli', 'Etusivu');
+});

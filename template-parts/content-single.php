@@ -21,9 +21,11 @@
       if ( 'post' === get_post_type() ) : ?>
       <div class="entry-meta">
         <span class="entry-time">
-          <time datetime="<?php the_time('c'); ?>">
-            <?php the_time('d.m.Y'); ?>
-          </time>
+          <p>
+            <time datetime="<?php the_time('c'); ?>">
+              <?php the_time('d.m.Y'); ?>
+            </time>
+          </p>
         </span>
       </div><!-- .entry-meta -->
       <?php

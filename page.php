@@ -36,9 +36,9 @@ get_header(); ?>
 	<?php mikkeli_breadcrumbs(); ?>
 
 	<div id="content" class="site-content cf">
-		<div class="container">
+		<div class="container <?php if(get_field('custom_sidebar')): echo 'with-sidebar-column'; endif; ?>">
 			<?php get_sidebar(); ?>
-			<main class="site-main <?php if(wpdocs_enhanced_has_block('core/columns')): echo 'with-sidebar-column'; endif; ?>"> 
+			<main class="site-main"> 
 
 				<?php
 				while ( have_posts() ) : the_post(); ?>
@@ -49,6 +49,11 @@ get_header(); ?>
 				?>
 
 			</main>
+			<?php if(get_field('custom_sidebar')): ?>
+			<div class="sidebar-column">
+				<?php the_field('custom_sidebar'); ?>
+			</div>
+			<?php endif; ?>
 		</div>
 	</div>
 

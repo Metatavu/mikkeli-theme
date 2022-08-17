@@ -105,4 +105,11 @@ $(function() {
     $(this).toggleClass('closed');
     $(this).parent().toggleClass('visible');
   });
+
+  /* Front Page Slider */
+  $('.home .slides').slick({
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 6000
+  });
 });

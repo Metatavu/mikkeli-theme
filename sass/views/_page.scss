@@ -18,6 +18,8 @@
   }
   .post-thumb {
     position: relative;
+    height: 12.5rem;
+    overflow: hidden;
     .entry-time {
       position: absolute;
       bottom: 0;
@@ -177,7 +179,7 @@
   color: #71767d;
   font-size: clamp(1.75rem, 2vw + 1rem, 3rem);
 }
-.site-main h3 {
+.site-main h2, .site-main h3 {
   font-family: $headings;
   font-weight: 700;
   font-size: 1.25rem;
@@ -186,6 +188,18 @@
 .site-main ul {
   margin-left: 1.5rem;
   list-style-type: square;
+}
+.site-main ol {
+  margin-left: 1.5rem;
+}
+.site-main p a {
+  text-decoration: underline;
+}
+.container.with-sidebar-column {
+  @media screen and (min-width: $container-mobile) {
+    display: grid;
+    grid-template-columns: 22% 50% 23%;
+  }
 }
 
 .fa-angle-right {
@@ -389,7 +403,7 @@
 .posts-list {
   .item {
     display: grid;
-    grid-template-columns: 120px 1fr;
+    grid-template-columns: 160px 1fr;
     align-items: center;
     column-gap: 1rem;
     border-bottom: 1px solid #aaa;

@@ -15,3 +15,14 @@
 .aligncenter {
   margin: 25px auto;
 }
+
+.wp-block-table {
+  overflow: auto;
+  @media screen and (min-width: $container-tablet) {
+    overflow: none;
+  }
+  td {
+    padding: .5rem;
+    line-height: 1.5rem;
+  }
+}
