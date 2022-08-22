@@ -32,13 +32,7 @@ $post_tag = get_field('tag');
     $args = array(
       'post_type' => 'post',
       'numberposts' => 5,
-      'tax_query' => array(
-        array(
-          'taxonomy' => 'post_tag',
-          'field' => 'id',
-          'terms' => $post_tag
-        )
-      )
+      'category' => $post_tag
     );
     $postslist = get_posts( $args ); ?>
     <?php foreach( $postslist as $post ): ?>

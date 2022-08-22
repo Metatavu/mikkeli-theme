@@ -1,9 +1,16 @@
-.front-content .container {
-  margin: 0 auto 4rem;
-  @media screen and (min-width: $container-mobile) {
-    display: grid;
-    grid-template-columns: 70% 25%;
-    gap: 5%;
+.front-content {
+  .rs-wrap {
+    width: 100%;
+    max-width: $container-desktop;
+    margin: 0 auto 1.5rem;
+  }
+  .container {
+    margin: 0 auto 4rem;
+    @media screen and (min-width: $container-mobile) {
+      display: grid;
+      grid-template-columns: 70% 25%;
+      gap: 5%;
+    }
   }
 }
 

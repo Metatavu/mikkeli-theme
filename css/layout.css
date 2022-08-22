@@ -1174,6 +1174,15 @@ table.advgb-table-frontend th {
   float: right;
 }
 
+.single .breadcrumbs {
+  text-transform: none;
+}
+
+.front-content .rs-wrap {
+  width: 100%;
+  max-width: 71.25rem;
+  margin: 0 auto 1.5rem;
+}
 .front-content .container {
   margin: 0 auto 4rem;
 }
