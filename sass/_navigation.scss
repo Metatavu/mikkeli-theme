@@ -13,7 +13,8 @@
   font-weight: 700;
   text-transform: uppercase;
   &:hover {
-    text-decoration: none;
+    text-decoration: underline;
+    color: #4c34eb;
   }
 }
 

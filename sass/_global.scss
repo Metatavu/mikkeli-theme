@@ -35,12 +35,8 @@ a {
 }
 
 .site-content img, .sidebar img, figure img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  @media screen and (min-width: $container-mobile) {
-    width: auto;
-    max-width: 100%;
-  }
 }
 figure {
   max-width: 100%;

@@ -93,6 +93,12 @@ body {
         right: 0;
         bottom: 0;
         width: 15%;
+        padding-left: 15%;
+        overflow: hidden;
+        &::before {
+          position: relative;
+          left: -15px;
+        }
       }
     }
     .nav-some-icons {

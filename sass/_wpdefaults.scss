@@ -24,5 +24,8 @@
   td {
     padding: .5rem;
     line-height: 1.5rem;
+    a {
+      word-break: break-all;
+    }
   }
 }

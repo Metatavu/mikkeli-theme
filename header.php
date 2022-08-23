@@ -79,7 +79,7 @@ $mikkeli_aria_label = ! empty( $args['aria_label'] ) ? 'aria-label="' . esc_attr
 					</div>
 				</div>
 				<div class="logo">
-					<button class="hamburger hamburger--slider" type="button">
+					<button class="hamburger hamburger--slider" type="button" aria-label="Avaa valikko">
 						<span class="hamburger-box">
 							<span class="hamburger-inner"></span>
 						</span>

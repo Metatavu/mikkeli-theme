@@ -60,17 +60,15 @@ get_header(); ?>
 				if ( $myposts ):
 					foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
 					<article class="post">
-							<a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>">
-								<div class="post-thumb">
-									<?php if(has_post_thumbnail()) { the_post_thumbnail('post'); } else { ?><img src="<?php echo IMAGES; ?>/mikkeli-default.jpg" alt="<?php the_title(); ?>" /><?php } ?>
-									<span class="entry-time">
-										<time datetime="<?php the_time('c'); ?>">
-											<?php the_time('j.n.Y'); ?>
-										</time>
-									</span>
-								</div>
-							</a>
-							<span class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></span>
+							<div class="post-thumb">
+								<?php if(has_post_thumbnail()) { the_post_thumbnail('post'); } else { ?><img src="<?php echo IMAGES; ?>/mikkeli-default.jpg" alt="<?php the_title(); ?>" /><?php } ?>
+								<span class="entry-time">
+									<time datetime="<?php the_time('c'); ?>">
+										<?php the_time('j.n.Y'); ?>
+									</time>
+								</span>
+							</div>
+							<span class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></span>
 					</article>
 				<?php
 						endforeach;
@@ -95,7 +93,7 @@ get_header(); ?>
 								<?php the_time('j.n.Y'); ?>
 							</time>
 						</div>
-						<div class="title"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
+						<div class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
 					</div>
 				<?php
 					endforeach;
@@ -185,7 +183,7 @@ get_header(); ?>
 						}
 					}
 				?>
-				<p><a title="<?php _e('Katso kaikki', 'mikkeli'); ?>" class="all-link" href="https://www.kuntarekry.fi/fi/tyopaikat/?&organisation=3677&lang=fi_FI,sv_SE&sort=-changetime&limit=500"><?php _e('Katso kaikki', 'mikkeli'); ?></a></p>
+				<p><a title="<?php _e('Katso kaikki', 'mikkeli'); ?>" class="all-link" href="https://www.kuntarekry.fi/fi/tyonantajat/mikkelin-kaupunki/"><?php _e('Katso kaikki', 'mikkeli'); ?></a></p>
 			</div>
 			<div class="col announcements-block">
 			  <div class="icon"></div>
