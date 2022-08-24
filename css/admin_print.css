@@ -1,5 +1,5 @@
 @media print {
-  #adminmenumain, #wpadminbar, #wpfooter, .print-user-info-btn, #screen-meta-links, .page-title-action, .search-box, .tablenav.top, .tablenav.bottom, .subsubsub,.actions.bulkactions, .alignleft.actions, #user-expass, .user-expass, #pp_exceptions, .pp_exceptions, .check-column, .avatar, .si-toggle-container {
+  #adminmenumain, #wpadminbar, #wpfooter, .print-user-info-btn, #screen-meta-links, .page-title-action, .search-box, .tablenav.top, .tablenav.bottom, .subsubsub,.actions.bulkactions, .alignleft.actions, #user-expass, .user-expass, #pp_exceptions, .pp_exceptions, .check-column, .avatar, .si-toggle-container, .notice, .si-toggle-container {
     display: none!important;
   }
   #wpcontent {

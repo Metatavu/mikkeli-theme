@@ -2053,9 +2053,15 @@ input[type=submit] {
     overflow: none;
   }
 }
-.wp-block-table td {
-  padding: 0.5rem;
+.wp-block-table thead th {
+  padding: 0.75rem;
   line-height: 1.5rem;
+}
+.wp-block-table td {
+  padding: 0.75rem;
+  line-height: 1.5rem;
+  vertical-align: top;
+  border-top: 1px solid #eceeef;
 }
 .wp-block-table td a {
   word-break: break-all;

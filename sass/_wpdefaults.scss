@@ -21,9 +21,17 @@
   @media screen and (min-width: $container-tablet) {
     overflow: none;
   }
+  thead {
+    th {
+      padding: .75rem;
+      line-height: 1.5rem;
+    }
+  }
   td {
-    padding: .5rem;
+    padding: .75rem;
     line-height: 1.5rem;
+    vertical-align: top;
+    border-top: 1px solid #eceeef;
     a {
       word-break: break-all;
     }
