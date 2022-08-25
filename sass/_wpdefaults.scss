@@ -21,8 +21,23 @@
   @media screen and (min-width: $container-tablet) {
     overflow: none;
   }
-  td {
-    padding: .5rem;
-    line-height: 1.5rem;
+  thead {
+    th {
+      padding: .75rem;
+      line-height: 1.5rem;
+    }
   }
+  td {
+    padding: .75rem;
+    line-height: 1.5rem;
+    vertical-align: top;
+    border-top: 1px solid #eceeef;
+    a {
+      word-break: break-all;
+    }
+  }
+}
+
+.wp-block-post-featured-image {
+  margin-top: 0;
 }

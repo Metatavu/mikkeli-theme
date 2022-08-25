@@ -13,7 +13,8 @@
   font-weight: 700;
   text-transform: uppercase;
   &:hover {
-    text-decoration: none;
+    text-decoration: underline;
+    color: #4c34eb;
   }
 }
 
@@ -23,6 +24,43 @@
   & a {
     display: block;
     padding: 7px 9px;
+  }
+  .nav-some-icons {
+    text-align: center;
+  }
+  .nav-some-icons a {
+    padding: 0;
+    display: inline-block;
+    .fa {
+      background-color: #304ea2;
+      color: #fff;
+      font-size: 1rem;
+      padding: .5rem;
+    }
+  }
+  .locale-menu .current-locale, .locale-menu a {
+    z-index: 100;
+    background: #304ea2;
+    color: #fff;
+    padding: .25rem;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
+    font-size: .9rem;
+    position: relative;
+    border: none;
+  }
+  .locale-menu a {
+    display: none;
+  }
+  .locale-menu.menu-open {
+    a {
+      display: inline-block;
+      padding-top: .5rem;
+    }
   }
 }
 .hamburger {

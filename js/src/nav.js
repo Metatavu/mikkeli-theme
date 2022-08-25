@@ -30,11 +30,18 @@ $(function() {
     title = $(this).closest('li').find('> a').text();
     $(this).closest('li').find('> a').append('<button class="open" title="Avaa '+title+'">Avaa '+title+'</div>');
   });
+  /*
   $('.sidebar ul').on('click','.open',function(event){
       $(this).closest('li').toggleClass('active');
       thisDropdown = $(this).closest('li').find('> .children');
       thisDropdown.toggleClass('visible');
       return false;
+  });
+  */
+  $('.sidebar ul').on('click','.open',function(event){
+    $(this).toggleClass('toggled');
+    thisDropdown = $(this).closest('li').find('> .children').toggle();
+    return false;
   });
   $('.current-locale').on('click', function() {
     $('.locale-menu').toggleClass('menu-open');

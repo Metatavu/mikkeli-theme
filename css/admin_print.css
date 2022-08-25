@@ -1,5 +1,5 @@
 @media print {
-  #adminmenumain, #wpadminbar, #wpfooter, .print-user-info-btn, #screen-meta-links, .page-title-action, .search-box, .tablenav.top, .tablenav.bottom, .subsubsub,.actions.bulkactions, .alignleft.actions, #user-expass, .user-expass, #pp_exceptions, .pp_exceptions, .check-column, .avatar, .si-toggle-container {
+  #adminmenumain, #wpadminbar, #wpfooter, .print-user-info-btn, #screen-meta-links, .page-title-action, .search-box, .tablenav.top, .tablenav.bottom, .subsubsub,.actions.bulkactions, .alignleft.actions, #user-expass, .user-expass, #pp_exceptions, .pp_exceptions, .check-column, .avatar, .si-toggle-container, .notice, .si-toggle-container {
     display: none!important;
   }
   #wpcontent {
@@ -24,3 +24,19 @@
 .print-user-info-btn button:hover {
   background-color: #307dbb;
 }
+
+
+/* Main column width */
+.wp-block {
+  max-width: 70rem;
+}
+
+/* Width of "wide" blocks */
+.wp-block[data-align="wide"] {
+  max-width: 76rem;
+}
+
+/* Width of "full-wide" blocks */
+.wp-block[data-align="full"] {
+  max-width: 86rem;
+}	

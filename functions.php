@@ -184,7 +184,7 @@ function mikkeli_breadcrumbs() {
 	$text['cpage']    = __('Kommenttisivu %s', 'mikkeli'); // text 'Comment Page N'
 
 	$wrap_before    = '<div class="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList"><div class="navigation">'; // the opening wrapper tag
-	$wrap_after     = '</div><div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve"><a rel="nofollow" class="rsbtn_play" accesskey="L" title="Kuuntele ReadSpeaker webReaderilla" href="//app-eu.readspeaker.com/cgi-bin/rsent?customerid=8419&amp;readclass=entry-content&amp;lang=fi_FI&amp;url='.get_permalink( get_the_ID() ).'"><span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span>Kuuntele</span></span></span><span class="rsbtn_right rsimg rsplay rspart"></span></a></div></div><!-- .breadcrumbs -->'; // the closing wrapper tag
+	$wrap_after     = '</div></div><!-- .breadcrumbs -->'; // the closing wrapper tag
 	$sep            = '<span class="sep">&raquo;</span>'; // separator between crumbs
 	$before         = '<span class="breadcrumbs__current">'; // tag before the current crumb
 	$after          = '</span>'; // tag after the current crumb
@@ -214,7 +214,7 @@ function mikkeli_breadcrumbs() {
 
 		echo $wrap_before;
 
-		if ( $show_home_link ) {
+		if ( $show_home_link && !is_single() ) {
 			$position += 1;
 			echo $home_link;
 		}
@@ -273,33 +273,7 @@ function mikkeli_breadcrumbs() {
 			elseif ( $show_last_sep ) echo $sep;
 
 		} elseif ( is_single() && ! is_attachment() ) {
-			if ( get_post_type() != 'post' ) {
-				$position += 1;
-				$post_type = get_post_type_object( get_post_type() );
-				if ( $position > 1 ) echo $sep;
-				echo sprintf( $link, get_post_type_archive_link( $post_type->name ), $post_type->labels->name, $position );
-				if ( $show_current ) echo $sep . $before . get_the_title() . $after;
-				elseif ( $show_last_sep ) echo $sep;
-			} else {
-				$cat = get_the_category(); $catID = $cat[0]->cat_ID;
-				$parents = get_ancestors( $catID, 'category' );
-				$parents = array_reverse( $parents );
-				$parents[] = $catID;
-				foreach ( $parents as $cat ) {
-					$position += 1;
-					if ( $position > 1 ) echo $sep;
-					echo sprintf( $link, get_category_link( $cat ), get_cat_name( $cat ), $position );
-				}
-				if ( get_query_var( 'cpage' ) ) {
-					$position += 1;
-					echo $sep . sprintf( $link, get_permalink(), get_the_title(), $position );
-					echo $sep . $before . sprintf( $text['cpage'], get_query_var( 'cpage' ) ) . $after;
-				} else {
-					if ( $show_current ) echo $sep . $before . get_the_title() . $after;
-					elseif ( $show_last_sep ) echo $sep;
-				}
-			}
-
+			echo get_the_title();
 		} elseif ( is_post_type_archive() ) {
 			$post_type = get_post_type_object( get_post_type() );
 			if ( get_query_var( 'paged' ) ) {
@@ -437,6 +411,7 @@ function mikkeli_acf_init_block_types() {
 				'render_template'   => 'template-parts/blocks/banners/banners.php',
 				'category'          => 'formatting',
 				'icon'              => 'columns',
+				'mode'							=> 'auto',
 				'keywords'          => array( 'banner', 'banneri' ),
 		));
 		// register news by tag block.
@@ -684,4 +659,5 @@ add_action( 'admin_enqueue_scripts', 'mikkeli_enqueue_custom_admin_style' );
 /* Polylang String Translations */
 add_action('init', function() {
   pll_register_string('mikkeli', 'Etusivu');
+	pll_register_string('mikkeli', 'Kuuntele');
 });
