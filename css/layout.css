@@ -736,6 +736,12 @@ table.advgb-table-frontend th {
 .site-header .right-side {
   position: relative;
   text-align: right;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 40rem) {
+  .site-header .right-side {
+    margin-bottom: 0;
+  }
 }
 .site-header .right-side .nav-quick-icons, .site-header .right-side .locale-menu {
   display: inline-block;
@@ -800,13 +806,30 @@ table.advgb-table-frontend th {
   position: relative;
   left: -15px;
 }
-.site-header .right-side .nav-some-icons {
+.site-header .right-side .rs_preserve {
   display: inline-block;
-  font-size: 2rem;
-  margin: 0 2rem;
+  margin: 0.1rem 0 0 2rem;
 }
-.site-header .right-side .nav-some-icons a {
-  color: #999;
+.site-header .right-side .nav-some-icons {
+  display: none;
+}
+@media screen and (min-width: 40rem) {
+  .site-header .right-side .nav-some-icons {
+    display: inline-block;
+    font-size: 2rem;
+    margin: 0 2rem;
+  }
+  .site-header .right-side .nav-some-icons a {
+    color: #999;
+  }
+}
+.site-header .right-side .nav-quick-icons {
+  display: none;
+}
+@media screen and (min-width: 40rem) {
+  .site-header .right-side .nav-quick-icons {
+    display: inline-block;
+  }
 }
 .site-header .right-side .nav-quick-icons .fa {
   background-color: #304ea2;
@@ -993,6 +1016,41 @@ table.advgb-table-frontend th {
 .responsive-nav a {
   display: block;
   padding: 7px 9px;
+}
+.responsive-nav .nav-some-icons {
+  text-align: center;
+}
+.responsive-nav .nav-some-icons a {
+  padding: 0;
+  display: inline-block;
+}
+.responsive-nav .nav-some-icons a .fa {
+  background-color: #304ea2;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+.responsive-nav .locale-menu .current-locale, .responsive-nav .locale-menu a {
+  z-index: 100;
+  background: #304ea2;
+  color: #fff;
+  padding: 0.25rem;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  font-size: 0.9rem;
+  position: relative;
+  border: none;
+}
+.responsive-nav .locale-menu a {
+  display: none;
+}
+.responsive-nav .locale-menu.menu-open a {
+  display: inline-block;
+  padding-top: 0.5rem;
 }
 
 .hamburger {
@@ -1716,9 +1774,7 @@ table.advgb-table-frontend th {
   border-bottom: 1px solid #e5e5e5;
 }
 .sidebar ul ul {
-  height: 0;
-  visibility: hidden;
-  overflow: hidden;
+  display: none;
   border-bottom: 1px solid #e5e5e5;
 }
 .sidebar ul ul a {
@@ -1733,14 +1789,10 @@ table.advgb-table-frontend th {
 .sidebar ul li {
   position: relative;
 }
-.sidebar ul.visible, .sidebar.current_page_ancestor > ul {
-  height: auto;
-  visibility: visible;
-}
 .sidebar .open {
   position: absolute;
   top: 0.5rem;
-  right: 0;
+  right: 0.15rem;
   width: 1.3125rem;
   height: 1.3125rem;
   padding-top: 1.3125rem;
@@ -1751,7 +1803,7 @@ table.advgb-table-frontend th {
   border: none;
   background-color: transparent;
 }
-.sidebar .active > a .open {
+.sidebar .open.toggled {
   background-image: url("../images/mikkeli-menu-open.png");
 }
 .sidebar .current_page_item > a {
@@ -1760,14 +1812,13 @@ table.advgb-table-frontend th {
   background-color: #d94c70;
 }
 .sidebar .current_page_item > a .open {
-  display: none;
+  background-image: url("../images/mikkeli-menu-closed-white.png");
 }
-.sidebar .current_page_ancestor > a .open {
-  display: none;
+.sidebar .current_page_item > a .open.toggled {
+  background-image: url("../images/mikkeli-menu-open-white.png");
 }
 .sidebar .current_page_item > ul, .sidebar .current_page_parent > ul, .sidebar .current_page_ancestor > ul {
-  height: auto;
-  visibility: visible;
+  display: block;
 }
 .sidebar .current_page_item > ul a, .sidebar .current_page_parent > ul a, .sidebar .current_page_ancestor > ul a {
   padding-left: 1rem;
@@ -1804,11 +1855,21 @@ table.advgb-table-frontend th {
   }
 }
 
-.with-sidebar-column .sidebar-column {
+.site-main.with-sidebar-column .sidebar-column {
   padding: 1rem;
   background-color: #edeef2;
 }
-.with-sidebar-column .sidebar-column h3 {
+@media screen and (min-width: 60rem) {
+  .site-main.with-sidebar-column .sidebar-column {
+    max-width: 40%;
+  }
+}
+@media screen and (min-width: 71.25rem) {
+  .site-main.with-sidebar-column .sidebar-column {
+    max-width: 30%;
+  }
+}
+.site-main.with-sidebar-column h3 {
   font-weight: 700;
   font-size: 1rem;
   text-transform: uppercase;
@@ -1817,7 +1878,7 @@ table.advgb-table-frontend th {
   margin-top: 15px;
   margin-bottom: 0;
 }
-.with-sidebar-column .sidebar-column h4 {
+.site-main.with-sidebar-column h4 {
   font-weight: 700;
   font-size: 1rem;
   color: #000;
@@ -1825,11 +1886,6 @@ table.advgb-table-frontend th {
   padding-bottom: 0;
   margin-top: 15px;
   margin-bottom: 0;
-}
-
-.wp-block-columns .wp-block-column:nth-child(even) {
-  background-color: #edeef2;
-  padding: 1rem;
 }
 
 .pagination {
@@ -2065,6 +2121,10 @@ input[type=submit] {
 }
 .wp-block-table td a {
   word-break: break-all;
+}
+
+.wp-block-post-featured-image {
+  margin-top: 0;
 }
 
 .rsbtn_colorskin {

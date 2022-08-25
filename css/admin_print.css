@@ -24,3 +24,19 @@
 .print-user-info-btn button:hover {
   background-color: #307dbb;
 }
+
+
+/* Main column width */
+.wp-block {
+  max-width: 70rem;
+}
+
+/* Width of "wide" blocks */
+.wp-block[data-align="wide"] {
+  max-width: 76rem;
+}
+
+/* Width of "full-wide" blocks */
+.wp-block[data-align="full"] {
+  max-width: 86rem;
+}	

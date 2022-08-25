@@ -52,6 +52,10 @@ body {
   .right-side {
     position: relative;
     text-align: right;
+    margin-bottom: 1rem;
+    @media screen and (min-width: $container-mobile) {
+      margin-bottom: 0;
+    }
     .nav-quick-icons, .locale-menu {
       display: inline-block;
       vertical-align: top;
@@ -101,12 +105,25 @@ body {
         }
       }
     }
-    .nav-some-icons {
+    .rs_preserve {
       display: inline-block;
-      font-size: 2rem;
-      margin: 0 2rem;
-      a {
-        color: #999;
+      margin: .1rem 0 0 2rem;
+    }
+    .nav-some-icons {
+      display: none;
+      @media screen and (min-width: $container-mobile) {
+        display: inline-block;
+        font-size: 2rem;
+        margin: 0 2rem;
+        a {
+          color: #999;
+        }
+      }
+    }
+    .nav-quick-icons {
+      display: none;
+      @media screen and (min-width: $container-mobile) {
+        display: inline-block;
       }
     }
     .nav-quick-icons .fa {

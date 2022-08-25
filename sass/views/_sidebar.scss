@@ -25,9 +25,7 @@
       border-bottom: 1px solid #e5e5e5;
     }
     ul {
-      height: 0;
-      visibility: hidden;
-      overflow: hidden;
+      display: none;
       border-bottom: 1px solid #e5e5e5;
     }
     ul a {
@@ -43,14 +41,10 @@
       position: relative;
     }
   }
-  ul.visible, &.current_page_ancestor > ul {
-    height: auto;
-    visibility: visible;
-  }
   .open {
     position: absolute;
     top: .5rem;
-    right: 0;
+    right: .15rem;
     width: 1.3125rem;
     height: 1.3125rem;
     padding-top: 1.3125rem;
@@ -61,24 +55,25 @@
     border: none;
     background-color: transparent;
   }
-  .active > a .open {
+  .open.toggled {
     background-image: url('../images/mikkeli-menu-open.png');
   }
   .current_page_item > a {
     color: #fff;
     padding-left: .5rem;
     background-color: #d94c70;
-    .open {
-      display: none;
-    }
   }
-  .current_page_ancestor > a .open {
-    display: none;
+  .current_page_item {
+    & > a .open {
+      background-image: url('../images/mikkeli-menu-closed-white.png');
+      &.toggled {
+        background-image: url('../images/mikkeli-menu-open-white.png');
+      }
+    }
   }
   .current_page_item, .current_page_parent, .current_page_ancestor {
     & > ul {
-      height: auto;
-      visibility: visible;
+      display: block;
       a {
         padding-left: 1rem;
       }
@@ -115,32 +110,33 @@
   }
 }
 
-.with-sidebar-column {
+.site-main.with-sidebar-column {
   .sidebar-column {
     padding: 1rem;
     background-color: #edeef2;
-    h3 {
-      font-weight: 700;
-      font-size: 1rem;
-      text-transform: uppercase;
-      padding-top: 5px;
-      padding-bottom: 0;
-      margin-top: 15px;
-      margin-bottom: 0;
+    @media screen and (min-width: $container-tablet) {
+      max-width: 40%;
     }
-    h4 {
-      font-weight: 700;
-      font-size: 1rem;
-      color: #000;
-      padding-top: 5px;
-      padding-bottom: 0;
-      margin-top: 15px;
-      margin-bottom: 0;
+    @media screen and (min-width: $container-desktop) {
+      max-width: 30%;
     }
   }
-}
-
-.wp-block-columns .wp-block-column:nth-child(even) {
-  background-color: #edeef2;
-  padding: 1rem;
+  h3 {
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    padding-top: 5px;
+    padding-bottom: 0;
+    margin-top: 15px;
+    margin-bottom: 0;
+  }
+  h4 {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #000;
+    padding-top: 5px;
+    padding-bottom: 0;
+    margin-top: 15px;
+    margin-bottom: 0;
+  }
 }
