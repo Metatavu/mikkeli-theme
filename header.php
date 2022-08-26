@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://use.typekit.net/jyx1iep.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;900&family=Titillium+Web:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;900&family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet">
 
 <?php
 	$ga_code = get_option('mikkeli_google_analytics');
