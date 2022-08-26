@@ -35,18 +35,6 @@ get_header(); ?>
 	</div>
 
 	<section id="content" class="front-content">
-		<div class="rs-wrap">
-			<div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve">
-				<a rel="nofollow" class="rsbtn_play" accesskey="L" title="Kuuntele ReadSpeaker webReaderilla" href="//app-eu.readspeaker.com/cgi-bin/rsent?customerid=8419&amp;readclass=entry-content&amp;lang=fi_FI&amp;url='.get_permalink( get_the_ID() ).'">
-					<span class="rsbtn_left rsimg rspart">
-						<span class="rsbtn_text">
-							<span><?php pll_e('Kuuntele', 'mikkeli'); ?></span>
-						</span>
-					</span>
-					<span class="rsbtn_right rsimg rsplay rspart"></span>
-				</a>
-			</div>
-		</div>
 		<div class="container">
 			<div class="entry-content left-side">
 				<div class="articles-container">

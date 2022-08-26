@@ -39,7 +39,7 @@ get_header(); ?>
 			<div class="posts-list">
 				<?php while ( have_posts() ) : the_post(); ?>
 				<div class="item">
-				<a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php if(has_post_thumbnail()) { the_post_thumbnail('thumb'); } else { ?><img src="<?php echo IMAGES; ?>/mikkeli-logo.png" alt="<?php the_title(); ?>" /><?php } ?></a>
+				<a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php if(has_post_thumbnail()) { the_post_thumbnail('thumb'); } else { ?><img src="<?php echo IMAGES; ?>/img4.jpg" alt="<?php the_title(); ?>" /><?php } ?></a>
 					<div>
 						<p><?php the_time('j.n.Y'); ?> - <a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
 						<p><?php the_excerpt(); ?></p>

@@ -32,7 +32,10 @@ get_header(); ?>
 			</div>
 
 			<div role="group" class="results-filters" style="margin-bottom: 20px;">
-				<button id="page" class="filter-tab current" tabindex="0" type="button"><span class="label"><?php _e('Sivut', 'mikkeli'); ?></span></button><button id="post" class="filter-tab" tabindex="0" type="button"><span class="label"><?php _e('Uutiset', 'mikkeli'); ?></span></button><button id="attachment" class="filter-tab" tabindex="0" type="button"><span class="label"><?php _e('Tiedostot', 'mikkeli'); ?></span></button><button id="oppiminen" class="filter-tab" tabindex="0" type="button"><span class="label"><?php _e('Oppiminen.fi', 'mikkeli'); ?></span></button>
+				<button id="page" class="filter-tab current" tabindex="0" type="button"><span class="label"><?php _e('Sivut', 'mikkeli'); ?></span></button>
+				<button id="post" class="filter-tab" tabindex="0" type="button"><span class="label"><?php _e('Uutiset', 'mikkeli'); ?></span></button>
+				<button id="attachment" class="filter-tab" tabindex="0" type="button"><span class="label"><?php _e('Tiedostot', 'mikkeli'); ?></span></button>
+				<button id="oppiminen" class="filter-tab" tabindex="0" type="button"><span class="label"><?php _e('oppiminen.mikkeli.fi', 'mikkeli'); ?></span></button>
 			</div>
 
 			<?php
