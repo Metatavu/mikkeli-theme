@@ -84,9 +84,7 @@ add_image_size( 'page-img', 670, 447, true );
  * Navigation menus.
  */
 register_nav_menus( array(
-	'primary' => __( 'Primary Menu', 'mikkeli' ),
-	'en_paavalikko' => __( 'Primary Menu (en)', 'mikkeli' ),
-	'sv_paavalikko' => __( 'Primary Menu (sv)', 'mikkeli' )
+	'primary' => __( 'Primary Menu', 'mikkeli' )
 ) );
 
 /**
