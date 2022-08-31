@@ -20,13 +20,13 @@ get_header(); ?>
 			<?php if(get_field('hero_title')): ?><h1><?php the_field('hero_title'); ?><?php endif; ?>
 		</div>
 		<?php $images = get_field('heroslides'); if( $images ) { ?>
-		<ul class="slides">
+		<div class="slides">
 			<?php foreach( $images as $image ): ?>
-				<li>
+				<div>
 					<img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
-				</li>
+				</div>
 			<?php endforeach; ?>
-		</ul>
+		</div>
 		<?php } elseif(has_post_thumbnail()) { ?>
 			<?php the_post_thumbnail('full', array('class' => 'hero-img')); ?>
 		<?php } else { ?>

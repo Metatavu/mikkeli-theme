@@ -1081,12 +1081,17 @@ table.advgb-table-frontend th {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 4rem;
   z-index: 10;
   width: 100%;
   max-width: 80em;
   color: #fff;
   text-shadow: 3px 3px 3px #000;
+}
+@media screen and (min-width: 60rem) {
+  .hero__content {
+    padding: 0 4rem;
+  }
 }
 .hero__content h1 {
   font-size: clamp(2rem, 2vw + 4rem, 10rem);
@@ -1104,6 +1109,33 @@ table.advgb-table-frontend th {
   min-height: 0;
 }
 
+.slides {
+  position: relative;
+}
+.slides .slick-arrow {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 10;
+  width: 4rem;
+  height: 4rem;
+  padding-top: 4rem;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.slides .slick-prev {
+  left: 0;
+  background-image: url("../images/arrow-left.svg");
+}
+.slides .slick-next {
+  right: 0;
+  background-image: url("../images/arrow-right.svg");
+}
 .slides img {
   display: block;
   width: 100%;
