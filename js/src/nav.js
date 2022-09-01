@@ -115,7 +115,7 @@ $(function() {
 
   /* Front Page Slider */
   $('.home .slides').slick({
-    arrows: false,
+    arrows: true,
     autoplay: true,
     autoplaySpeed: 6000
   });
