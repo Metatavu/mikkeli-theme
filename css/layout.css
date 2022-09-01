@@ -1872,7 +1872,11 @@ table.advgb-table-frontend th {
     max-width: 30%;
   }
 }
-.site-main.with-sidebar-column h3 {
+.site-main.with-sidebar-column .wp-block-columns .wp-block-column:nth-child(even) {
+  background-color: #edeef2;
+  padding: 1rem;
+}
+.site-main.with-sidebar-column .sidebar-column h3, .site-main.with-sidebar-column .wp-block-column:nth-child(even) h3 {
   font-weight: 700;
   font-size: 1rem;
   text-transform: uppercase;
@@ -1881,7 +1885,7 @@ table.advgb-table-frontend th {
   margin-top: 15px;
   margin-bottom: 0;
 }
-.site-main.with-sidebar-column h4 {
+.site-main.with-sidebar-column .sidebar-column h4, .site-main.with-sidebar-column .wp-block-column:nth-child(even) h4 {
   font-weight: 700;
   font-size: 1rem;
   color: #000;
