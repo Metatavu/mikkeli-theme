@@ -1019,6 +1019,7 @@ table.advgb-table-frontend th {
 }
 .responsive-nav .nav-some-icons {
   text-align: center;
+  margin-top: 2rem;
 }
 .responsive-nav .nav-some-icons a {
   padding: 0;
@@ -1052,6 +1053,13 @@ table.advgb-table-frontend th {
   display: inline-block;
   padding-top: 0.5rem;
 }
+.responsive-nav .nav-quick-icons {
+  text-align: center;
+}
+.responsive-nav .nav-quick-icons .map-link, .responsive-nav .nav-quick-icons .locale-menu {
+  display: inline-block;
+  margin: 1rem 0.5rem;
+}
 
 .hamburger {
   position: absolute;
@@ -1068,9 +1076,14 @@ table.advgb-table-frontend th {
   * Hero
   */
 .hero-slides {
-  margin: 3rem 0 2rem;
+  margin: 1rem 0;
   position: relative;
   height: 35em;
+}
+@media screen and (min-width: 60rem) {
+  .hero-slides {
+    margin: 3rem 0 2rem;
+  }
 }
 
 .hero__content {
@@ -1847,10 +1860,10 @@ table.advgb-table-frontend th {
   background-color: #d94c70;
 }
 .sidebar .current_page_item > a .open {
-  background-image: url("../images/mikkeli-menu-closed-white.png");
+  background-image: url("../images/mikkeli-menu-open-white.png");
 }
 .sidebar .current_page_item > a .open.toggled {
-  background-image: url("../images/mikkeli-menu-open-white.png");
+  background-image: url("../images/mikkeli-menu-closed-white.png");
 }
 .sidebar .current_page_item > ul, .sidebar .current_page_parent > ul, .sidebar .current_page_ancestor > ul {
   display: block;

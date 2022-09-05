@@ -65,9 +65,9 @@
   }
   .current_page_item {
     & > a .open {
-      background-image: url('../images/mikkeli-menu-closed-white.png');
+      background-image: url('../images/mikkeli-menu-open-white.png');
       &.toggled {
-        background-image: url('../images/mikkeli-menu-open-white.png');
+        background-image: url('../images/mikkeli-menu-closed-white.png');
       }
     }
   }
