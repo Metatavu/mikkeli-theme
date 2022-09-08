@@ -1,4 +1,6 @@
 <?php
+  include_once $data->paths["common"];
+
   $serviceChannel = $data->serviceChannel;
   $emails = $serviceChannel["emails"];
 
