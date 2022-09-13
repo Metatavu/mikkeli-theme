@@ -28,5 +28,5 @@
 
   echo "<h3>" . __("Accessibility information", "sptv") . "</h3>";
 
-  include "$defaultTemplatesPath/accessibility.php";
+  include "accessibility.php";
 ?>
