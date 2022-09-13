@@ -54,7 +54,7 @@ get_header(); ?>
 						<div class="item">
 							<a title="<?php echo $page["title"]; ?>" href="<?php echo $page["url"]; ?>"><img src="<?php echo $page["image_url"]; ?>" alt="<?php echo $page["title"]; ?>" width="120" height="60" /></a>
 							<div>
-								<p><?php echo date('d.m.Y', strtotime($page["date"])); ?> - <a title="<?php echo $page["title"]; ?>" href="<?php echo $page["url"]; ?>"><?php echo $page["title"]; ?></a></p>
+								<p><a title="<?php echo $page["title"]; ?>" href="<?php echo $page["url"]; ?>"><?php echo $page["title"]; ?></a></p>
 								<p><?php echo $page["summary"]; ?></p>
 							</div>
 						</div>
@@ -94,7 +94,7 @@ get_header(); ?>
 						<div class="item">
 							<a title="<?php echo $attachment["title"]; ?>" href="<?php echo $attachment["url"]; ?>"><img src="<?php echo $attachment["image_url"]; ?>" alt="<?php echo $attachment["title"]; ?>" width="120" height="60" /></a>
 							<div>
-								<p><?php echo date('d.m.Y', strtotime($attachment["date"])); ?> - <a title="<?php echo $attachment["title"]; ?>" href="<?php echo $attachment["url"]; ?>"><?php echo $attachment["title"]; ?></a></p>
+								<p><a title="<?php echo $attachment["title"]; ?>" href="<?php echo $attachment["url"]; ?>"><?php echo $attachment["title"]; ?></a></p>
 								<p><?php echo $attachment["summary"]; ?></p>
 							</div>
 						</div>
@@ -114,7 +114,7 @@ get_header(); ?>
 						<div class="item">
 							<a title="<?php echo $oppiminen_page["title"]; ?>" href="<?php echo $oppiminen_page["url"]; ?>"><img src="<?php echo $oppiminen_page["image_url"]; ?>" alt="<?php echo $oppiminen_page["title"]; ?>" width="120" height="60" /></a>
 							<div>
-								<p><?php echo date('d.m.Y', strtotime($oppiminen_page["date"])); ?> - <a title="<?php echo $oppiminen_page["title"]; ?>" href="<?php echo $oppiminen_page["url"]; ?>"><?php echo $oppiminen_page["title"]; ?></a></p>
+								<p><a title="<?php echo $oppiminen_page["title"]; ?>" href="<?php echo $oppiminen_page["url"]; ?>"><?php echo $oppiminen_page["title"]; ?></a></p>
 								<p><?php echo $oppiminen_page["summary"]; ?></p>
 							</div>
 						</div>
