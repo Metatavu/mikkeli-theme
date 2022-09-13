@@ -52,10 +52,18 @@
     border-bottom: 1px solid #d3d3d3;
   }
   ul {
+    margin-left: 1rem;
     padding-left: 1rem;
+    li {
+      margin-top: .5rem;
+      margin-bottom: .5rem;
+    }
   }
   .content {
     display: none;
+    p {
+      margin: 0;
+    }
   }
   &.visible {
     .content {

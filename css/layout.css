@@ -1851,8 +1851,11 @@ table.advgb-table-frontend th {
   border: none;
   background-color: transparent;
 }
-.sidebar .open.toggled {
+.sidebar .open.toggled, .sidebar .current_page_ancestor .open {
   background-image: url("../images/mikkeli-menu-open.png");
+}
+.sidebar .current_page_ancestor .open.toggled {
+  background-image: url("../images/mikkeli-menu-closed.png");
 }
 .sidebar .current_page_item > a {
   color: #fff;
@@ -2082,10 +2085,18 @@ input[type=submit] {
   border-bottom: 1px solid #d3d3d3;
 }
 .site-main .accessibility-sentences .accessibility-sentence ul {
+  margin-left: 1rem;
   padding-left: 1rem;
+}
+.site-main .accessibility-sentences .accessibility-sentence ul li {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .site-main .accessibility-sentences .accessibility-sentence .content {
   display: none;
+}
+.site-main .accessibility-sentences .accessibility-sentence .content p {
+  margin: 0;
 }
 .site-main .accessibility-sentences .accessibility-sentence.visible .content {
   display: block;
