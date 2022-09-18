@@ -12,7 +12,7 @@
    * @return string formatted service hours
    */
   function mikkeliFormatServiceHours($serviceHours, $language) {
-    $result = '<table><tbody>';
+    $result = '';
     if (is_array($serviceHours)) {
       $normalServiceHours = array_filter($serviceHours, function ($serviceHour) {
         return $serviceHour["serviceHourType"] == "DaysOfTheWeek";
@@ -27,7 +27,7 @@
       $result .= mikkeliBuildServiceHoursHtml($exceptionalServiceHours, $language);
     }
 
-    return $result . '</tbody></table>';
+    return $result;
   }
 
   function mikkeliBuildCombinedServiceHours($combination) {
@@ -59,23 +59,22 @@
       $filtered = array_values(array_filter($serviceHour["additionalInformation"], function ($info) use($language) {
         return $info["language"] == $language; 
       }));
+      
       if (count($filtered) == 0) {
         $firstValue = array_values($serviceHour["additionalInformation"])[0]["value"];
-        $result .= "<tr><td colspan='2'><strong>$firstValue</strong></td></tr>";
+        $result .= "<h4>$firstValue</h4>";
       } else {
         $additionalInfoValue = $filtered[0]["value"];
-        $result .= "<tr><td colspan='2'><strong>$additionalInfoValue</strong></td></tr>";
+        $result .= "<h4>$additionalInfoValue</h4>";
       }
-      
         
       if ($serviceHour["serviceHourType"] == "Exceptional") {
-        $result .= "<tr><td>";
         $splitDate = explode("-",$serviceHour["validFrom"]);
         $year = $splitDate[0];
         $month = $splitDate[1];
         $day = explode("T", $splitDate[2])[0];
         $result .= $day . "." . $month . "." . $year;
-        $result .= "</td></tr>";
+        $result .= "<br/>";
       }
 
       if (!$serviceHour["isClosed"] && count($openingHours) == 0) {
@@ -101,7 +100,7 @@
           } else {
             array_push($formattedHours, mikkeliBuildCombinedServiceHours($combination));
             $combination = array();
-            array_push($formattedHours, formatOpeningHours($translatedHours));
+            array_push($formattedHours, mikkeliFormatOpeningHours($translatedHours));
           }
   
           if ($i == count($openingHours) - 1 && count($combination) > 0) {
@@ -112,12 +111,12 @@
       }
 
       if (isset($formattedHours)) {
+        $result .= '<table style="border-collapse: collapse"><tbody>';
         foreach ($formattedHours as $formattedHour) {
           $result .= '<tr>' . $formattedHour . '</tr>';
         }
+        $result .= '</tbody></table>';
       }
-
-      $result .= "</tr>";
     }
 
     return $result;
