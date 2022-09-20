@@ -43,7 +43,27 @@ get_header(); ?>
 				<?php
 				while ( have_posts() ) : the_post(); ?>
 
-					<?php get_template_part( 'template-parts/content', 'page' ); ?>
+					<?php if(wpdocs_enhanced_has_block('core/columns')) {
+						the_content();
+
+					if ( get_edit_post_link() ) : ?>
+						<footer class="entry-footer">
+							<?php
+								edit_post_link(
+									sprintf(
+										/* translators: %s: Name of current post */
+										esc_html__( 'Muokkaa %s', 'haaja' ),
+										the_title( '<span class="screen-reader-text">"', '"</span>', false )
+									),
+									'<span class="edit-link">',
+									'</span>'
+								);
+							?>
+						</footer><!-- .entry-footer -->
+					<?php endif;
+					} else {
+						get_template_part( 'template-parts/content', 'page' );
+					} ?>
 
 				<?php endwhile; // End of the loop.
 				?>
