@@ -23,12 +23,23 @@ $hero_img = get_field('yksi_iso_kuva');
 $left_img = get_field('vasen_kuva');
 $right_img = get_field('oikea_kuva');
 
+if($bg_color = get_field('bgcolor')) {
+	$bg_color = get_field('bgcolor');
+} else {
+	$bg_color = get_field('bgcolor', $parent);
+}
+
+$page_title = get_field('page_title');
+if(!$page_title):
+	$page_title = get_field('page_title', $parent);
+endif;
+
 get_header(); ?>
 
 	<div class="page-hero"<?php if($hero_img): ?> style="background-image: url(<?php echo $hero_img; ?>);"<?php endif; ?>>
 		<?php if(!$hero_img): ?>
 		<div class="left"<?php if($left_img): ?> style="background-image: url(<?php echo $left_img; ?>);"<?php endif; ?>></div>
-		<div class="title" <?php if(get_field('bgcolor', $parent)): ?>style="background-color: <?php echo get_field('bgcolor', $parent); ?>;"<?php endif; ?>><span><?php if(get_field('page_title', $parent)) { the_field('page_title', $parent); } else { echo get_the_title($parent); } ?></span></div>
+		<div class="title" <?php if($bg_color): ?>style="background-color: <?php echo $bg_color; ?>;"<?php endif; ?>><span><?php if($page_title) { echo $page_title; } else { echo get_the_title($parent); } ?></span></div>
 		<div class="right"<?php if($right_img): ?> style="background-image: url(<?php echo $right_img; ?>);"<?php endif; ?>></div>
 		<?php endif; ?>
 	</div>
