@@ -1851,11 +1851,23 @@ table.advgb-table-frontend th {
   border: none;
   background-color: transparent;
 }
-.sidebar .open.toggled, .sidebar .current_page_ancestor > .open {
+.sidebar .open.toggled {
   background-image: url("../images/mikkeli-menu-open.png");
 }
-.sidebar .current_page_ancestor > .open.toggled {
+.sidebar .current_page_ancestor .open {
+  background-image: url("../images/mikkeli-menu-open.png");
+}
+.sidebar .current_page_parent > .open {
+  background-image: url("../images/mikkeli-menu-open.png");
+}
+.sidebar .current_page_ancestor .open.toggled {
   background-image: url("../images/mikkeli-menu-closed.png");
+}
+.sidebar .current_page_ancestor .current_page_item > ul .open {
+  background-image: url("../images/mikkeli-menu-closed.png");
+}
+.sidebar .current_page_ancestor .current_page_item > ul .open.toggled {
+  background-image: url("../images/mikkeli-menu-open.png");
 }
 .sidebar .current_page_item > a {
   color: #fff;
