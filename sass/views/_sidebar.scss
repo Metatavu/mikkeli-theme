@@ -54,12 +54,24 @@
     background-size: contain;
     border: none;
     background-color: transparent;
+    &.toggled {
+      background-image: url('../images/mikkeli-menu-open.png');
+    }
   }
-  .open.toggled, .current_page_ancestor > .open {
+  .current_page_ancestor > a .open {
     background-image: url('../images/mikkeli-menu-open.png');
   }
-  .current_page_ancestor > .open.toggled {
+  .current_page_parent > a .open {
+    background-image: url('../images/mikkeli-menu-open.png');
+  }
+  .current_page_ancestor .open.toggled {
     background-image: url('../images/mikkeli-menu-closed.png');
+  }
+  .current_page_ancestor .current_page_item > ul .open {
+    background-image: url('../images/mikkeli-menu-closed.png');
+    &.toggled {
+      background-image: url('../images/mikkeli-menu-open.png');
+    }
   }
   .current_page_item > a {
     color: #fff;
