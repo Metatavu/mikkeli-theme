@@ -18,7 +18,7 @@
       }
 
       if ($description) {
-        echo "<p>" . $description . "</p>";
+        echo "<p>" . nl2br($description) . "</p>";
       }      
 
       foreach ($serviceChannel["phoneNumbers"] as $phoneNumber) {
