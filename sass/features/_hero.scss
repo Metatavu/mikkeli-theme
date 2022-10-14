@@ -83,7 +83,7 @@
   background-image: url('../images/mikkeli-page-banner-default.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: top center;
+  background-position: center;
   display: grid;
   grid-template-columns: 1fr;
   @media screen and (min-width: $container-mobile) {

@@ -1174,7 +1174,7 @@ table.advgb-table-frontend th {
   background-image: url("../images/mikkeli-page-banner-default.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: top center;
+  background-position: center;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
