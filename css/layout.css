@@ -695,11 +695,11 @@ table.advgb-table-frontend th {
 
 .container {
   width: 100%;
-  max-width: 71.25rem;
+  max-width: 75rem;
   margin: 0 auto;
   padding: 0 1rem;
 }
-@media screen and (min-width: 71.25rem) {
+@media screen and (min-width: 75rem) {
   .container {
     padding: 0;
   }
@@ -1235,7 +1235,7 @@ table.advgb-table-frontend th {
   margin: 2rem auto;
   padding: 0 1rem;
   width: 100%;
-  max-width: 71.25rem;
+  max-width: 75rem;
   text-transform: uppercase;
   font-size: 0.875rem;
 }
@@ -1284,7 +1284,7 @@ table.advgb-table-frontend th {
 
 .front-content .rs-wrap {
   width: 100%;
-  max-width: 71.25rem;
+  max-width: 75rem;
   margin: 0 auto 1.5rem;
 }
 .front-content .container {
@@ -1927,7 +1927,7 @@ table.advgb-table-frontend th {
     max-width: 40%;
   }
 }
-@media screen and (min-width: 71.25rem) {
+@media screen and (min-width: 75rem) {
   .site-main.with-sidebar-column .sidebar-column {
     max-width: 30%;
   }
@@ -1935,6 +1935,7 @@ table.advgb-table-frontend th {
 .site-main.with-sidebar-column .wp-block-columns .wp-block-column:nth-child(even) {
   background-color: #edeef2;
   padding: 1rem;
+  max-width: 28%;
 }
 .site-main.with-sidebar-column .sidebar-column h3, .site-main.with-sidebar-column .wp-block-column:nth-child(even) h3 {
   font-weight: 700;
