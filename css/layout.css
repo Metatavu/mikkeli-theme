@@ -1512,11 +1512,11 @@ table.advgb-table-frontend th {
   margin-bottom: 0;
 }
 
-.site-main p a {
+.site-main a {
   text-decoration: underline;
   font-weight: 600;
 }
-.site-main p a:hover {
+.site-main a:hover {
   color: #4c34eb;
 }
 
@@ -2190,13 +2190,16 @@ input[type=submit] {
   line-height: 1.5rem;
 }
 .wp-block-table td {
-  padding: 0.75rem;
-  line-height: 1.5rem;
+  padding: 0.75rem 0.25rem;
+  line-height: 1.5;
   vertical-align: top;
   border-top: 1px solid #eceeef;
 }
 .wp-block-table td a {
   word-break: break-all;
+}
+.wp-block-table table {
+  word-break: normal;
 }
 
 .wp-block-post-featured-image {

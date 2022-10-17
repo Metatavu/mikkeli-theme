@@ -28,13 +28,16 @@
     }
   }
   td {
-    padding: .75rem;
-    line-height: 1.5rem;
+    padding: .75rem .25rem;
+    line-height: 1.5;
     vertical-align: top;
     border-top: 1px solid #eceeef;
     a {
       word-break: break-all;
     }
+  }
+  table {
+    word-break: normal;
   }
 }
 
