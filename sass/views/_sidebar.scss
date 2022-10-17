@@ -64,7 +64,7 @@
   .current_page_parent > a .open {
     background-image: url('../images/mikkeli-menu-open.png');
   }
-  .current_page_ancestor .open.toggled {
+  .current_page_ancestor > a .open.toggled {
     background-image: url('../images/mikkeli-menu-closed.png');
   }
   .current_page_ancestor .current_page_item > ul .open {
