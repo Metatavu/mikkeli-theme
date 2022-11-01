@@ -1641,15 +1641,15 @@ table.advgb-table-frontend th {
   display: block;
 }
 
-.search .search-form {
+.search .site-main .search-form {
   margin-bottom: 4rem;
 }
-.search .search-form label {
+.search .site-main .search-form label {
   font-weight: bold;
   color: #000;
   margin-bottom: 0.5rem;
 }
-.search .search-form input[type=search] {
+.search .site-main .search-form input[type=search] {
   display: block;
   width: 100%;
   padding: 0.5rem 0.75rem;
@@ -1661,11 +1661,11 @@ table.advgb-table-frontend th {
   border-radius: 0.25rem;
   margin-bottom: 0.75rem;
 }
-.search .search-form input[type=search]:focus {
+.search .site-main .search-form input[type=search]:focus {
   border-color: #66afe9;
   outline: none;
 }
-.search .search-form button {
+.search .site-main .search-form button {
   background-color: #000;
   color: #fff;
   font-size: 1.25rem;
