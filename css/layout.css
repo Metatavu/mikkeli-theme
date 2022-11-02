@@ -1935,7 +1935,6 @@ table.advgb-table-frontend th {
 .site-main.with-sidebar-column .wp-block-columns .wp-block-column:nth-child(even) {
   background-color: #edeef2;
   padding: 1rem;
-  max-width: 28%;
 }
 .site-main.with-sidebar-column .sidebar-column h3, .site-main.with-sidebar-column .wp-block-column:nth-child(even) h3 {
   font-weight: 700;
