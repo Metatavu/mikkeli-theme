@@ -67,6 +67,29 @@
 
     <?php echo add_share_buttons(); ?>
 
+    <?php
+      if ( is_single()) {
+    ?>
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = "https://mikkeli.fi";
+                this.page.identifier = "<?php global $post; echo $post->ID;?>";
+            };
+            (function() {  // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                
+                s.src = '//mikkeli.disqus.com/embed.js';
+                
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <?php      
+      }
+    ?>
+
     <footer class="entry-footer">
       <?php
           edit_post_link(
