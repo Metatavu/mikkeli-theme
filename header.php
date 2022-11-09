@@ -77,7 +77,7 @@ $mikkeli_aria_label = ! empty( $args['aria_label'] ) ? 'aria-label="' . esc_attr
 							<a title="<?php _e('Vaihda kieli', 'mikkeli'); ?> en" href="<?php echo pll_home_url( 'en' ); ?>">en</a>
 						</div>
 					</div>
-					<div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve"><a rel="nofollow" class="rsbtn_play" accesskey="L" title="Kuuntele ReadSpeaker webReaderilla" href="//app-eu.readspeaker.com/cgi-bin/rsent?customerid=8419&amp;readclass=entry-content&amp;lang=fi_FI&amp;url='.get_permalink( get_the_ID() ).'"><span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span><?php pll_e('Kuuntele', 'mikkeli'); ?></span></span></span><span class="rsbtn_right rsimg rsplay rspart"></span></a></div>
+					<div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve"><a rel="nofollow" class="rsbtn_play" accesskey="L" title="Kuuntele ReadSpeaker webReaderilla" href="//app-eu.readspeaker.com/cgi-bin/rsent?customerid=8419&amp;readclass=entry-content&amp;lang=fi_FI&amp;url="><span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span><?php pll_e('Kuuntele', 'mikkeli'); ?></span></span></span><span class="rsbtn_right rsimg rsplay rspart"></span></a></div>
 				</div>
 				<div class="logo">
 					<button class="hamburger hamburger--slider" type="button" aria-label="Avaa valikko">
