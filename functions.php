@@ -658,6 +658,8 @@ add_action( 'admin_enqueue_scripts', 'mikkeli_enqueue_custom_admin_style' );
 
 /* Polylang String Translations */
 add_action('init', function() {
-  pll_register_string('mikkeli', 'Etusivu');
-	pll_register_string('mikkeli', 'Kuuntele');
+	if (function_exists('pll_register_string')) {
+		pll_register_string('mikkeli', 'Etusivu');
+		pll_register_string('mikkeli', 'Kuuntele');
+	} 
 });
