@@ -71,10 +71,10 @@ $mikkeli_aria_label = ! empty( $args['aria_label'] ) ? 'aria-label="' . esc_attr
 					<div class="nav-quick-icons">
 						<a class="map-link" href="https://kartta.mikkeli.fi/kartta/" title="Mikkeli kartta" target="_blank"><span class="fa fa-map-marker" aria-hidden="true"></span></a>
 						<div class="locale-menu">
-							<button class="current-locale" title="<?php _e('Vaihda kieli', 'mikkeli'); ?>"><?php echo pll_current_language( 'slug' ); ?></button>
-							<a title="<?php _e('Vaihda kieli', 'mikkeli'); ?> fi" href="<?php echo pll_home_url( 'fi' ); ?>">fi</a>
-							<a title="<?php _e('Vaihda kieli', 'mikkeli'); ?> sv" href="<?php echo pll_home_url( 'sv' ); ?>">sv</a>
-							<a title="<?php _e('Vaihda kieli', 'mikkeli'); ?> en" href="<?php echo pll_home_url( 'en' ); ?>">en</a>
+							<button class="current-locale" title="<?php _e('Vaihda kieli', 'mikkeli'); ?>"><?php if (function_exists('pll_current_language')) { echo pll_current_language( 'slug' ); } ?></button>
+							<a title="<?php _e('Vaihda kieli', 'mikkeli'); ?> fi" href="<?php if (function_exists('pll_home_url')) { echo pll_home_url( 'fi' ); } ?>">fi</a>
+							<a title="<?php _e('Vaihda kieli', 'mikkeli'); ?> sv" href="<?php if (function_exists('pll_home_url')) { echo pll_home_url( 'sv' ); } ?>">sv</a>
+							<a title="<?php _e('Vaihda kieli', 'mikkeli'); ?> en" href="<?php if (function_exists('pll_home_url')) { echo pll_home_url( 'en' ); } ?>">en</a>
 						</div>
 					</div>
 					<div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve"><a rel="nofollow" class="rsbtn_play" accesskey="L" title="Kuuntele ReadSpeaker webReaderilla" href="//app-eu.readspeaker.com/cgi-bin/rsent?customerid=8419&amp;readclass=entry-content&amp;lang=fi_FI&amp;url="><span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span><?php pll_e('Kuuntele', 'mikkeli'); ?></span></span></span><span class="rsbtn_right rsimg rsplay rspart"></span></a></div>
@@ -124,15 +124,13 @@ $mikkeli_aria_label = ! empty( $args['aria_label'] ) ? 'aria-label="' . esc_attr
 				<div class="nav-quick-icons">
 					<a class="map-link" href="https://kartta.mikkeli.fi/kartta/" title="Mikkeli kartta" target="_blank"><span class="fa fa-map-marker" aria-hidden="true"></span></a>
 					<div class="locale-menu">
-						<button class="current-locale" title="<?php _e('Vaihda kieli', 'mikkeli'); ?>"><?php echo pll_current_language( 'slug' ); ?></button>
-						<a title="<?php _e('Vaihda kieli', 'mikkeli'); ?> fi" href="<?php echo pll_home_url( 'fi' ); ?>">fi</a>
-						<a title="<?php _e('Vaihda kieli', 'mikkeli'); ?> sv" href="<?php echo pll_home_url( 'sv' ); ?>">sv</a>
-						<a title="<?php _e('Vaihda kieli', 'mikkeli'); ?> en" href="<?php echo pll_home_url( 'en' ); ?>">en</a>
+						<button class="current-locale" title="<?php _e('Vaihda kieli', 'mikkeli'); ?>"><?php if (function_exists('pll_current_language')) { echo pll_current_language( 'slug' ); } ?></button>
+						<a title="<?php _e('Vaihda kieli', 'mikkeli'); ?> fi" href="<?php if (function_exists('pll_home_url')) { echo pll_home_url( 'fi' ); } ?>">fi</a>
+						<a title="<?php _e('Vaihda kieli', 'mikkeli'); ?> sv" href="<?php if (function_exists('pll_home_url')) { echo pll_home_url( 'sv' ); } ?>">sv</a>
+						<a title="<?php _e('Vaihda kieli', 'mikkeli'); ?> en" href="<?php if (function_exists('pll_home_url')) { echo pll_home_url( 'en' ); } ?>">en</a>
 					</div>
 				</div>
 			</div>
 
 		</div><!-- .container -->
 	</header>
-
-	
