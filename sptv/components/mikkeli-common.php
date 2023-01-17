@@ -81,31 +81,24 @@
       } else if ($serviceHour["isClosed"]) {
         $result .= __("Closed", "sptv");
       } else {
-        $combination = array();
-        $formattedHours = array();
+        $formattedHours = [];
+        $openingHourIndex = 0;
+        $openingHourCount = count($openingHours);
 
-        for ($i = 0; $i < count($openingHours); $i++) {
-          $openingHour = $openingHours[array_keys($openingHours)[$i]];
-          $translatedHours = translateOpeningHours($openingHour);
-          if (empty($openingHour['dayTo'])) {
-            if (count($combination) == 0) {
-              array_push($combination, $translatedHours);
-            } else if (end($combination)["from"] == $translatedHours["from"] && end($combination)["to"] == $translatedHours["to"]) {
-              array_push($combination, $translatedHours);
-            } else {
-              array_push($formattedHours, mikkeliBuildCombinedServiceHours($combination));
-              $combination = array($translatedHours);
-            }
-          } else {
-            array_push($formattedHours, mikkeliBuildCombinedServiceHours($combination));
-            $combination = array();
-            array_push($formattedHours, mikkeliFormatOpeningHours($translatedHours));
+        while ($openingHourIndex < $openingHourCount) {
+          $openingHour = $openingHours[$openingHourIndex];
+          $subsequentOpeningHours = [ $openingHour ];
+
+          while ($openingHourIndex + 1 < $openingHourCount && isSubsequentAndEqualOpeningHour($openingHour, $openingHours[$openingHourIndex + 1])) {
+            $openingHourIndex++;
+            $openingHour = $openingHours[$openingHourIndex];
+            array_push($subsequentOpeningHours, $openingHour);
           }
-  
-          if ($i == count($openingHours) - 1 && count($combination) > 0) {
-            array_push($formattedHours, mikkeliBuildCombinedServiceHours($combination));
-            $combination = array();
-          }
+
+          $translatedOpeningHours = array_map("translateOpeningHours", $subsequentOpeningHours);
+          array_push($formattedHours, mikkeliBuildCombinedServiceHours($translatedOpeningHours));
+
+          $openingHourIndex++;
         }
       }
 
@@ -137,36 +130,6 @@
     } else {
       return "<td style='min-width: 75px'>${days}</td><td style='text-align: right; width: 30px; white-space: nowrap;'>${from}</td>";
     }
-  }
-
-  /**
-   * Translates opening hour object.
-   * 
-   * @param object $openingHour openingHour
-   * @return string formatted object
-   */
-  function mikkeliTranslateOpeningHours($openingHour) {
-    $days = isset($openingHour['dayFrom']) ? mikkeliFormatDayName(getLocalizedDayName($openingHour['dayFrom'])) : '';
-    $from = "";
-    $to = "";
-    
-    if (!empty($openingHour['dayTo'])) {
-      $days .= '-' . mikkeliFormatDayName(getLocalizedDayName($openingHour['dayTo']));
-    }
-    
-    if (isset($openingHour['from'])) {
-      $from = implode('.', array_slice(explode(':', $openingHour['from']), 0, 2));
-    }
-    
-    if (isset($openingHour['to'])) {
-      $to = implode('.', array_slice(explode(':', $openingHour['to']), 0, 2));
-    }
-
-    return [
-      "days" => $days,
-      "from" => $from,
-      "to" => $to
-    ];
   }
 
   /**
