@@ -19,8 +19,6 @@
         $chargeInfo = __("Chargeable", "sptv");
     }
 
-    echo "<p> $data->defaultTemplatesDirectory";
-
     if ($additionalInformation) {
       echo "<b>$additionalInformation<br/></b>";
     }
