@@ -2588,3 +2588,23 @@ input[type=submit] {
   margin-left: 5px;
   background: url("../images/haaja-logo.png") no-repeat 0 0;
 }
+
+/* Cookie law info bar button overrides */
+
+#cookie-law-info-bar .cli-style-v2 {
+  flex-wrap: wrap;
+}
+
+#cookie-law-info-bar .cli-bar-message {
+  width: 100%;
+}
+
+#cookie-law-info-bar  .cli-bar-btn_container {
+  width: 100%;
+  margin-left: 0;
+}
+
+#cookie-law-info-bar #wt-cli-accept-all-btn {
+  margin-left: 0;
+  margin-top: 10px;
+}
