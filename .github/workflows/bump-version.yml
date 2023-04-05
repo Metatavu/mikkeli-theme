@@ -20,3 +20,15 @@ jobs:
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
+      - name: Replace version in style.css 
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "Version: [0-9\\.]{1,}"
+          replace: "Version: ${{ steps.tag_version.outputs.new_tag }}"
+          regex: false
+      - name: Replace version in functions.php
+        uses: jacobtomlinson/gha-find-replace@v3
+        with:
+          find: "define\\('MIKKELI_VERSION', '[0-9\\.]{1,}'\\);"
+          replace: "define\\('MIKKELI_VERSION', '${{ steps.tag_version.outputs.new_tag }}');"
+          regex: false
