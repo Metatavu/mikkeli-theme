@@ -16,9 +16,11 @@ jobs:
           tag_prefix: ''
       - name: Update version style.css and functions.php -files
         run: |
-          sed -i 's/Version: .*/Version: ${{ steps.tag_version.outputs.new_tag }}/g' style.css &&
-          sed -i "s/'MIKKELI_VERSION', '[0-9\.]*'/'MIKKELI_VERSION', '${{ steps.tag_version.outputs.new_tag }}'/g" functions.php && 
-          git add style.css functions.php &&
+          sed -i 's/Version: .*/Version: ${{ steps.tag_version.outputs.new_tag }}/g' style.css
+          sed -i "s/'MIKKELI_VERSION', '[0-9\.]*'/'MIKKELI_VERSION', '${{ steps.tag_version.outputs.new_tag }}'/g" functions.php
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add style.css functions.php
           git commit -m "Updated version in style.css and functions.php"
       - name: Push version changes
         uses: ad-m/github-push-action@v0.6.0
