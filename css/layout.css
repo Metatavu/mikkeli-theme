@@ -2608,3 +2608,20 @@ input[type=submit] {
   margin-left: 0;
   margin-top: 10px;
 }
+
+/* Signup form styles */
+
+#signup-content {
+  width: 100%;
+  margin-top: 80px;
+  margin-bottom: 120px;
+}
+
+.wp-activate-container {
+  max-width: 75rem;
+  margin: 80px auto;
+}
+
+#signup-welcome span {
+  padding-left: 0;
+}
