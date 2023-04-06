@@ -186,10 +186,11 @@ get_header(); ?>
 				foreach($items as $key => $item) {
 					echo '<li>';
 					$title = $item->getElementsByTagName('title')->item(0)->firstChild->nodeValue;
-					$pubDate = $item->getElementsByTagName('pubDate')->item(0)->firstChild->nodeValue;
+					$pubDate = new DateTime($item->getElementsByTagName('pubDate')->item(0)->firstChild->nodeValue);
+					$pubDate->setTimezone(new DateTimeZone("Europe/Helsinki"));
 					$link = $item->getElementsByTagName('link')->item(0)->firstChild->nodeValue;
 					echo '<a href="'.$link.'">'.$title.'</a><br />';
-					echo date("j.n.Y", strtotime($pubDate));;
+					echo $pubDate->format("j.n.Y");
 					echo '</li>';
 				}
         ?>
