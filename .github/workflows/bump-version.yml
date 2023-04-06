@@ -22,11 +22,18 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add style.css functions.php
           git commit -m "Updated version in style.css and functions.php"
-      - name: Push version changes
+          git checklout develop
+          git merge main
+      - name: Push version changes to develop
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+          branch: develop
+      - name: Push version changes to main
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
