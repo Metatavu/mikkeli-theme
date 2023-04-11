@@ -76,12 +76,13 @@
         $result .= "<br/>";
       }
 
+      $formattedHours = [];
+
       if (!$serviceHour["isClosed"] && count($openingHours) == 0) {
         $result .= __("Open 24 hours.", "sptv");
       } else if ($serviceHour["isClosed"]) {
         $result .= __("Closed", "sptv");
       } else {
-        $formattedHours = [];
         $openingHourIndex = 0;
         $openingHourCount = count($openingHours);
 
@@ -107,8 +108,10 @@
         foreach ($formattedHours as $formattedHour) {
           $result .= '<tr>' . $formattedHour . '</tr>';
         }
+
         $result .= '</tbody></table>';
       }
+      
     }
 
     return $result;
@@ -125,11 +128,19 @@
     $to = $translatedOpeningHour["to"];
     $days = $translatedOpeningHour["days"];
 
-    if (!empty($from) || !empty($to)) {
-      return "<td style='min-width: 75px'>${days}</td><td style='text-align: right; width: 30px; white-space: nowrap;'>${from} - ${to}</td>";
-    } else {
-      return "<td style='min-width: 75px'>${days}</td><td style='text-align: right; width: 30px; white-space: nowrap;'>${from}</td>";
+    $result = [];
+
+    if ($days) {
+      $result[] = "<td style='min-width: 75px'>${days}</td>";
     }
+
+    if (!empty($from) || !empty($to)) {
+      $result[] = "<td style='text-align: right; width: 30px; white-space: nowrap;'>${from} - ${to}</td>";
+    } else {
+      $result[] = "<td style='text-align: right; width: 30px; white-space: nowrap;'>${from}</td>";
+    }
+
+    return implode("", $result);
   }
 
   /**
