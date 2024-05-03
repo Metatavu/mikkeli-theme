@@ -66,13 +66,22 @@
         $additionalInfoValue = $filtered[0]["value"];
         $result .= "<h4>$additionalInfoValue</h4>";
       }
-        
+
       if ($serviceHour["serviceHourType"] == "Exceptional") {
-        $splitDate = explode("-",$serviceHour["validFrom"]);
+        $splitDate = explode("-", $serviceHour["validFrom"]);
         $year = $splitDate[0];
         $month = $splitDate[1];
         $day = explode("T", $splitDate[2])[0];
-        $result .= $day . "." . $month . "." . $year;
+        $result .= $day . "." . $month . "." . $year;  
+        
+        if ($serviceHour["validTo"] && trim($serviceHour["validTo"]) && $serviceHour["validTo"] != $serviceHour["validFrom"]) {
+          $splitDate = explode("-", $serviceHour["validTo"]);
+          $year = $splitDate[0];
+          $month = $splitDate[1];
+          $day = explode("T", $splitDate[2])[0];
+          $result .= " - " . $day . "." . $month . "." . $year;
+        }
+
         $result .= "<br/>";
       }
 
