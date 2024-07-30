@@ -35,6 +35,10 @@ get_header(); ?>
 	</div>
 
 	<section id="content" class="front-content">
+	  <div class="container">
+	    <?php the_content(); ?>
+		</div>
+	  
 		<div class="container">
 			<div class="entry-content left-side">
 				<div class="articles-container">
@@ -131,74 +135,81 @@ get_header(); ?>
 		</div>
 	</section>
 
-	<section class="mikkeli-events">
-		<div class="container">
-			<h2><?php _e('Tapahtuma&shy;kalenteri', 'mikkeli'); ?></h2>
-			<script type='text/javascript' src='https://www.mikkelinyt.fi/widget-loader/62835af416022e6c36e12d1b'></script>
-			<div id='EVENTZWIDGET-62835af416022e6c36e12d1b'></div>
-		</div>
-	</section>
-
-	<section class="fp-blocks">
-	  <div class="container">
-			<div class="col info-block">
-				<div class="icon"></div>
-				<?php the_field('osallistu_ja_vaikuta'); ?>
-				<?php if(get_field('osallistu_ja_vaikuta-linkki')):
-					$link = get_field('osallistu_ja_vaikuta-linkki');
-					$link_url = $link['url'];
-					$link_title = $link['title'];
-				?>
-				<p><a title="<?php echo esc_html( $link_title ); ?>" class="all-link" href="<?php echo esc_url( $link_url ); ?>"><?php echo esc_html( $link_title ); ?></a></p>
-				<?php endif; ?>
+	<!-- Render section only when page language is Finnish -->
+	<?php if (function_exists( 'pll_current_language' ) && pll_current_language() == "fi") { ?>
+		<section class="mikkeli-events">
+			<div class="container">
+				<h2><?php _e('Tapahtuma&shy;kalenteri', 'mikkeli'); ?></h2>
+				<script type='text/javascript' src='https://www.mikkelinyt.fi/widget-loader/62835af416022e6c36e12d1b'></script>
+				<div id='EVENTZWIDGET-62835af416022e6c36e12d1b'></div>
 			</div>
-			<div class="col jobs-block">
-				<div class="icon"></div>
-				<h4><?php _e('Avoimet työpaikat', 'mikkeli'); ?></h4>
-				<?php
-					$feed = implode(file('https://www.kuntarekry.fi/fi/tyopaikat/?&organisation=3677&lang=fi_FI,sv_SE&sort=-changetime&limit=500&format=xml'));
-					$xml = simplexml_load_string($feed);
-					$json = json_encode($xml);
-					$array = json_decode($json,TRUE);
-					$i = 0;
-					foreach ($array["job"] as $job) {
-						if(++$i <= 5) {
-							$jobtitle = $job["jobtitle"];
-							$link = $job["url"];
-							$description = $job["employmenttype"];
-							$title = $job["taskarea"];
-							echo '<p><a title="'.$jobtitle.'" href="'.$link.'">'.$job["jobtitle"] . '</a><br /><span>'.$description.', '.$title.'</span></p>';
+		</section>
+	<?php } ?>
+
+	<!-- Render section only when page language is Finnish -->
+	<?php if (function_exists( 'pll_current_language' ) && pll_current_language() == "fi") { ?>
+		<section class="fp-blocks">
+			<div class="container">
+				<div class="col info-block">
+					<div class="icon"></div>
+					<?php the_field('osallistu_ja_vaikuta'); ?>
+					<?php if(get_field('osallistu_ja_vaikuta-linkki')):
+						$link = get_field('osallistu_ja_vaikuta-linkki');
+						$link_url = $link['url'];
+						$link_title = $link['title'];
+					?>
+					<p><a title="<?php echo esc_html( $link_title ); ?>" class="all-link" href="<?php echo esc_url( $link_url ); ?>"><?php echo esc_html( $link_title ); ?></a></p>
+					<?php endif; ?>
+				</div>
+
+				<div class="col jobs-block">
+					<div class="icon"></div>
+					<h4><?php _e('Avoimet työpaikat', 'mikkeli'); ?></h4>
+					<?php
+						$feed = implode(file('https://www.kuntarekry.fi/fi/tyopaikat/?&organisation=3677&lang=fi_FI,sv_SE&sort=-changetime&limit=500&format=xml'));
+						$xml = simplexml_load_string($feed);
+						$json = json_encode($xml);
+						$array = json_decode($json,TRUE);
+						$i = 0;
+						foreach ($array["job"] as $job) {
+							if(++$i <= 5) {
+								$jobtitle = $job["jobtitle"];
+								$link = $job["url"];
+								$description = $job["employmenttype"];
+								$title = $job["taskarea"];
+								echo '<p><a title="'.$jobtitle.'" href="'.$link.'">'.$job["jobtitle"] . '</a><br /><span>'.$description.', '.$title.'</span></p>';
+							}
 						}
-					}
-				?>
-				<p><a title="<?php _e('Katso kaikki', 'mikkeli'); ?>" class="all-link" href="https://www.kuntarekry.fi/fi/tyonantajat/mikkelin-kaupunki/"><?php _e('Katso kaikki', 'mikkeli'); ?></a></p>
-			</div>
-			<div class="col announcements-block">
-			  <div class="icon"></div>
-				<h4><?php _e('Kuulutukset', 'mikkeli'); ?></h4>
-				<ul>
-				<?php
-				$feed = new DOMDocument();
-				$feed->load('https://mikkeli.cloudnc.fi/fi-FI/genericrss/?n=23&contentlan=1&templateid=74&d=1&itemcount=5');
-				$json = array();
-				$items = $feed->getElementsByTagName('channel')->item(0)->getElementsByTagName('item');
+					?>
+					<p><a title="<?php _e('Katso kaikki', 'mikkeli'); ?>" class="all-link" href="https://www.kuntarekry.fi/fi/tyonantajat/mikkelin-kaupunki/"><?php _e('Katso kaikki', 'mikkeli'); ?></a></p>
+				</div>
+				<div class="col announcements-block">
+					<div class="icon"></div>
+					<h4><?php _e('Kuulutukset', 'mikkeli'); ?></h4>
+					<ul>
+					<?php
+					$feed = new DOMDocument();
+					$feed->load('https://mikkeli.cloudnc.fi/fi-FI/genericrss/?n=23&contentlan=1&templateid=74&d=1&itemcount=5');
+					$json = array();
+					$items = $feed->getElementsByTagName('channel')->item(0)->getElementsByTagName('item');
 
-				foreach($items as $key => $item) {
-					echo '<li>';
-					$title = $item->getElementsByTagName('title')->item(0)->firstChild->nodeValue;
-					$pubDate = new DateTime($item->getElementsByTagName('pubDate')->item(0)->firstChild->nodeValue);
-					$pubDate->setTimezone(new DateTimeZone("Europe/Helsinki"));
-					$link = $item->getElementsByTagName('link')->item(0)->firstChild->nodeValue;
-					echo '<a href="'.$link.'">'.$title.'</a><br />';
-					echo $pubDate->format("j.n.Y");
-					echo '</li>';
-				}
-        ?>
-				</ul>
-				<p><a title="<?php _e('Katso kaikki', 'mikkeli'); ?>" class="all-link" href="https://mikkeli.cloudnc.fi/fi-FI/Kuulutukset"><?php _e('Katso kaikki', 'mikkeli'); ?></a></p>
+					foreach($items as $key => $item) {
+						echo '<li>';
+						$title = $item->getElementsByTagName('title')->item(0)->firstChild->nodeValue;
+						$pubDate = new DateTime($item->getElementsByTagName('pubDate')->item(0)->firstChild->nodeValue);
+						$pubDate->setTimezone(new DateTimeZone("Europe/Helsinki"));
+						$link = $item->getElementsByTagName('link')->item(0)->firstChild->nodeValue;
+						echo '<a href="'.$link.'">'.$title.'</a><br />';
+						echo $pubDate->format("j.n.Y");
+						echo '</li>';
+					}
+					?>
+					</ul>
+					<p><a title="<?php _e('Katso kaikki', 'mikkeli'); ?>" class="all-link" href="https://mikkeli.cloudnc.fi/fi-FI/Kuulutukset"><?php _e('Katso kaikki', 'mikkeli'); ?></a></p>
+				</div>
 			</div>
-		</div>
-	</section>
-	
+		</section>
+	<?php } ?>
+
 <?php
 get_footer();
