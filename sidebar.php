@@ -55,7 +55,17 @@
       wp_reset_postdata();
     }
   ?>
-  <p><a title="<?php _e('Katso kaikki uutiset', 'mikkeli'); ?>" class="all-news-link" href="<?php echo get_permalink( get_option('page_for_posts') ); ?>"><?php _e('Katso kaikki uutiset', 'mikkeli'); ?></a></p>
+
+  <!-- Render link only when page language is Finnish -->
+    <?php if (function_exists( 'pll_current_language' ) && pll_current_language() == "fi") { ?>
+      <p><a title="<?php _e('Katso kaikki uutiset', 'mikkeli'); ?>" class="all-news-link" href="<?php echo get_permalink( get_option('page_for_posts') ); ?>"><?php _e('Katso kaikki uutiset', 'mikkeli'); ?></a></p>
+		<?php } ?>
+
+  <!-- Render link only when page language is English -->
+    <?php if (function_exists( 'pll_current_language' ) && pll_current_language() == "en") { ?>
+      <p><a title="<?php _e('All news', 'mikkeli'); ?>" class="all-news-link" href="<?php echo get_permalink( get_option('page_for_posts') ); ?>"><?php _e('All news', 'mikkeli'); ?></a></p>
+		<?php } ?>
+ 
   <?php endif; ?>
   <?php dynamic_sidebar( 'sidebar-1' ); ?>
 </aside>
