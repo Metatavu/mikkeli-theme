@@ -35,12 +35,18 @@ get_header(); ?>
 	</div>
 
 	<section id="content" class="front-content">
-	  <div class="container">
+	  <div class="container full-width-content">
 	    <?php the_content(); ?>
 		</div>
 	  
 		<div class="container">
 			<div class="entry-content left-side">
+
+				<!-- Render header only when page language is English -->
+				<?php if (function_exists( 'pll_current_language' ) && pll_current_language() == "en") { ?>
+					<h3><?php _e('Recent news', 'mikkeli'); ?></h2>
+				<?php } ?>
+
 				<div class="articles-container">
 				<?php
 				global $post;
@@ -92,9 +98,25 @@ get_header(); ?>
 					wp_reset_postdata(); ?>
 				</div>
 				<?php	endif; ?>
-				<a class="all-news-link" title="<?php _e('Katso kaikki uutiset', 'mikkeli'); ?>" href="<?php echo get_permalink( get_option('page_for_posts') ); ?>">&rsaquo; <?php _e('Katso kaikki uutiset', 'mikkeli'); ?></a>
+
+				<!-- Render section only when page language is Finnish -->
+				<?php if (function_exists( 'pll_current_language' ) && pll_current_language() == "fi") { ?>
+					<a class="all-news-link" title="<?php _e('Katso kaikki uutiset', 'mikkeli'); ?>" href="<?php echo get_permalink( get_option('page_for_posts') ); ?>">&rsaquo; <?php _e('Katso kaikki uutiset', 'mikkeli'); ?></a>
+				<?php } ?>
+
+				<!-- Render section only when page language is English -->
+				<?php if (function_exists( 'pll_current_language' ) && pll_current_language() == "en") { ?>
+					<a class="all-news-link" title="<?php _e('All news', 'mikkeli'); ?>" href="<?php echo get_permalink( get_option('page_for_posts') ); ?>">&rsaquo; <?php _e('All news', 'mikkeli'); ?></a>
+				<?php } ?>
+				
 			</div>
 			<div class="right-side">
+
+				<!-- Render section only when page language is English -->
+				<?php if (function_exists( 'pll_current_language' ) && pll_current_language() == "en") { ?>
+					<div class="extra-margin"></div>
+				<?php } ?>
+				
 				<?php if ( have_rows( 'nostolaatikot' ) ) : ?>
 				<div class="tiles">
 					<?php while ( have_rows( 'nostolaatikot' ) ) : the_row();

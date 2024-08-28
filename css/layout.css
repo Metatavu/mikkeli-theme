@@ -2630,3 +2630,13 @@ input[type=submit] {
 #signup-welcome span {
   padding-left: 0;
 }
+
+/* Full width text on English front page */
+.full-width-content {
+  display: block !important;
+}
+
+/* Extra margin on English front page right side */
+.extra-margin {
+  height: 48px !important;
+}
