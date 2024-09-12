@@ -735,8 +735,9 @@ table.advgb-table-frontend th {
   background-size: contain;
 }
 .site-header .right-side {
-  position: relative;
-  text-align: right;
+  justify-content: end ;
+  align-items: center;
+  display: flex;
   margin-bottom: 1rem;
 }
 @media screen and (min-width: 40rem) {
@@ -816,20 +817,29 @@ table.advgb-table-frontend th {
 }
 @media screen and (min-width: 40rem) {
   .site-header .right-side .nav-some-icons {
-    display: inline-block;
-    font-size: 2rem;
+    display: flex;
+    gap: 0.5rem;
     margin: 0 2rem;
   }
   .site-header .right-side .nav-some-icons a {
     color: #999;
   }
 }
+.map-link, .nav-some-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+  background-color: #304ea2;
+}
 .site-header .right-side .nav-quick-icons {
   display: none;
 }
 @media screen and (min-width: 40rem) {
   .site-header .right-side .nav-quick-icons {
-    display: inline-block;
+    display: flex;
+    gap: 0.5rem;
   }
 }
 .site-header .right-side .nav-quick-icons .fa {
@@ -1019,12 +1029,14 @@ table.advgb-table-frontend th {
   padding: 7px 9px;
 }
 .responsive-nav .nav-some-icons {
-  text-align: center;
+  justify-content: center;
   margin-top: 2rem;
+  display: flex;
+  gap: 0.5rem;
 }
 .responsive-nav .nav-some-icons a {
   padding: 0;
-  display: inline-block;
+  display: flex;
 }
 .responsive-nav .nav-some-icons a .fa {
   background-color: #304ea2;
@@ -1055,7 +1067,8 @@ table.advgb-table-frontend th {
   padding-top: 0.5rem;
 }
 .responsive-nav .nav-quick-icons {
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 .responsive-nav .nav-quick-icons .map-link, .responsive-nav .nav-quick-icons .locale-menu {
   display: inline-block;
@@ -1995,13 +2008,19 @@ table.advgb-table-frontend th {
 
 .share-buttons {
   margin: 1rem 0;
+  display: flex;
+  gap: 0.5rem;
 }
 .share-buttons p {
   margin: 0.5rem 0 1rem;
 }
-.share-buttons i {
-  font-size: 2.25rem;
-  margin-right: 0.625rem;
+.share-buttons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+  background-color: #304ea2;
 }
 
 .entry-header .entry-time {
