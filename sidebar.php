@@ -10,7 +10,13 @@
 ?>
 
 <aside class="sidebar widget-area">
-  <button class="btn-menu collapsed" title="Näytä valikko" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-menu"><span class="fa fa-bars"></span></button>
+  <button class="btn-menu collapsed" title="Näytä valikko" data-toggle="collapse" aria-expanded="false" aria-controls="collapse-menu">
+    <span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="hamburger-menu-icon">
+        <path fill="#999" d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+      </svg>
+    </span>
+  </button>
   <?php
   if ($post->post_parent) {
     $ancestors=get_post_ancestors($post->ID);
