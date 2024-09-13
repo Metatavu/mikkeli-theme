@@ -1055,10 +1055,11 @@ table.advgb-table-frontend th {
 .responsive-nav .nav-quick-icons {
   display: flex;
   justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 .responsive-nav .nav-quick-icons .map-link, .responsive-nav .nav-quick-icons .locale-menu {
-  display: inline-block;
-  margin: 1rem 0.5rem;
+  display: flex;
 }
 
 .hamburger {
