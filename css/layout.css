@@ -738,11 +738,13 @@ table.advgb-table-frontend th {
   justify-content: end ;
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   margin-bottom: 1rem;
 }
 @media screen and (min-width: 40rem) {
   .site-header .right-side {
-    margin-bottom: 0;
+    gap: 2rem;
   }
 }
 .site-header .right-side .nav-quick-icons, .site-header .right-side .locale-menu {
@@ -756,26 +758,25 @@ table.advgb-table-frontend th {
   outline: 2px solid #000;
 }
 .site-header .right-side .site-search {
-  display: block;
-  margin-bottom: 1rem;
+  display: flex;
+  flex-basis: 100%;
 }
 @media screen and (min-width: 40rem) {
   .site-header .right-side .site-search {
-    display: inline-block;
-    vertical-align: top;
-    margin-bottom: 0;
+    flex: 1;
   }
 }
 .site-header .right-side .site-search form {
   background-color: #e5e5e5;
   text-align: left;
   display: flex;
+  flex: 1;
 }
 .site-header .right-side .site-search form input[type=search] {
   background-color: transparent;
   color: #000;
   border: none;
-  width: 85%;
+  width: 100%;
 }
 .site-header .right-side .site-search form input[type=search]::-webkit-input-placeholder {
   color: #000;
@@ -799,20 +800,15 @@ table.advgb-table-frontend th {
   display: flex;
 }
 .site-header .right-side .rs_preserve {
-  display: inline-block;
-  margin: 0.1rem 0 0 2rem;
+  display: flex;
 }
 .site-header .right-side .nav-some-icons {
   display: none;
 }
-@media screen and (min-width: 40rem) {
+@media screen and (min-width: 50rem) {
   .site-header .right-side .nav-some-icons {
     display: flex;
     gap: 0.5rem;
-    margin: 0 2rem;
-  }
-  .site-header .right-side .nav-some-icons a {
-    color: #999;
   }
 }
 .map-link, .nav-some-icons a {
@@ -826,7 +822,7 @@ table.advgb-table-frontend th {
 .site-header .right-side .nav-quick-icons {
   display: none;
 }
-@media screen and (min-width: 40rem) {
+@media screen and (min-width: 50rem) {
   .site-header .right-side .nav-quick-icons {
     display: flex;
     gap: 0.5rem;
