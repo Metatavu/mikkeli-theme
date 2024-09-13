@@ -131,7 +131,11 @@ get_header(); ?>
 							<h2><?php the_sub_field('otsikko'); ?></h2>
 							<div class="tile-text">
 								<p><?php echo esc_html( $link_title ); ?></p>
-								<span class="fa fa-angle-right"></span>
+								<span>
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+										<path fill="currentColor" d="M9.707 18.707l6-6c0.391-0.391 0.391-1.024 0-1.414l-6-6c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414L13.586 12l-5.293 5.293c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0z"/>
+									</svg>
+								</span>
 							</div>
 						</div>
 					</a>
@@ -147,7 +151,13 @@ get_header(); ?>
 					$title = get_the_title( $url->ID );	
 					?>
 						<li class="nav-item">
-							<a class="nav-link" title="<?php echo esc_html( $title ); ?>" href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $title ); ?> <span class="fa fa-angle-right"></span></a>
+							<a class="nav-link" title="<?php echo esc_html( $title ); ?>" href="<?php echo esc_url( $permalink ); ?>"><?php echo esc_html( $title ); ?> 
+							<span>
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+									<path fill="currentColor" d="M9.707 18.707l6-6c0.391-0.391 0.391-1.024 0-1.414l-6-6c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414L13.586 12l-5.293 5.293c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0z"/>
+								</svg>
+							</span>
+						</a>
 						</li>
 					<?php endforeach; ?>
 					</ul>

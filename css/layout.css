@@ -738,11 +738,13 @@ table.advgb-table-frontend th {
   justify-content: end ;
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   margin-bottom: 1rem;
 }
 @media screen and (min-width: 40rem) {
   .site-header .right-side {
-    margin-bottom: 0;
+    gap: 2rem;
   }
 }
 .site-header .right-side .nav-quick-icons, .site-header .right-side .locale-menu {
@@ -756,26 +758,25 @@ table.advgb-table-frontend th {
   outline: 2px solid #000;
 }
 .site-header .right-side .site-search {
-  display: block;
-  margin-bottom: 1rem;
+  display: flex;
+  flex-basis: 100%;
 }
 @media screen and (min-width: 40rem) {
   .site-header .right-side .site-search {
-    display: inline-block;
-    vertical-align: top;
-    margin-bottom: 0;
+    flex: 1;
   }
 }
 .site-header .right-side .site-search form {
   background-color: #e5e5e5;
   text-align: left;
-  position: relative;
+  display: flex;
+  flex: 1;
 }
 .site-header .right-side .site-search form input[type=search] {
   background-color: transparent;
   color: #000;
   border: none;
-  width: 85%;
+  width: 100%;
 }
 .site-header .right-side .site-search form input[type=search]::-webkit-input-placeholder {
   color: #000;
@@ -795,48 +796,33 @@ table.advgb-table-frontend th {
 .site-header .right-side .site-search form button {
   background-color: transparent;
   border: none;
-  color: #fff;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 15%;
-  padding-left: 15%;
   overflow: hidden;
-}
-.site-header .right-side .site-search form button::before {
-  position: relative;
-  left: -15px;
+  display: flex;
 }
 .site-header .right-side .rs_preserve {
-  display: inline-block;
-  margin: 0.1rem 0 0 2rem;
+  display: flex;
 }
 .site-header .right-side .nav-some-icons {
   display: none;
 }
-@media screen and (min-width: 40rem) {
+@media screen and (min-width: 50rem) {
   .site-header .right-side .nav-some-icons {
     display: flex;
     gap: 0.5rem;
-    margin: 0 2rem;
-  }
-  .site-header .right-side .nav-some-icons a {
-    color: #999;
   }
 }
 .map-link, .nav-some-icons a {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 32px;
-  width: 32px;
+  height: 40px;
+  width: 40px;
   background-color: #304ea2;
 }
 .site-header .right-side .nav-quick-icons {
   display: none;
 }
-@media screen and (min-width: 40rem) {
+@media screen and (min-width: 50rem) {
   .site-header .right-side .nav-quick-icons {
     display: flex;
     gap: 0.5rem;
@@ -857,8 +843,8 @@ table.advgb-table-frontend th {
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   font-size: 0.9rem;
   position: relative;
   border: none;
@@ -902,8 +888,8 @@ table.advgb-table-frontend th {
 }
 
 .hamburger-box {
-  width: 40px;
-  height: 24px;
+  width: 2.5rem;
+  height: 2.5rem;
   display: inline-block;
   position: relative;
 }
@@ -1053,8 +1039,8 @@ table.advgb-table-frontend th {
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   font-size: 0.9rem;
   position: relative;
   border: none;
@@ -1069,10 +1055,11 @@ table.advgb-table-frontend th {
 .responsive-nav .nav-quick-icons {
   display: flex;
   justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 .responsive-nav .nav-quick-icons .map-link, .responsive-nav .nav-quick-icons .locale-menu {
-  display: inline-block;
-  margin: 1rem 0.5rem;
+  display: flex;
 }
 
 .hamburger {
