@@ -769,7 +769,7 @@ table.advgb-table-frontend th {
 .site-header .right-side .site-search form {
   background-color: #e5e5e5;
   text-align: left;
-  position: relative;
+  display: flex;
 }
 .site-header .right-side .site-search form input[type=search] {
   background-color: transparent;
@@ -795,18 +795,8 @@ table.advgb-table-frontend th {
 .site-header .right-side .site-search form button {
   background-color: transparent;
   border: none;
-  color: #fff;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 15%;
-  padding-left: 15%;
   overflow: hidden;
-}
-.site-header .right-side .site-search form button::before {
-  position: relative;
-  left: -15px;
+  display: flex;
 }
 .site-header .right-side .rs_preserve {
   display: inline-block;
@@ -829,8 +819,8 @@ table.advgb-table-frontend th {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 32px;
-  width: 32px;
+  height: 40px;
+  width: 40px;
   background-color: #304ea2;
 }
 .site-header .right-side .nav-quick-icons {
@@ -857,8 +847,8 @@ table.advgb-table-frontend th {
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   font-size: 0.9rem;
   position: relative;
   border: none;
@@ -902,8 +892,8 @@ table.advgb-table-frontend th {
 }
 
 .hamburger-box {
-  width: 40px;
-  height: 24px;
+  width: 2.5rem;
+  height: 2.5rem;
   display: inline-block;
   position: relative;
 }
@@ -1053,8 +1043,8 @@ table.advgb-table-frontend th {
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   font-size: 0.9rem;
   position: relative;
   border: none;
