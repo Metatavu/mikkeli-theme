@@ -764,6 +764,7 @@ table.advgb-table-frontend th {
 @media screen and (min-width: 40rem) {
   .site-header .right-side .site-search {
     flex: 1;
+    max-width: 200px;
   }
 }
 .site-header .right-side .site-search form {
