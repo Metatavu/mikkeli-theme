@@ -8,7 +8,7 @@
  *
  * The current version of the theme.
  */
-define( 'MIKKELI_VERSION', '2.2.29' );
+define( 'MIKKELI_VERSION', '2.2.30' );
 define('THEMEROOT', get_stylesheet_directory_uri());
 define('IMAGES', THEMEROOT . '/images');
 
