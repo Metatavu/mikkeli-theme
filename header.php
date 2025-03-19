@@ -29,14 +29,33 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $ga_code; ?>"></script>
 <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', '<?php echo $ga_code; ?>'); </script>
 <?php endif; ?>
-<!--
-<script type="text/javascript">window.__lc = window.__lc || {};
-window.__lc.license = 9105520;
-(function() {
-var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
-lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
-})();</script>-->
+
+<script type="module" language="javascript">
+  var baseUrl = "https://mikkeli.mainio.app";
+
+  import(baseUrl + "/embeddable-chat/embed.js")
+    .then(() => {
+      try {
+        if (window.mainioChat) {
+          window.mainioChat.init({
+            tenantId: "cm7kiqkzy0002oa01d2ufis62",
+            agentId: "cm8fq8fmi0001ov0157xg3r85",
+            baseUrl: baseUrl,
+            floating: true,
+            initiallyOpen: false,
+            initialLanguage: "fi",
+          });
+          return;
+        }
+        console.error("No chat loader found");
+      } catch (error) {
+        console.error(error);
+      }
+    })
+    .catch((error) => {
+      console.error("Failed to load the chat module:", error);
+    });
+</script>
 
 <script src="https://cdn-eu.readspeaker.com/script/8419/webReader/webReader.js?pids=wr" type="text/javascript" id="rs_req_Init"></script>
 
