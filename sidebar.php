@@ -50,8 +50,8 @@
   
   if ( $myposts ) {
   $current_page = get_the_ID();
-  echo '<nav>';
-    echo '<ul>';
+  echo '<nav class="sub-navigation">';
+    echo '<ul class="side-menu">';
     foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
       <li class="page-nav-item<?php if($current_page == $post->ID): ?> active<?php endif; ?>"><a title="<?php the_title(); ?>" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
   <?php
