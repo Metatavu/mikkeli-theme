@@ -220,20 +220,33 @@ get_header(); ?>
 					<h4><?php _e('Kuulutukset', 'mikkeli'); ?></h4>
 					<ul>
 					<?php
-					$feed = new DOMDocument();
-					$feed->load('https://mikkeli.cloudnc.fi/fi-FI/genericrss/?n=23&contentlan=1&templateid=74&d=1&itemcount=5');
-					$json = array();
-					$items = $feed->getElementsByTagName('channel')->item(0)->getElementsByTagName('item');
-
-					foreach($items as $key => $item) {
-						echo '<li>';
-						$title = $item->getElementsByTagName('title')->item(0)->firstChild->nodeValue;
-						$pubDate = new DateTime($item->getElementsByTagName('pubDate')->item(0)->firstChild->nodeValue);
-						$pubDate->setTimezone(new DateTimeZone("Europe/Helsinki"));
-						$link = $item->getElementsByTagName('link')->item(0)->firstChild->nodeValue;
-						echo '<a href="'.$link.'">'.$title.'</a><br />';
-						echo $pubDate->format("j.n.Y");
-						echo '</li>';
+					try {
+						$feed = new DOMDocument();
+						libxml_use_internal_errors(true);
+						$ctx = stream_context_create(array('http' => array('timeout' => 5)));
+						$xml = @file_get_contents('https://mikkeli.cloudnc.fi/fi-FI/genericrss/?n=23&contentlan=1&templateid=74&d=1&itemcount=5', false, $ctx);
+						if ($xml === false) {
+							throw new Exception('Failed to fetch feed');
+						}
+						$feed->loadXML($xml);
+						libxml_clear_errors();
+						$channel = $feed->getElementsByTagName('channel')->item(0);
+						if (!$channel) {
+							throw new Exception('Invalid feed structure');
+						}
+						$items = $channel->getElementsByTagName('item');
+						foreach($items as $key => $item) {
+							echo '<li>';
+							$title = $item->getElementsByTagName('title')->item(0)->firstChild->nodeValue;
+							$pubDate = new DateTime($item->getElementsByTagName('pubDate')->item(0)->firstChild->nodeValue);
+							$pubDate->setTimezone(new DateTimeZone("Europe/Helsinki"));
+							$link = $item->getElementsByTagName('link')->item(0)->firstChild->nodeValue;
+							echo '<a href="'.esc_url($link).'">'.esc_html($title).'</a><br />';
+							echo $pubDate->format("j.n.Y");
+							echo '</li>';
+						}
+					} catch (Exception $e) {
+						// Feed unavailable — fail silently
 					}
 					?>
 					</ul>
